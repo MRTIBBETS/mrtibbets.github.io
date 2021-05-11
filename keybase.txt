@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/mrtibbets
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://alexandertibbets.com
+  * I am mrtibbets (https://keybase.io/mrtibbets) on keybase.
+  * I have a public key ASD7cMrshwy_craIh16lXFPJHpKxk8FciWcA-4xvCE7UdAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101dfc5007dceda8927104b9b421465d23dc0573367e9baf57b595a5201a8902b1f0a",
+      "host": "keybase.io",
+      "kid": "0120fb70caec870cbf72b688875ea55c53c91e92b193c15c896700fb8c6f084ed4740a",
+      "uid": "1ef8ddb457c6b6bff8b127afec7f9e19",
+      "username": "mrtibbets"
+    },
+    "merkle_root": {
+      "ctime": 1620769907,
+      "hash": "4de37123d1d691288bee0ecab01236b5a1836b45241564ad3c59cde48967243f01088c6c047e6542f8084d9b500b786f1437c71f66368a89002408cbfd11a9b4",
+      "hash_meta": "5ebafeecd5773d52d008cbf974171a63ed7475a4d88ca26e430c6e3cf0d8a448",
+      "seqno": 19912950
+    },
+    "service": {
+      "entropy": "JM9npXWkNFXStW1foswxx9xJ",
+      "hostname": "alexandertibbets.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.6.2"
+  },
+  "ctime": 1620769943,
+  "expire_in": 504576000,
+  "prev": "f795020f14547690b1afb6f15945ba53a557afe25c5253934669c26eccc4d923",
+  "seqno": 25,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg+3DK7IcMv3K2iIdepVxTyR6SsZPBXIlnAPuMbwhO1HQKp3BheWxvYWTESpcCGcQg95UCDxRUdpCxr7bxWUW6U6VXr+JcUlOTRmnCbszE2SPEIKq3C2KbODSo/zvKpT51hmwcONHlVDLTHQ8wYhFbfNMBAgHCo3NpZ8RA2ZG1woC7RZiVEKQ+sX65mhtyZCrmkeOo/8ghBXI62l9cMNl+v5jiTPvuUn4YRfl2q+3QTa2FBZzRUvB6Np70AKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIKyOdqs4N1zRSDKCy0BELatV2NjCac6aDKpVFblSrQ7Eo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/mrtibbets
+
+==================================================================
