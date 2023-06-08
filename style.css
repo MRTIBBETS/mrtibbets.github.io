@@ -34,7 +34,7 @@ body {
 }
 
 #content {
-  max-width: 600px;
+  max-width: 650px;
   padding: 20px;
   margin: 0 auto;
   margin-top: 5%;
@@ -55,7 +55,6 @@ body {
 
 #content a {
   color: #000;
-  text-decoration: none;
   transition: color 0.2s;
 }
 
