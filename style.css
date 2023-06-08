@@ -72,3 +72,25 @@ body {
   line-height: 34px;
   font-family: "Courier New", Courier, monospace;
 }
+
+.social-media {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.social-media a {
+  color: #000;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.social-media a:hover {
+  background-color: #ddd;
+}
+
+.social-media i {
+  margin-right: 10px;
+}
