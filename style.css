@@ -78,6 +78,8 @@ body {
   justify-content: space-between;
   max-width: 650px;
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .social-media a {
@@ -86,10 +88,6 @@ body {
   padding: 10px 20px;
   border-radius: 5px;
   background-color: #fafafa;
-}
-
-.social-media a:hover {
-  background-color: #ddd;
 }
 
 .social-media i {
