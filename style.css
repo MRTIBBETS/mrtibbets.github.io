@@ -46,7 +46,7 @@ body {
 }
 
 #content p {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   line-height: 1.5;
   font-weight: 410;
   letter-spacing: 0.1em;
@@ -67,7 +67,7 @@ body {
   margin: 0 auto;
   background: #fafafa;
   clear: left;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   line-height: 1.4;
 }
 
@@ -85,6 +85,10 @@ body {
   padding: 0;
   border-radius: 5px;
   background-color: #fafafa;
+}
+
+.social-media a:hover {
+  color: #ffcc4d;
 }
 
 .social-media i {
