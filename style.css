@@ -1,10 +1,10 @@
+/* Set the color, background color, and font family for the body */
 body {
   color: #000;
   background-color: #FAFAFA;
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
 }
-
-/* Responsive layout */
+ /* Responsive layout for small screens */
 @media (max-width: 480px) {
   body {
     font-size: 16px;
@@ -14,53 +14,53 @@ body {
     padding: 0;
   }
 }
-
+ /* Responsive layout for medium screens */
 @media (min-width: 768px) {
   body {
     font-size: 20px;
   }
 }
-
+ /* Responsive layout for large screens */
 @media (min-width: 992px) {
   body {
     font-size: 24px;
   }
 }
-
+ /* Responsive layout for extra large screens */
 @media (min-width: 1200px) {
   body {
     font-size: 28px;
   }
 }
-
+ /* Styling for the content section */
 #content {
   max-width: 650px;
   padding: 20px;
   margin: 0 auto;
   margin-top: 5%;
 }
-
+ /* Styling for the heading in the content section */
 #content h1 {
   font-size: 200%;
   margin-bottom: 10px;
 }
-
+ /* Styling for the paragraphs in the content section */
 #content p {
   font-size: 1.75rem;
   line-height: 1.5;
   font-weight: 410;
   letter-spacing: 0.1em;
 }
-
+ /* Styling for links in the content section */
 #content a {
   color: #000;
   transition: color 0.2s;
 }
-
+ /* Styling for links on hover in the content section */
 #content a:hover {
   color: #ffcc4d;
 }
-
+ /* Styling for the mailchimp signup section */
 #mc_embed_signup {
   max-width: 600px;
   padding: 20px;
@@ -70,7 +70,7 @@ body {
   font-size: 1.75rem;
   line-height: 1.4;
 }
-
+ /* Styling for the social media icons section */
 .social-media {
   display: flex;
   justify-content: space-between;
@@ -78,7 +78,7 @@ body {
   margin: 20px auto 5%;
   padding: 20px;
 }
-
+ /* Styling for social media links */
 .social-media a {
   color: #000;
   text-decoration: none;
@@ -86,11 +86,11 @@ body {
   border-radius: 5px;
   background-color: #fafafa;
 }
-
+ /* Styling for social media links on hover */
 .social-media a:hover {
   color: #ffcc4d;
 }
-
+ /* Styling for social media icons */
 .social-media i {
   margin-right: 10px;
 }
