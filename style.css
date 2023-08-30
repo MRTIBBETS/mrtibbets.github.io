@@ -60,16 +60,6 @@ body {
 #content a:hover {
   color: #ffcc4d;
 }
- /* Styling for the mailchimp signup section */
-#mc_embed_signup {
-  max-width: 600px;
-  padding: 20px;
-  margin: 0 auto;
-  background: #fafafa;
-  clear: left;
-  font-size: 1.75rem;
-  line-height: 1.4;
-}
  /* Styling for the social media icons section */
 .social-media {
   display: flex;
