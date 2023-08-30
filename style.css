@@ -92,5 +92,6 @@ body {
 }
  /* Styling for social media icons */
 .social-media i {
-  margin-right: 10px;
+  margin-right: 10px
+  font-size: 30px;
 }
