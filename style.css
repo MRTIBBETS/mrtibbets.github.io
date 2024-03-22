@@ -1,10 +1,19 @@
-/* Set the color, background color, and font family for the body */
+/* Custom @font-face declaration */
+@font-face {
+  font-family: 'Courier New';
+  src: url('path/to/CourierNew.woff2') format('woff2'),
+       url('path/to/CourierNew.woff') format('woff');
+  font-display: swap; /* Ensures text remains visible during webfont load */
+}
+
+/* Base styles */
 body {
   color: #000;
   background-color: #FAFAFA;
   font-family: 'Courier New', Courier, monospace;
 }
- /* Responsive layout for small screens */
+
+/* Responsive layout adjustments */
 @media (max-width: 480px) {
   body {
     font-size: 16px;
@@ -14,53 +23,58 @@ body {
     padding: 0;
   }
 }
- /* Responsive layout for medium screens */
+
+/* For medium screens */
 @media (min-width: 768px) {
   body {
     font-size: 20px;
   }
 }
- /* Responsive layout for large screens */
+
+/* For large screens */
 @media (min-width: 992px) {
   body {
     font-size: 24px;
   }
 }
- /* Responsive layout for extra large screens */
+
+/* For extra large screens */
 @media (min-width: 1200px) {
   body {
     font-size: 28px;
   }
 }
- /* Styling for the content section */
+
+/* Content section styling */
 #content {
   max-width: 650px;
   padding: 20px;
   margin: 0 auto;
   margin-top: 5%;
 }
- /* Styling for the heading in the content section */
+
 #content h1 {
   font-size: 200%;
   margin-bottom: 10px;
 }
- /* Styling for the paragraphs in the content section */
+
 #content p {
   font-size: 1.75rem;
   line-height: 1.5;
   font-weight: 410;
   letter-spacing: 0.1em;
 }
- /* Styling for links in the content section */
+
 #content a {
   color: #000;
   transition: color 0.2s;
 }
- /* Styling for links on hover in the content section */
+
 #content a:hover {
   color: #ffcc4d;
 }
- /* Styling for the social media icons section */
+
+/* Social media section styling */
 .social-media {
   display: flex;
   justify-content: space-between;
@@ -69,7 +83,7 @@ body {
   padding: 20px;
   margin-bottom: 15%;
 }
- /* Styling for social media links */
+
 .social-media a {
   color: #000;
   text-decoration: none;
@@ -77,11 +91,11 @@ body {
   border-radius: 5px;
   background-color: #fafafa;
 }
- /* Styling for social media links on hover */
+
 .social-media a:hover {
   color: #ffcc4d;
 }
- /* Styling for social media icons */
+
 .social-media i {
   margin-right: 10px;
   font-size: 120%;
