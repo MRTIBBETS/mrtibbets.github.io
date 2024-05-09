@@ -1,2 +1,2 @@
-# mrtibbets.github.io
-A repository for whipping up and fine-tuning a website.
+# www.alexandertibbets.com
+A repository for whipping up and fine-tuning a website
