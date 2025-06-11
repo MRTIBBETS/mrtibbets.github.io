@@ -7,6 +7,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
+  justify-content: center; /* Center content vertically */
 }
 
 /* Responsive layout adjustments */
@@ -18,13 +19,13 @@ body {
     padding: 0 20px;
   }
   .copyright {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
   .social-media i {
-    font-size: 1.25rem;
+    font-size: 2.5rem;
   }
   .social-media a {
-    padding: 10px;
+    padding: 15px;
   }
 }
 
@@ -37,13 +38,13 @@ body {
     padding: 0 40px;
   }
   .copyright {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
   .social-media i {
-    font-size: 1.75rem;
+    font-size: 2.25rem;
   }
   .social-media a {
-    padding: 14px;
+    padding: 16px;
   }
 }
 
@@ -56,13 +57,13 @@ body {
     padding: 0 60px;
   }
   .copyright {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
   .social-media i {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   .social-media a {
-    padding: 16px;
+    padding: 18px;
   }
 }
 
@@ -75,13 +76,13 @@ body {
     padding: 0 80px;
   }
   .copyright {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
   .social-media i {
-    font-size: 2.25rem;
+    font-size: 2.75rem;
   }
   .social-media a {
-    padding: 18px;
+    padding: 20px;
   }
 }
 
@@ -105,7 +106,8 @@ body {
 #content {
   max-width: 650px;
   width: 100%;
-  margin: auto;
+  margin: 0 auto;
+  padding: 20px;
   outline: none; /* For focus styles */
 }
 
@@ -163,7 +165,7 @@ body {
 
 .social-media i {
   margin-right: 10px;
-  font-size: 1.5rem; /* Base size relative to parent */
+  font-size: 2rem; /* Increased base size */
 }
 
 /* Copyright styling */
@@ -179,6 +181,8 @@ body {
   left: 0;
   right: 0;
   background-color: #FAFAFA;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Focus styles for all interactive elements */
