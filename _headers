@@ -12,11 +12,6 @@
   Cross-Origin-Embedder-Policy: require-corp
   Cross-Origin-Resource-Policy: same-origin
 
-# Redirect apex domain to www
-https://alexandertibbets.com/*
-  X-Redirect: https://www.alexandertibbets.com/:splat
-  Status: 301
-
 # Cache Control Headers - Optimized for GitHub Pages
 /*.html
   Cache-Control: public, max-age=0, must-revalidate

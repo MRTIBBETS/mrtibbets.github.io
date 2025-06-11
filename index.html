@@ -53,8 +53,8 @@
   <script>
     // Secure redirect with error handling
     try {
-      if (location.protocol !== 'https:' && (location.hostname === 'alexandertibbets.com' || location.hostname === 'www.alexandertibbets.com')) {
-        location.href = 'https://www.alexandertibbets.com' + location.pathname + location.search;
+      if (location.hostname === 'alexandertibbets.com') {
+        location.href = 'https://www.alexandertibbets.com' + location.pathname + location.search + location.hash;
       }
     } catch (e) {
       console.error('Redirect failed:', e);
