@@ -111,11 +111,10 @@ footer {
   padding: 20px;
   position: fixed;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
   background-color: #FAFAFA;
   width: 100%;
-  max-width: 650px;
   box-sizing: border-box;
   font-size: 0.75em;
 }
@@ -125,7 +124,7 @@ footer {
   body {
     font-size: 16px;
   }
-  #content {
+  #content, .copyright {
     padding: 0 20px;
   }
   .social-media i {
@@ -140,7 +139,7 @@ footer {
   body {
     font-size: 20px;
   }
-  #content {
+  #content, .copyright {
     padding: 0 40px;
   }
   .social-media i {
@@ -155,7 +154,7 @@ footer {
   body {
     font-size: 24px;
   }
-  #content {
+  #content, .copyright {
     padding: 0 60px;
   }
   .social-media i {
@@ -170,7 +169,7 @@ footer {
   body {
     font-size: 28px;
   }
-  #content {
+  #content, .copyright {
     padding: 0 80px;
   }
   .social-media i {
