@@ -7,83 +7,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
-}
-
-/* Responsive layout adjustments */
-@media (max-width: 480px) {
-  body {
-    font-size: 16px;
-  }
-  #content {
-    padding: 0 20px;
-  }
-  .copyright {
-    font-size: 0.75rem;
-  }
-  .social-media i {
-    font-size: 2.5rem;
-  }
-  .social-media a {
-    padding: 15px;
-  }
-}
-
-/* For medium screens */
-@media (min-width: 768px) {
-  body {
-    font-size: 20px;
-  }
-  #content {
-    padding: 0 40px;
-  }
-  .copyright {
-    font-size: 0.75rem;
-  }
-  .social-media i {
-    font-size: 2.25rem;
-  }
-  .social-media a {
-    padding: 16px;
-  }
-}
-
-/* For large screens */
-@media (min-width: 992px) {
-  body {
-    font-size: 24px;
-  }
-  #content {
-    padding: 0 60px;
-  }
-  .copyright {
-    font-size: 0.75rem;
-  }
-  .social-media i {
-    font-size: 2.5rem;
-  }
-  .social-media a {
-    padding: 18px;
-  }
-}
-
-/* For extra large screens */
-@media (min-width: 1200px) {
-  body {
-    font-size: 28px;
-  }
-  #content {
-    padding: 0 80px;
-  }
-  .copyright {
-    font-size: 0.75rem;
-  }
-  .social-media i {
-    font-size: 2.75rem;
-  }
-  .social-media a {
-    padding: 20px;
-  }
+  justify-content: center;
 }
 
 /* Skip navigation link */
@@ -108,16 +32,16 @@ body {
   width: 100%;
   margin: 0 auto;
   padding: 20px;
-  outline: none; /* For focus styles */
+  outline: none;
 }
 
 #content h1 {
-  font-size: 200%;
+  font-size: 2em;
   margin-bottom: 10px;
 }
 
 #content p {
-  font-size: 1.75rem;
+  font-size: 1em;
   line-height: 1.5;
   font-weight: 410;
   letter-spacing: 0.1em;
@@ -137,6 +61,14 @@ body {
   outline-offset: 2px;
 }
 
+/* Footer container */
+footer {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  position: relative;
+}
+
 /* Social media section styling */
 .social-media {
   display: flex;
@@ -145,6 +77,7 @@ body {
   width: 100%;
   margin: 20px auto;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .social-media a {
@@ -165,7 +98,7 @@ body {
 
 .social-media i {
   margin-right: 10px;
-  font-size: 2rem; /* Increased base size */
+  font-size: 2em;
 }
 
 /* Copyright styling */
@@ -178,11 +111,74 @@ body {
   padding: 20px;
   position: fixed;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: #FAFAFA;
   width: 100%;
+  max-width: 650px;
   box-sizing: border-box;
+  font-size: 0.75em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+  #content {
+    padding: 0 20px;
+  }
+  .social-media i {
+    font-size: 2.5em;
+  }
+  .social-media a {
+    padding: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 20px;
+  }
+  #content {
+    padding: 0 40px;
+  }
+  .social-media i {
+    font-size: 2.25em;
+  }
+  .social-media a {
+    padding: 16px;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    font-size: 24px;
+  }
+  #content {
+    padding: 0 60px;
+  }
+  .social-media i {
+    font-size: 2.5em;
+  }
+  .social-media a {
+    padding: 18px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    font-size: 28px;
+  }
+  #content {
+    padding: 0 80px;
+  }
+  .social-media i {
+    font-size: 2.75em;
+  }
+  .social-media a {
+    padding: 20px;
+  }
 }
 
 /* Focus styles for all interactive elements */
