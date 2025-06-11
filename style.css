@@ -7,7 +7,6 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 /* Responsive layout adjustments */
@@ -16,7 +15,16 @@ body {
     font-size: 16px;
   }
   #content {
-    padding: 0;
+    padding: 0 20px;
+  }
+  .copyright {
+    font-size: 0.5rem;
+  }
+  .social-media i {
+    font-size: 1.25rem;
+  }
+  .social-media a {
+    padding: 10px;
   }
 }
 
@@ -25,6 +33,18 @@ body {
   body {
     font-size: 20px;
   }
+  #content {
+    padding: 0 40px;
+  }
+  .copyright {
+    font-size: 0.5rem;
+  }
+  .social-media i {
+    font-size: 1.75rem;
+  }
+  .social-media a {
+    padding: 14px;
+  }
 }
 
 /* For large screens */
@@ -32,12 +52,36 @@ body {
   body {
     font-size: 24px;
   }
+  #content {
+    padding: 0 60px;
+  }
+  .copyright {
+    font-size: 0.5rem;
+  }
+  .social-media i {
+    font-size: 2rem;
+  }
+  .social-media a {
+    padding: 16px;
+  }
 }
 
 /* For extra large screens */
 @media (min-width: 1200px) {
   body {
     font-size: 28px;
+  }
+  #content {
+    padding: 0 80px;
+  }
+  .copyright {
+    font-size: 0.5rem;
+  }
+  .social-media i {
+    font-size: 2.25rem;
+  }
+  .social-media a {
+    padding: 18px;
   }
 }
 
@@ -60,8 +104,8 @@ body {
 /* Content section styling */
 #content {
   max-width: 650px;
-  padding: 20px;
-  margin: 0 auto;
+  width: 100%;
+  margin: auto;
   outline: none; /* For focus styles */
 }
 
@@ -96,6 +140,7 @@ body {
   display: flex;
   justify-content: space-between;
   max-width: 650px;
+  width: 100%;
   margin: 20px auto;
   padding: 20px;
 }
@@ -103,7 +148,7 @@ body {
 .social-media a {
   color: #000;
   text-decoration: none;
-  padding: 8px;
+  padding: 12px;
   border-radius: 5px;
   background-color: #fafafa;
   transition: all 0.2s;
@@ -118,19 +163,22 @@ body {
 
 .social-media i {
   margin-right: 10px;
-  font-size: 120%;
+  font-size: 1.5rem; /* Base size relative to parent */
 }
 
 /* Copyright styling */
 .copyright {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.875rem;
   line-height: 1.5;
   font-weight: 410;
   letter-spacing: 0.1em;
   text-align: center;
   padding: 20px;
-  margin-top: auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #FAFAFA;
 }
 
 /* Focus styles for all interactive elements */
