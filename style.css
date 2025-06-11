@@ -3,13 +3,17 @@ body {
   color: #000;
   background-color: #FAFAFA;
   font-family: 'Courier New', Courier, monospace;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Responsive layout adjustments */
 @media (max-width: 480px) {
   body {
     font-size: 16px;
-    margin: 0;
   }
   #content {
     padding: 0;
@@ -58,7 +62,6 @@ body {
   max-width: 650px;
   padding: 20px;
   margin: 0 auto;
-  margin-top: 5%;
   outline: none; /* For focus styles */
 }
 
@@ -93,9 +96,8 @@ body {
   display: flex;
   justify-content: space-between;
   max-width: 650px;
-  margin: 20px auto 5%;
+  margin: 20px auto;
   padding: 20px;
-  margin-bottom: 15%;
 }
 
 .social-media a {
@@ -117,6 +119,18 @@ body {
 .social-media i {
   margin-right: 10px;
   font-size: 120%;
+}
+
+/* Copyright styling */
+.copyright {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-weight: 410;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
 }
 
 /* Focus styles for all interactive elements */
