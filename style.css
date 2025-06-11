@@ -1,11 +1,3 @@
-/* Custom @font-face declaration */
-@font-face {
-  font-family: 'Courier New';
-  src: url('path/to/CourierNew.woff2') format('woff2'),
-       url('path/to/CourierNew.woff') format('woff');
-  font-display: swap; /* Ensures text remains visible during webfont load */
-}
-
 /* Base styles */
 body {
   color: #000;
@@ -45,12 +37,29 @@ body {
   }
 }
 
+/* Skip navigation link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 /* Content section styling */
 #content {
   max-width: 650px;
   padding: 20px;
   margin: 0 auto;
   margin-top: 5%;
+  outline: none; /* For focus styles */
 }
 
 #content h1 {
@@ -68,10 +77,15 @@ body {
 #content a {
   color: #000;
   transition: color 0.2s;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
-#content a:hover {
-  color: #ffcc4d;
+#content a:hover,
+#content a:focus {
+  color: #0066cc; /* More accessible color */
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
 }
 
 /* Social media section styling */
@@ -87,16 +101,34 @@ body {
 .social-media a {
   color: #000;
   text-decoration: none;
-  padding: 0;
+  padding: 8px;
   border-radius: 5px;
   background-color: #fafafa;
+  transition: all 0.2s;
 }
 
-.social-media a:hover {
-  color: #ffcc4d;
+.social-media a:hover,
+.social-media a:focus {
+  color: #0066cc;
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
 }
 
 .social-media i {
   margin-right: 10px;
   font-size: 120%;
+}
+
+/* Focus styles for all interactive elements */
+:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .social-media a,
+  #content a {
+    border: 1px solid currentColor;
+  }
 }

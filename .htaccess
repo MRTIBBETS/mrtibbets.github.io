@@ -1,0 +1,98 @@
+# Enable rewrite engine
+RewriteEngine On
+
+# Force HTTPS and www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+RewriteRule ^ https://www.%1%{REQUEST_URI} [L,NE,R=301]
+
+# Cloudflare IPs - Allow only Cloudflare IPs
+# Note: This is optional as Cloudflare handles this, but added for extra security
+SetEnvIf X-Forwarded-For "^.*\..*\..*\..*" not_cloudflare
+Deny from env=not_cloudflare
+
+# Custom error pages
+ErrorDocument 404 /404.html
+
+# Enable compression (Cloudflare handles this, but keeping as fallback)
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+</IfModule>
+
+# Browser caching (Cloudflare handles this, but keeping as fallback)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Default expiration: 1 month after request
+    ExpiresDefault "access plus 1 month"
+    
+    # CSS and JS files: 1 year
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    
+    # Images and media files: 1 year
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # Font files: 1 year
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+    ExpiresByType application/x-font-ttf "access plus 1 year"
+    ExpiresByType font/opentype "access plus 1 year"
+</IfModule>
+
+# Security headers (Cloudflare handles most of these, but keeping as fallback)
+<IfModule mod_headers.c>
+    # Trust Cloudflare's SSL
+    Header set X-Forwarded-Proto "https"
+    
+    # Basic security headers
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    
+    # Remove server signature
+    Header always unset X-Powered-By
+    Header always unset Server
+</IfModule>
+
+# Prevent directory listing
+Options -Indexes
+
+# Protect .htaccess file
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Protect sensitive files
+<FilesMatch "^(\.git|\.env|\.DS_Store|README\.md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Enable Keep-Alive
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
+
+# Set default character set
+AddDefaultCharset UTF-8 

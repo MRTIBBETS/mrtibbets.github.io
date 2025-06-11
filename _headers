@@ -1,0 +1,69 @@
+/*
+  # Security Headers
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' https://use.fontawesome.com; img-src 'self' https: data:; font-src 'self' https://use.fontawesome.com; connect-src 'self' https://www.google-analytics.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-DNS-Prefetch-Control: on
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp
+  Cross-Origin-Resource-Policy: same-origin
+
+# Redirect apex domain to www
+https://alexandertibbets.com/*
+  X-Redirect: https://www.alexandertibbets.com/:splat
+  Status: 301
+
+# Cache Control Headers - Optimized for GitHub Pages
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=3600
+  Surrogate-Key: html
+
+/*.css
+  Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=31536000
+  Surrogate-Key: static
+
+/*.js
+  Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=31536000
+  Surrogate-Key: static
+
+/*.png
+  Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=31536000
+  Surrogate-Key: static
+
+/*.jpg
+  Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=31536000
+  Surrogate-Key: static
+
+/*.gif
+  Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=31536000
+  Surrogate-Key: static
+
+/*.svg
+  Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=31536000
+  Surrogate-Key: static
+
+/*.ico
+  Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=31536000
+  Surrogate-Key: static
+
+/*.woff
+  Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=31536000
+  Surrogate-Key: static
+
+/*.woff2
+  Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=31536000
+  Surrogate-Key: static 

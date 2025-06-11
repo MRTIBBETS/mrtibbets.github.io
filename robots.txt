@@ -1,25 +1,33 @@
-# Block access to specific directories for all user agents
+# Global rules
 User-agent: *
-Disallow: /private/
-Disallow: /backup/
-Disallow: /test/
-Disallow: /cgi-bin/
-
-# Allow all user agents to access the Assets directory
-User-agent: *
-Allow: /Assets/
-
-# Specific rules for Googlebot
-User-agent: Googlebot
 Allow: /
+Disallow: /404.html
+Disallow: /.git/
+Disallow: /.DS_Store
 
-# Specific rules for Googlebot-Image
-User-agent: Googlebot-Image
-Allow: /Assets/
-
-# Specific rules for Bingbot
-User-agent: Bingbot
-Allow: /
+# Crawl-delay for all bots
+Crawl-delay: 10
 
 # Sitemap location
 Sitemap: https://www.alexandertibbets.com/sitemap.xml
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 5
+
+# Block archive.org
+User-agent: archive.org_bot
+Disallow: /
+
+# Block archive.org's wayback machine
+User-agent: ia_archiver
+Disallow: /

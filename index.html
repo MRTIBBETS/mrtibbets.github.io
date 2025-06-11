@@ -11,7 +11,25 @@
   <meta name="keywords" content="Alexander Tibbets, Alex Tibbets, website, startups, media technology, marketing, business, Berkeley, California, Duncanville, Dallas, Texas, New York University, NYU, film, video">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://www.alexandertibbets.com">
-  <link rel="preconnect" href="https://www.alexandertibbets.com">
+  
+  <!-- Preconnect to required origins -->
+  <link rel="preconnect" href="https://www.alexandertibbets.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://use.fontawesome.com" crossorigin>
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/banner.png" as="image">
+  <link rel="preload" href="/favicon.ico" as="image">
+  <link rel="preload" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" as="style">
+  
+  <!-- Security headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' https://use.fontawesome.com; img-src 'self' https: data:; font-src 'self' https://use.fontawesome.com; connect-src 'self' https://www.google-analytics.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()">
 
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Alexander Tibbets | Website">
@@ -19,7 +37,6 @@
   <meta property="og:url" content="https://www.alexandertibbets.com">
   <meta property="og:description" content="👋 My name is Alexander and my work focuses on audience, product, story, then growth. Welcome to my website.">
   <meta property="og:image" content="https://www.alexandertibbets.com/banner.png">
-  <meta name="twitter:card" content="summary">
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
@@ -34,8 +51,13 @@
 
   <!-- Redirects -->
   <script>
-    if (location.protocol !== 'https:' && (location.hostname === 'alexandertibbets.com' || location.hostname === 'www.alexandertibbets.com')) {
-      location.href = 'https://www.alexandertibbets.com' + location.pathname + location.search;
+    // Secure redirect with error handling
+    try {
+      if (location.protocol !== 'https:' && (location.hostname === 'alexandertibbets.com' || location.hostname === 'www.alexandertibbets.com')) {
+        location.href = 'https://www.alexandertibbets.com' + location.pathname + location.search;
+      }
+    } catch (e) {
+      console.error('Redirect failed:', e);
     }
   </script>
 
@@ -45,7 +67,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-GGXQFFQVVY');
+    gtag('config', 'G-GGXQFFQVVY', {
+      'anonymize_ip': true,
+      'cookie_flags': 'SameSite=None;Secure'
+    });
   </script>
 
 </head>
@@ -53,36 +78,40 @@
 <!-- CONTENT -->
 <body>
 
+  <!-- Skip navigation for accessibility -->
+  <a href="#content" class="skip-link">Skip to main content</a>
+
   <!-- GOOGLE TAG (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/gtag/js?id=G-GGXQFFQVVY"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <div id="content">
+  <div id="content" role="main" aria-label="Main content">
     <h1>👋</h1>
     <p>My name is Alexander Tibbets.</p> 
     <p>I like to build things, tell stories, and help people.</p>
-    <p><a target="_blank" href="https://ifttt.com" title="IFTTT">IFTTT</a> is an app I co-founded that lets you connect all the things in your life, on your terms.</p>
+    <p><a target="_blank" rel="noopener" href="https://ifttt.com" title="IFTTT">IFTTT</a> is an app I co-founded that lets you connect all the things in your life, on your terms.</p>
     <p>Today I help startups launch, pivot, and grow their business.</p>
     <p>Often as a fractional or interim leader. Especially within media technology and developer tools.</p>
-    <p>Feel free to <a target="_blank" href="mailto:alexander.tibbets@gmail.com?subject=%F0%9F%91%8B%20Let's%20connect%20and%20talk%20shop" title="Reach outs">reach out</a> if you'd like to connect and share ideas</a>.</p>
+    <p>Feel free to <a target="_blank" rel="noopener" href="mailto:alexander.tibbets@gmail.com?subject=%F0%9F%91%8B%20Let's%20connect%20and%20talk%20shop" title="Reach out">reach out</a> if you'd like to connect and share ideas</a>.</p>
   </div>
 
-  <footer>
-  <div class="social-media">   
-    <a href="mailto:alexander.tibbets@gmail.com?subject=%F0%9F%91%8B%20Let's%20connect%20and%20talk%20shop" target="_blank" title="Email Alexander Tibbets"><i class="fa-solid fa-envelope"></i></a>
-    <a href="https://www.linkedin.com/in/mrtibbets" target="_blank" title="Connect on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-    <a href="https://github.com/MRTIBBETS" target="_blank" title="Follow on GitHub"><i class="fa-brands fa-github"></i></a>
-    <a href="https://www.youtube.com/@mrtibbets" target="_blank" title="Follow on YouTube"><i class="fa-brands fa-youtube"></i></a>
-  </div>
-</footer>
+  <footer role="contentinfo">
+    <div class="social-media" aria-label="Social media links">   
+      <a href="mailto:alexander.tibbets@gmail.com?subject=%F0%9F%91%8B%20Let's%20connect%20and%20talk%20shop" target="_blank" rel="noopener" aria-label="Email Alexander Tibbets"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/mrtibbets" target="_blank" rel="noopener" aria-label="Connect on LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+      <a href="https://github.com/MRTIBBETS" target="_blank" rel="noopener" aria-label="Follow on GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+      <a href="https://www.youtube.com/@mrtibbets" target="_blank" rel="noopener" aria-label="Follow on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+    </div>
+  </footer>
 
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
+      "@type": ["Person", "WebSite"],
       "name": "Alexander Tibbets",
       "url": "https://www.alexandertibbets.com",
+      "description": "Personal website of Alexander Tibbets, co-founder of IFTTT and startup advisor focusing on media technology and developer tools.",
       "sameAs": [
         "https://www.linkedin.com/in/mrtibbets",
         "https://github.com/MRTIBBETS",
@@ -101,6 +130,11 @@
         "@type": "CollegeOrUniversity",
         "name": "New York University",
         "sameAs": "https://www.nyu.edu"
+      },
+      "mainEntity": {
+        "@type": "WebSite",
+        "name": "Alexander Tibbets | Website",
+        "description": "👋 My name is Alexander and my work focuses on audience, product, story, then growth. Welcome to my website."
       }
     }
   </script>
