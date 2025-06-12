@@ -81,12 +81,14 @@ body {
 /* FOOTER LAYOUT: OPTIMIZED FOR COPYRIGHT DISPLAY */
 footer {
   width: 100%;
-  max-width: var(--content-width);
-  padding: var(--spacing-unit);
-  margin-top: auto;
+  padding: 20px 0;
+  text-align: center;
+  background-color: var(--background-color);
+  border-top: 1px solid var(--border-color);
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-x: auto;
 }
 
 /* SOCIAL MEDIA SECTION: RESPONSIVE ICON LAYOUT */
@@ -96,8 +98,7 @@ footer {
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   width: 100%;
-  max-width: var(--content-width);
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
 }
 
@@ -143,18 +144,14 @@ footer {
 
 /* COPYRIGHT SECTION: STATIC POSITIONING BELOW SOCIAL ICONS */
 .copyright {
-  font-family: var(--font-family);
-  line-height: 1.5;
-  font-weight: 410;
-  letter-spacing: 0.1em;
-  text-align: center;
-  padding: var(--spacing-unit);
-  width: 100%;
-  font-size: 0.8em;
-  color: var(--primary-color);
+  color: var(--text-color);
+  font-size: 0.7em;
+  padding: 0 15px;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow: visible;
+  text-overflow: clip;
+  min-width: max-content;
+  flex-shrink: 0;
 }
 
 /* RESPONSIVE DESIGN: OPTIMIZED FOR VARIOUS SCREEN SIZES */
@@ -173,8 +170,9 @@ footer {
     padding: 15px 10px;
   }
 
-  .social-media {
-    grid-template-columns: repeat(2, 1fr);
+  .social-media,
+  .profiles-grid {
+    grid-template-columns: repeat(3, 1fr);
     gap: 8px;
   }
 
@@ -187,6 +185,13 @@ footer {
     width: 20px;
     height: 20px;
     font-size: 1em;
+  }
+}
+
+@media (min-width: 481px) {
+  .copyright {
+    font-size: 0.8em;
+    padding: 0 20px;
   }
 }
 
@@ -204,11 +209,6 @@ footer {
     font-size: 0.8em;
   }
 
-  .social-media {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-  }
-
   .social-media a {
     padding: 12px;
   }
@@ -218,6 +218,13 @@ footer {
     width: 24px;
     height: 24px;
     font-size: 1.2em;
+  }
+}
+
+@media (min-width: 769px) {
+  .copyright {
+    font-size: 0.9em;
+    padding: 0 25px;
   }
 }
 
@@ -235,11 +242,6 @@ footer {
     font-size: 0.9em;
   }
 
-  .social-media {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-  }
-
   .social-media a {
     padding: 15px;
   }
@@ -252,6 +254,13 @@ footer {
   }
 }
 
+@media (min-width: 1025px) {
+  .copyright {
+    font-size: 1em;
+    padding: 0 30px;
+  }
+}
+
 @media (min-width: 1200px) {
   body {
     font-size: 28px;
@@ -260,15 +269,6 @@ footer {
 
   #content {
     padding: 50px 0;
-  }
-
-  .copyright {
-    font-size: 1em;
-  }
-
-  .social-media {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
   }
 
   .social-media a {
