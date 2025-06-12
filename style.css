@@ -61,7 +61,7 @@ body {
 }
 
 #content p:last-child {
-  margin-bottom: 0;
+  margin-bottom: 2em;
 }
 
 /* LINK STYLES: ENHANCED VISIBILITY AND INTERACTIVITY */
@@ -78,16 +78,15 @@ body {
   outline: none;
 }
 
-/* FOOTER LAYOUT: OPTIMIZED FOR SOCIAL MEDIA AND COPYRIGHT DISPLAY */
+/* FOOTER LAYOUT: OPTIMIZED FOR COPYRIGHT DISPLAY */
 footer {
   width: 100%;
   max-width: var(--content-width);
   padding: var(--spacing-unit);
   margin-top: auto;
-  display: grid;
-  grid-template-rows: auto auto;
-  gap: 0;
-  justify-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* SOCIAL MEDIA SECTION: RESPONSIVE ICON LAYOUT */
@@ -105,7 +104,7 @@ footer {
 .social-media a,
 .profiles-grid a {
   color: var(--primary-color);
-  text-decoration: none;
+  text-decoration: none !important;
   padding: 12px;
   border-radius: 5px;
   background-color: var(--background-color);
@@ -120,7 +119,7 @@ footer {
 .profiles-grid a:hover,
 .profiles-grid a:focus {
   color: var(--link-hover-color);
-  text-decoration: none;
+  text-decoration: none !important;
   outline: none;
 }
 
@@ -131,16 +130,14 @@ footer {
   width: 24px;
   height: 24px;
   font-size: 1.2em;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
-.social-media img,
-.profiles-grid img {
+.social-media img {
   filter: brightness(0);
 }
 
-.social-media a:hover img,
-.profiles-grid a:hover img {
+.social-media a:hover img {
   filter: brightness(0) saturate(100%) invert(77%) sepia(29%) saturate(1000%) hue-rotate(358deg) brightness(103%) contrast(103%);
 }
 
@@ -155,6 +152,9 @@ footer {
   width: 100%;
   font-size: 0.8em;
   color: var(--primary-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* RESPONSIVE DESIGN: OPTIMIZED FOR VARIOUS SCREEN SIZES */
@@ -170,23 +170,20 @@ footer {
 
   .copyright {
     font-size: 0.7em;
+    padding: 15px 10px;
   }
 
-  .social-media,
-  .profiles-grid {
+  .social-media {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
 
-  .social-media a,
-  .profiles-grid a {
+  .social-media a {
     padding: 10px;
   }
 
   .social-media i,
-  .social-media img,
-  .profiles-grid i,
-  .profiles-grid img {
+  .social-media img {
     width: 20px;
     height: 20px;
     font-size: 1em;
@@ -207,21 +204,17 @@ footer {
     font-size: 0.8em;
   }
 
-  .social-media,
-  .profiles-grid {
+  .social-media {
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
   }
 
-  .social-media a,
-  .profiles-grid a {
+  .social-media a {
     padding: 12px;
   }
 
   .social-media i,
-  .social-media img,
-  .profiles-grid i,
-  .profiles-grid img {
+  .social-media img {
     width: 24px;
     height: 24px;
     font-size: 1.2em;
@@ -242,21 +235,17 @@ footer {
     font-size: 0.9em;
   }
 
-  .social-media,
-  .profiles-grid {
+  .social-media {
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
   }
 
-  .social-media a,
-  .profiles-grid a {
+  .social-media a {
     padding: 15px;
   }
 
   .social-media i,
-  .social-media img,
-  .profiles-grid i,
-  .profiles-grid img {
+  .social-media img {
     width: 28px;
     height: 28px;
     font-size: 1.4em;
@@ -277,21 +266,17 @@ footer {
     font-size: 1em;
   }
 
-  .social-media,
-  .profiles-grid {
+  .social-media {
     grid-template-columns: repeat(4, 1fr);
     gap: 18px;
   }
 
-  .social-media a,
-  .profiles-grid a {
+  .social-media a {
     padding: 18px;
   }
 
   .social-media i,
-  .social-media img,
-  .profiles-grid i,
-  .profiles-grid img {
+  .social-media img {
     width: 32px;
     height: 32px;
     font-size: 1.6em;
