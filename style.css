@@ -8,10 +8,10 @@
 /* ROOT VARIABLES: DEFINES GLOBAL DESIGN TOKENS FOR CONSISTENT THEMING */
 :root {
   --primary-color: #000;
-  --background-color: #fff;
-  --link-color: #0066cc;
-  --link-hover-color: #004499;
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --background-color: #FAFAFA;
+  --link-color: #000;
+  --link-hover-color: #0066cc;
+  --font-family: 'Courier New', Courier, monospace;
   --content-width: 650px;
   --spacing-unit: 20px;
 }
@@ -24,7 +24,7 @@ html {
 
 body {
   font-family: var(--font-family);
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--primary-color);
   background-color: var(--background-color);
   min-height: 100vh;
@@ -34,8 +34,8 @@ body {
   align-items: center;
   padding: var(--spacing-unit);
   margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-weight: 410;
+  letter-spacing: 0.1em;
 }
 
 /* MAIN CONTENT STYLES: OPTIMIZED FOR READABILITY AND ACCESSIBILITY */
@@ -45,31 +45,37 @@ body {
   padding: var(--spacing-unit);
   margin: 0 auto;
   text-align: left;
+  outline: none;
 }
 
 #content h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.5em;
-  font-weight: 700;
+  font-size: 2em;
+  margin: 0 0 10px 0;
 }
 
 #content p {
-  margin-bottom: 1em;
-  font-size: 1.1em;
-  line-height: 1.6;
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 0 0 1em 0;
+}
+
+#content p:last-child {
+  margin-bottom: 0;
 }
 
 /* LINK STYLES: ENHANCED VISIBILITY AND INTERACTIVITY */
 #content a {
   color: var(--link-color);
-  text-decoration: none;
-  transition: color 0.2s ease;
-  border-bottom: 1px solid transparent;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: color 0.2s;
 }
 
-#content a:hover {
+#content a:hover,
+#content a:focus {
   color: var(--link-hover-color);
-  border-bottom-color: var(--link-hover-color);
+  outline: 2px solid var(--link-hover-color);
+  outline-offset: 2px;
 }
 
 /* FOOTER LAYOUT: OPTIMIZED FOR SOCIAL MEDIA AND COPYRIGHT DISPLAY */
@@ -80,100 +86,158 @@ footer {
   margin-top: auto;
   display: grid;
   grid-template-rows: auto auto;
-  gap: var(--spacing-unit);
+  gap: 0;
   justify-items: center;
 }
 
 /* SOCIAL MEDIA SECTION: RESPONSIVE ICON LAYOUT */
 .social-media {
   display: flex;
-  gap: 1.5em;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1em;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--spacing-unit);
+  gap: 10px;
 }
 
 .social-media a {
   color: var(--primary-color);
-  font-size: 1.5em;
-  transition: opacity 0.2s ease;
   text-decoration: none;
+  padding: 12px;
+  border-radius: 5px;
+  background-color: var(--background-color);
+  transition: all 0.2s;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.social-media a:hover {
-  opacity: 0.7;
+.social-media a:hover,
+.social-media a:focus {
+  color: var(--link-hover-color);
+  outline: 2px solid var(--link-hover-color);
+  outline-offset: 2px;
 }
 
-/* COPYRIGHT SECTION: FIXED POSITIONING WITH RESPONSIVE WIDTH */
+.social-media i {
+  font-size: 2em;
+}
+
+/* COPYRIGHT SECTION: STATIC POSITIONING BELOW SOCIAL ICONS */
 .copyright {
-  position: fixed;
-  bottom: var(--spacing-unit);
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(var(--content-width), 100%);
+  font-family: var(--font-family);
+  line-height: 1.5;
+  font-weight: 410;
+  letter-spacing: 0.1em;
   text-align: center;
+  padding: var(--spacing-unit);
+  width: 100%;
   font-size: 0.75em;
   color: var(--primary-color);
-  opacity: 0.8;
-  padding: 0 var(--spacing-unit);
 }
 
 /* RESPONSIVE DESIGN: OPTIMIZED FOR VARIOUS SCREEN SIZES */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   body {
-    padding: calc(var(--spacing-unit) * 0.75);
+    font-size: 16px;
   }
 
   #content {
-    padding: calc(var(--spacing-unit) * 0.75);
-  }
-
-  #content h1 {
-    font-size: 2em;
-  }
-
-  #content p {
-    font-size: 1em;
-  }
-
-  .social-media {
-    gap: 1.2em;
-  }
-
-  .social-media a {
-    font-size: 1.3em;
+    padding: var(--spacing-unit);
   }
 
   .copyright {
-    font-size: 0.7em;
-    bottom: calc(var(--spacing-unit) * 0.75);
+    padding: 15px;
+  }
+
+  .social-media {
+    padding: 15px;
+  }
+
+  .social-media i {
+    font-size: 2.5em;
+  }
+
+  .social-media a {
+    padding: 10px;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 768px) {
   body {
-    padding: calc(var(--spacing-unit) * 0.5);
+    font-size: 20px;
   }
 
   #content {
-    padding: calc(var(--spacing-unit) * 0.5);
-  }
-
-  #content h1 {
-    font-size: 1.8em;
-  }
-
-  .social-media {
-    gap: 1em;
-  }
-
-  .social-media a {
-    font-size: 1.2em;
+    padding: 30px;
   }
 
   .copyright {
-    font-size: 0.65em;
-    bottom: calc(var(--spacing-unit) * 0.5);
+    padding: 20px;
+  }
+
+  .social-media {
+    padding: 20px;
+  }
+
+  .social-media i {
+    font-size: 2.25em;
+  }
+
+  .social-media a {
+    padding: 12px;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    font-size: 24px;
+  }
+
+  #content {
+    padding: 40px;
+  }
+
+  .copyright {
+    padding: 25px;
+  }
+
+  .social-media {
+    padding: 25px;
+  }
+
+  .social-media i {
+    font-size: 2.5em;
+  }
+
+  .social-media a {
+    padding: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    font-size: 28px;
+  }
+
+  #content {
+    padding: 50px;
+  }
+
+  .copyright {
+    padding: 30px;
+  }
+
+  .social-media {
+    padding: 30px;
+  }
+
+  .social-media i {
+    font-size: 2.75em;
+  }
+
+  .social-media a {
+    padding: 18px;
   }
 }
 
@@ -187,28 +251,16 @@ footer {
   }
 }
 
-@media (prefers-contrast: more) {
-  :root {
-    --link-color: #0000EE;
-    --link-hover-color: #551A8B;
-  }
-
-  #content a {
-    text-decoration: underline;
-  }
-}
-
 /* FOCUS VISIBILITY: ENHANCED KEYBOARD NAVIGATION */
 :focus {
-  outline: 2px solid var(--link-color);
+  outline: 2px solid var(--link-hover-color);
   outline-offset: 2px;
 }
 
-:focus:not(:focus-visible) {
-  outline: none;
-}
-
-:focus-visible {
-  outline: 2px solid var(--link-color);
-  outline-offset: 2px;
+/* HIGH CONTRAST MODE SUPPORT */
+@media (forced-colors: active) {
+  .social-media a,
+  #content a {
+    border: 1px solid currentColor;
+  }
 }
