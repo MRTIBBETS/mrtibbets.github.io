@@ -275,13 +275,13 @@ footer {
 
 /* PROFILES GRID: RESPONSIVE GRID LAYOUT FOR SOCIAL MEDIA ICONS */
 .profiles-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
+  padding: 0;
+  gap: 10px;
   max-width: var(--content-width);
   margin: 0 auto;
-  padding: var(--spacing-unit) 0;
 }
 
 .profiles-grid a {
@@ -291,6 +291,7 @@ footer {
   border-radius: 5px;
   background-color: var(--background-color);
   transition: all 0.2s;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -309,56 +310,56 @@ footer {
 /* RESPONSIVE ADJUSTMENTS FOR PROFILES GRID */
 @media (max-width: 480px) {
   .profiles-grid {
-    gap: 10px;
+    padding: 0;
+  }
+
+  .profiles-grid i {
+    font-size: 1.2em;
   }
 
   .profiles-grid a {
     padding: 10px;
   }
-
-  .profiles-grid i {
-    font-size: 1.2em;
-  }
 }
 
 @media (min-width: 768px) {
   .profiles-grid {
-    gap: 10px;
+    padding: 0;
+  }
+
+  .profiles-grid i {
+    font-size: 1.2em;
   }
 
   .profiles-grid a {
     padding: 12px;
   }
-
-  .profiles-grid i {
-    font-size: 1.2em;
-  }
 }
 
 @media (min-width: 992px) {
   .profiles-grid {
-    gap: 10px;
+    padding: 0;
+  }
+
+  .profiles-grid i {
+    font-size: 1.2em;
   }
 
   .profiles-grid a {
     padding: 15px;
   }
-
-  .profiles-grid i {
-    font-size: 1.2em;
-  }
 }
 
 @media (min-width: 1200px) {
   .profiles-grid {
-    gap: 10px;
-  }
-
-  .profiles-grid a {
-    padding: 18px;
+    padding: 0;
   }
 
   .profiles-grid i {
     font-size: 1.2em;
+  }
+
+  .profiles-grid a {
+    padding: 18px;
   }
 }
