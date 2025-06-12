@@ -91,42 +91,56 @@ footer {
 }
 
 /* SOCIAL MEDIA SECTION: RESPONSIVE ICON LAYOUT */
-.social-media {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.social-media,
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  margin: 20px 0;
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0;
 }
 
-.social-media a {
+.social-media a,
+.profiles-grid a {
   color: var(--primary-color);
+  text-decoration: none;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 5px;
   background-color: var(--background-color);
-  transition: all 0.3s ease;
+  transition: all 0.2s;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-.social-media a:hover {
-  transform: translateY(-2px);
-  background-color: var(--link-hover-color);
+.social-media a:hover,
+.social-media a:focus,
+.profiles-grid a:hover,
+.profiles-grid a:focus {
+  color: var(--link-hover-color);
+  text-decoration: none;
+  outline: none;
 }
 
 .social-media i,
-.social-media img {
+.social-media img,
+.profiles-grid i,
+.profiles-grid img {
   width: 24px;
   height: 24px;
   font-size: 1.2em;
+  text-decoration: none;
 }
 
-.social-media img {
+.social-media img,
+.profiles-grid img {
   filter: brightness(0);
 }
 
-.social-media a:hover img {
+.social-media a:hover img,
+.profiles-grid a:hover img {
   filter: brightness(0) saturate(100%) invert(77%) sepia(29%) saturate(1000%) hue-rotate(358deg) brightness(103%) contrast(103%);
 }
 
@@ -139,132 +153,112 @@ footer {
   text-align: center;
   padding: var(--spacing-unit);
   width: 100%;
-  font-size: clamp(3.2px, 0.2em, 5.6px);
+  font-size: 0.8em;
   color: var(--primary-color);
 }
 
 /* RESPONSIVE DESIGN: OPTIMIZED FOR VARIOUS SCREEN SIZES */
 @media (max-width: 480px) {
-  body {
-    font-size: 16px;
-    padding: var(--spacing-unit) calc(var(--horizontal-padding) * 0.75);
-  }
-
-  #content {
-    padding: var(--spacing-unit) 0;
-  }
-
-  .copyright {
-    padding: 15px;
-    font-size: clamp(3.2px, 0.2em, 5.6px);
-  }
-
-  .social-media {
+  .social-media,
+  .profiles-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
 
-  .social-media a {
+  .social-media a,
+  .profiles-grid a {
     padding: 10px;
   }
 
   .social-media i,
-  .social-media img {
+  .social-media img,
+  .profiles-grid i,
+  .profiles-grid img {
     width: 20px;
     height: 20px;
     font-size: 1em;
   }
+
+  .copyright {
+    font-size: 0.7em;
+  }
 }
 
 @media (min-width: 768px) {
-  body {
-    font-size: 20px;
-    padding: var(--spacing-unit) var(--horizontal-padding);
-  }
-
-  #content {
-    padding: 30px 0;
-  }
-
-  .copyright {
-    padding: 20px;
-    font-size: clamp(3.2px, 0.2em, 5.6px);
-  }
-
-  .social-media {
+  .social-media,
+  .profiles-grid {
+    grid-template-columns: repeat(4, 1fr);
     gap: 12px;
   }
 
-  .social-media a {
+  .social-media a,
+  .profiles-grid a {
     padding: 12px;
   }
 
   .social-media i,
-  .social-media img {
+  .social-media img,
+  .profiles-grid i,
+  .profiles-grid img {
     width: 24px;
     height: 24px;
     font-size: 1.2em;
   }
+
+  .copyright {
+    font-size: 0.8em;
+  }
 }
 
 @media (min-width: 992px) {
-  body {
-    font-size: 24px;
-    padding: var(--spacing-unit) calc(var(--horizontal-padding) * 1.25);
-  }
-
-  #content {
-    padding: 40px 0;
-  }
-
-  .copyright {
-    padding: 25px;
-    font-size: clamp(3.2px, 0.2em, 5.6px);
-  }
-
-  .social-media {
+  .social-media,
+  .profiles-grid {
+    grid-template-columns: repeat(4, 1fr);
     gap: 15px;
   }
 
-  .social-media a {
+  .social-media a,
+  .profiles-grid a {
     padding: 15px;
   }
 
   .social-media i,
-  .social-media img {
+  .social-media img,
+  .profiles-grid i,
+  .profiles-grid img {
     width: 28px;
     height: 28px;
     font-size: 1.4em;
   }
+
+  .copyright {
+    font-size: 0.9em;
+  }
 }
 
 @media (min-width: 1200px) {
-  body {
-    font-size: 28px;
-    padding: var(--spacing-unit) calc(var(--horizontal-padding) * 1.5);
-  }
-
-  #content {
-    padding: 50px 0;
-  }
-
-  .copyright {
-    padding: 30px;
-    font-size: clamp(3.2px, 0.2em, 5.6px);
-  }
-
-  .social-media {
+  .social-media,
+  .profiles-grid {
+    grid-template-columns: repeat(4, 1fr);
     gap: 18px;
   }
 
-  .social-media a {
+  .social-media a,
+  .profiles-grid a {
     padding: 18px;
   }
 
   .social-media i,
-  .social-media img {
+  .social-media img,
+  .profiles-grid i,
+  .profiles-grid img {
     width: 32px;
     height: 32px;
     font-size: 1.6em;
+  }
+
+  .copyright {
+    font-size: 1em;
   }
 }
 
@@ -288,120 +282,5 @@ footer {
   .social-media a,
   #content a {
     border: none;
-  }
-}
-
-/* PROFILES GRID: RESPONSIVE GRID LAYOUT FOR SOCIAL MEDIA ICONS */
-.profiles-grid {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0;
-  gap: 10px;
-  max-width: var(--content-width);
-  margin: 0 auto;
-}
-
-.profiles-grid a {
-  color: var(--primary-color);
-  text-decoration: none;
-  padding: 12px;
-  border-radius: 5px;
-  background-color: var(--background-color);
-  transition: all 0.2s;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.profiles-grid a:hover,
-.profiles-grid a:focus {
-  color: var(--link-hover-color);
-  outline: none;
-}
-
-.profiles-grid i,
-.profiles-grid img {
-  width: 24px;
-  height: 24px;
-  font-size: 1.2em;
-}
-
-.profiles-grid img {
-  filter: brightness(0);
-  transition: filter 0.2s;
-}
-
-.profiles-grid a:hover img {
-  filter: brightness(0) saturate(100%) invert(77%) sepia(29%) saturate(1000%) hue-rotate(358deg) brightness(103%) contrast(103%);
-}
-
-/* RESPONSIVE ADJUSTMENTS FOR PROFILES GRID */
-@media (max-width: 480px) {
-  .profiles-grid {
-    padding: 0;
-  }
-
-  .profiles-grid i,
-  .profiles-grid img {
-    width: 20px;
-    height: 20px;
-    font-size: 1.2em;
-  }
-
-  .profiles-grid a {
-    padding: 10px;
-  }
-}
-
-@media (min-width: 768px) {
-  .profiles-grid {
-    padding: 0;
-  }
-
-  .profiles-grid i,
-  .profiles-grid img {
-    width: 22px;
-    height: 22px;
-    font-size: 1.2em;
-  }
-
-  .profiles-grid a {
-    padding: 12px;
-  }
-}
-
-@media (min-width: 992px) {
-  .profiles-grid {
-    padding: 0;
-  }
-
-  .profiles-grid i,
-  .profiles-grid img {
-    width: 24px;
-    height: 24px;
-    font-size: 1.2em;
-  }
-
-  .profiles-grid a {
-    padding: 15px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .profiles-grid {
-    padding: 0;
-  }
-
-  .profiles-grid i,
-  .profiles-grid img {
-    width: 26px;
-    height: 26px;
-    font-size: 1.2em;
-  }
-
-  .profiles-grid a {
-    padding: 18px;
   }
 }
