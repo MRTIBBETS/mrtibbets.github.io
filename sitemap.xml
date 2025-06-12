@@ -7,12 +7,12 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://www.alexandertibbets.com/banner.png</image:loc>
+      <image:loc>https://www.alexandertibbets.com/assets/images/banner.png</image:loc>
       <image:caption>Alexander Tibbets | Website Banner</image:caption>
       <image:title>Alexander Tibbets | Website Banner</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://www.alexandertibbets.com/favicon.ico</image:loc>
+      <image:loc>https://www.alexandertibbets.com/assets/favicon.ico</image:loc>
       <image:caption>Alexander Tibbets | Favicon</image:caption>
       <image:title>Alexander Tibbets | Favicon</image:title>
     </image:image>
