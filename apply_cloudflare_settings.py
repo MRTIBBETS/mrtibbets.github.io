@@ -30,10 +30,10 @@ class CloudflareConfigurator:
             return None
 
     def apply_zone_settings(self) -> None:
-        """Apply zone settings"""
+        """Apply essential zone settings for a static website"""
         print("Applying zone settings...")
         
-        # Define supported settings
+        # Essential settings for static website
         settings = {
             "ssl": {"value": "full"},
             "security_level": {"value": "medium"},
@@ -46,11 +46,13 @@ class CloudflareConfigurator:
             },
             "brotli": {"value": "on"},
             "http3": {"value": "on"},
-            "early_hints": {"value": "on"},
             "always_use_https": {"value": "on"},
             "automatic_https_rewrites": {"value": "on"},
             "always_online": {"value": "on"},
-            "rocket_loader": {"value": "on"}
+            "rocket_loader": {"value": "on"},
+            "cache_level": {"value": "aggressive"},
+            "browser_cache_ttl": {"value": 14400},  # 4 hours
+            "development_mode": {"value": "off"}
         }
         
         # Apply each setting
@@ -62,19 +64,11 @@ class CloudflareConfigurator:
             else:
                 print(f"✗ Failed to apply {setting}")
 
-    def apply_page_rules(self) -> None:
-        """Apply page rules"""
-        print("\nApplying page rules...")
-        print("Note: Page Rules require a zone-level API token. Skipping this step.")
-        print("Please create a zone-level API token with the following permissions:")
-        print("- Zone > Page Rules > Edit")
-        print("Then run this script again with the new token.")
-
     def apply_firewall_rules(self) -> None:
-        """Apply firewall rules using filters as required by Cloudflare API"""
+        """Apply essential firewall rules for a static website"""
         print("\nApplying firewall rules...")
         
-        # Define firewall rules and their filter expressions
+        # Essential firewall rules for static website
         rules = [
             {
                 "description": "Block known bad bots",
@@ -82,13 +76,6 @@ class CloudflareConfigurator:
                 "action": "block",
                 "paused": False,
                 "ref": "rule_block_known_bad_bots"
-            },
-            {
-                "description": "Block high threat IPs",
-                "expression": "(cf.threat_score gt 10)",
-                "action": "block",
-                "paused": False,
-                "ref": "rule_block_high_threat_ips"
             }
         ]
         
@@ -99,15 +86,7 @@ class CloudflareConfigurator:
                 print(f"Deleting existing firewall rule: {rule.get('id')}")
                 self._make_request("DELETE", f"/zones/{self.zone_id}/firewall/rules/{rule['id']}")
 
-        # Get existing filters
-        existing_filters = self._make_request("GET", f"/zones/{self.zone_id}/filters")
-        existing_filter_ids = set()
-        if existing_filters and "result" in existing_filters:
-            for f in existing_filters["result"]:
-                existing_filter_ids.add(f["id"])
-
-        # Create filters and collect their IDs
-        filter_ids = []
+        # Create filters and rules
         for rule in rules:
             filter_payload = {
                 "expression": rule["expression"],
@@ -116,31 +95,18 @@ class CloudflareConfigurator:
             filter_result = self._make_request("POST", f"/zones/{self.zone_id}/filters", [filter_payload])
             if filter_result and filter_result.get("success") and filter_result.get("result"):
                 filter_id = filter_result["result"][0]["id"]
-                filter_ids.append(filter_id)
-                print(f"✓ Created filter for: {rule['description']}")
-            else:
-                print(f"✗ Failed to create filter for: {rule['description']}")
-                filter_ids.append(None)
-
-        # Create firewall rules referencing the filters
-        firewall_payload = []
-        for rule, filter_id in zip(rules, filter_ids):
-            if filter_id:
-                firewall_payload.append({
+                firewall_payload = [{
                     "filter": {"id": filter_id},
                     "action": rule["action"],
                     "description": rule["description"],
                     "paused": rule["paused"],
                     "ref": rule["ref"]
-                })
-        if firewall_payload:
-            result = self._make_request("POST", f"/zones/{self.zone_id}/firewall/rules", firewall_payload)
-            if result and result.get("success"):
-                print(f"✓ Firewall rules created successfully")
-            else:
-                print(f"✗ Failed to create firewall rules")
-        else:
-            print("No valid filters to create firewall rules.")
+                }]
+                result = self._make_request("POST", f"/zones/{self.zone_id}/firewall/rules", firewall_payload)
+                if result and result.get("success"):
+                    print(f"✓ Created firewall rule: {rule['description']}")
+                else:
+                    print(f"✗ Failed to create firewall rule: {rule['description']}")
 
 def main():
     # Check for required environment variables
@@ -157,7 +123,6 @@ def main():
     # Apply settings
     try:
         configurator.apply_zone_settings()
-        configurator.apply_page_rules()
         configurator.apply_firewall_rules()
         print("\nConfiguration completed!")
     except Exception as e:

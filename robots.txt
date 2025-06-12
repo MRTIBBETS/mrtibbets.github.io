@@ -1,33 +1,21 @@
-# Global rules
+# GLOBAL RULES FOR ALL CRAWLERS
 User-agent: *
 Allow: /
 Disallow: /404.html
 Disallow: /.git/
+Disallow: /.env
 Disallow: /.DS_Store
+Disallow: /README.md
 
-# Crawl-delay for all bots
-Crawl-delay: 10
+# CRAWL RATE
+Crawl-delay: 5
 
-# Sitemap location
+# SITEMAP
 Sitemap: https://www.alexandertibbets.com/sitemap.xml
 
-# Specific rules for major search engines
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 5
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 5
-
-User-agent: Slurp
-Allow: /
-Crawl-delay: 5
-
-# Block archive.org
+# BLOCK ARCHIVE.ORG AND WAYBACK MACHINE
 User-agent: archive.org_bot
 Disallow: /
 
-# Block archive.org's wayback machine
 User-agent: ia_archiver
 Disallow: /
