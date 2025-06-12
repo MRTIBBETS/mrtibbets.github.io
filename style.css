@@ -12,8 +12,9 @@
   --link-color: #000;
   --link-hover-color: #FFD700;
   --font-family: 'Courier New', Courier, monospace;
-  --content-width: 650px;
+  --content-width: 750px;
   --spacing-unit: 20px;
+  --horizontal-padding: 40px;
 }
 
 /* BASE HTML AND BODY STYLES: SETS UP THE DOCUMENT LAYOUT */
@@ -32,7 +33,7 @@ body {
   grid-template-rows: minmax(0, 1fr) auto;
   justify-items: center;
   align-items: center;
-  padding: var(--spacing-unit);
+  padding: var(--spacing-unit) var(--horizontal-padding);
   margin: 0;
   font-weight: 410;
   letter-spacing: 0.1em;
@@ -42,7 +43,7 @@ body {
 #content {
   max-width: var(--content-width);
   width: 100%;
-  padding: var(--spacing-unit);
+  padding: var(--spacing-unit) 0;
   margin: 0 auto;
   text-align: left;
   outline: none;
@@ -94,9 +95,10 @@ footer {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: var(--spacing-unit);
+  padding: 0;
   gap: 10px;
   max-width: var(--content-width);
+  margin: 0 auto;
 }
 
 .social-media a {
@@ -131,7 +133,7 @@ footer {
   text-align: center;
   padding: var(--spacing-unit);
   width: 100%;
-  font-size: 0.1em;
+  font-size: 0.15em;
   color: var(--primary-color);
 }
 
@@ -139,19 +141,20 @@ footer {
 @media (max-width: 480px) {
   body {
     font-size: 16px;
+    padding: var(--spacing-unit) calc(var(--horizontal-padding) * 0.75);
   }
 
   #content {
-    padding: var(--spacing-unit);
+    padding: var(--spacing-unit) 0;
   }
 
   .copyright {
     padding: 15px;
-    font-size: 0.1em;
+    font-size: 0.15em;
   }
 
   .social-media {
-    padding: 15px;
+    padding: 0;
   }
 
   .social-media i {
@@ -166,19 +169,20 @@ footer {
 @media (min-width: 768px) {
   body {
     font-size: 20px;
+    padding: var(--spacing-unit) var(--horizontal-padding);
   }
 
   #content {
-    padding: 30px;
+    padding: 30px 0;
   }
 
   .copyright {
     padding: 20px;
-    font-size: 0.1em;
+    font-size: 0.15em;
   }
 
   .social-media {
-    padding: 20px;
+    padding: 0;
   }
 
   .social-media i {
@@ -193,19 +197,20 @@ footer {
 @media (min-width: 992px) {
   body {
     font-size: 24px;
+    padding: var(--spacing-unit) calc(var(--horizontal-padding) * 1.25);
   }
 
   #content {
-    padding: 40px;
+    padding: 40px 0;
   }
 
   .copyright {
     padding: 25px;
-    font-size: 0.1em;
+    font-size: 0.15em;
   }
 
   .social-media {
-    padding: 25px;
+    padding: 0;
   }
 
   .social-media i {
@@ -220,19 +225,20 @@ footer {
 @media (min-width: 1200px) {
   body {
     font-size: 28px;
+    padding: var(--spacing-unit) calc(var(--horizontal-padding) * 1.5);
   }
 
   #content {
-    padding: 50px;
+    padding: 50px 0;
   }
 
   .copyright {
     padding: 30px;
-    font-size: 0.1em;
+    font-size: 0.15em;
   }
 
   .social-media {
-    padding: 30px;
+    padding: 0;
   }
 
   .social-media i {
