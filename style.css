@@ -10,7 +10,7 @@
   --primary-color: #000;
   --background-color: #FAFAFA;
   --link-color: #000;
-  --link-hover-color: #0066cc;
+  --link-hover-color: #FFD700;
   --font-family: 'Courier New', Courier, monospace;
   --content-width: 650px;
   --spacing-unit: 20px;
@@ -74,8 +74,7 @@ body {
 #content a:hover,
 #content a:focus {
   color: var(--link-hover-color);
-  outline: 2px solid var(--link-hover-color);
-  outline-offset: 2px;
+  outline: none;
 }
 
 /* FOOTER LAYOUT: OPTIMIZED FOR SOCIAL MEDIA AND COPYRIGHT DISPLAY */
@@ -97,6 +96,7 @@ footer {
   width: 100%;
   padding: var(--spacing-unit);
   gap: 10px;
+  max-width: var(--content-width);
 }
 
 .social-media a {
@@ -115,12 +115,11 @@ footer {
 .social-media a:hover,
 .social-media a:focus {
   color: var(--link-hover-color);
-  outline: 2px solid var(--link-hover-color);
-  outline-offset: 2px;
+  outline: none;
 }
 
 .social-media i {
-  font-size: 2em;
+  font-size: 1.2em;
 }
 
 /* COPYRIGHT SECTION: STATIC POSITIONING BELOW SOCIAL ICONS */
@@ -132,7 +131,7 @@ footer {
   text-align: center;
   padding: var(--spacing-unit);
   width: 100%;
-  font-size: 0.75em;
+  font-size: 0.1em;
   color: var(--primary-color);
 }
 
@@ -148,6 +147,7 @@ footer {
 
   .copyright {
     padding: 15px;
+    font-size: 0.1em;
   }
 
   .social-media {
@@ -155,7 +155,7 @@ footer {
   }
 
   .social-media i {
-    font-size: 2.5em;
+    font-size: 1.2em;
   }
 
   .social-media a {
@@ -174,6 +174,7 @@ footer {
 
   .copyright {
     padding: 20px;
+    font-size: 0.1em;
   }
 
   .social-media {
@@ -181,7 +182,7 @@ footer {
   }
 
   .social-media i {
-    font-size: 2.25em;
+    font-size: 1.2em;
   }
 
   .social-media a {
@@ -200,6 +201,7 @@ footer {
 
   .copyright {
     padding: 25px;
+    font-size: 0.1em;
   }
 
   .social-media {
@@ -207,7 +209,7 @@ footer {
   }
 
   .social-media i {
-    font-size: 2.5em;
+    font-size: 1.2em;
   }
 
   .social-media a {
@@ -226,6 +228,7 @@ footer {
 
   .copyright {
     padding: 30px;
+    font-size: 0.1em;
   }
 
   .social-media {
@@ -233,7 +236,7 @@ footer {
   }
 
   .social-media i {
-    font-size: 2.75em;
+    font-size: 1.2em;
   }
 
   .social-media a {
@@ -253,14 +256,13 @@ footer {
 
 /* FOCUS VISIBILITY: ENHANCED KEYBOARD NAVIGATION */
 :focus {
-  outline: 2px solid var(--link-hover-color);
-  outline-offset: 2px;
+  outline: none;
 }
 
 /* HIGH CONTRAST MODE SUPPORT */
 @media (forced-colors: active) {
   .social-media a,
   #content a {
-    border: 1px solid currentColor;
+    border: none;
   }
 }
