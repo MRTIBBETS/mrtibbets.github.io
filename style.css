@@ -15,6 +15,9 @@
   --content-width: 750px;
   --spacing-unit: 20px;
   --horizontal-padding: 40px;
+  --icon-size: 24px;
+  --grid-gap: 16px;
+  --copyright-scale: 0.2; /* 20% of body text size */
 }
 
 /* BASE HTML AND BODY STYLES: SETS UP THE DOCUMENT LAYOUT */
@@ -145,13 +148,66 @@ footer {
 /* COPYRIGHT SECTION: STATIC POSITIONING BELOW SOCIAL ICONS */
 .copyright {
   color: var(--text-color);
-  font-size: 0.7em;
+  font-size: calc(1em * var(--copyright-scale));
   padding: 0 15px;
   white-space: nowrap;
   overflow: visible;
   text-overflow: clip;
   min-width: max-content;
   flex-shrink: 0;
+}
+
+/* SOCIAL MEDIA SECTION: RESPONSIVE ICON LAYOUT */
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--icon-size), 1fr));
+  gap: var(--grid-gap);
+  width: 100%;
+  max-width: calc(var(--content-width) - var(--horizontal-padding));
+  margin: 0;
+  padding: 0;
+}
+
+.profiles-grid a {
+  color: var(--primary-color);
+  text-decoration: none !important;
+  padding: 12px;
+  border-radius: 5px;
+  background-color: var(--background-color);
+  transition: all 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--icon-size) * 2);
+  height: calc(var(--icon-size) * 2);
+}
+
+.profiles-grid a:hover,
+.profiles-grid a:focus {
+  color: var(--link-hover-color);
+  text-decoration: none !important;
+  outline: none;
+  transform: scale(1.05);
+}
+
+.profiles-grid i,
+.profiles-grid img {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  font-size: var(--icon-size);
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profiles-grid img {
+  filter: brightness(0);
+  object-fit: contain;
+}
+
+.profiles-grid a:hover img {
+  filter: brightness(0) saturate(100%) invert(77%) sepia(29%) saturate(1000%) hue-rotate(358deg) brightness(103%) contrast(103%);
 }
 
 /* RESPONSIVE DESIGN: OPTIMIZED FOR VARIOUS SCREEN SIZES */
@@ -166,7 +222,6 @@ footer {
   }
 
   .copyright {
-    font-size: 0.7em;
     padding: 15px 10px;
   }
 
@@ -186,11 +241,19 @@ footer {
     height: 20px;
     font-size: 1em;
   }
+
+  :root {
+    --icon-size: 20px;
+    --grid-gap: 12px;
+  }
+  
+  .profiles-grid {
+    grid-template-columns: repeat(auto-fill, minmax(var(--icon-size), 1fr));
+  }
 }
 
 @media (min-width: 481px) {
   .copyright {
-    font-size: 0.8em;
     padding: 0 20px;
   }
 }
@@ -206,7 +269,7 @@ footer {
   }
 
   .copyright {
-    font-size: 0.8em;
+    padding: 0 20px;
   }
 
   .social-media a {
@@ -219,11 +282,15 @@ footer {
     height: 24px;
     font-size: 1.2em;
   }
+
+  :root {
+    --icon-size: 24px;
+    --grid-gap: 16px;
+  }
 }
 
 @media (min-width: 769px) {
   .copyright {
-    font-size: 0.9em;
     padding: 0 25px;
   }
 }
@@ -239,7 +306,7 @@ footer {
   }
 
   .copyright {
-    font-size: 0.9em;
+    padding: 0 25px;
   }
 
   .social-media a {
@@ -252,11 +319,15 @@ footer {
     height: 28px;
     font-size: 1.4em;
   }
+
+  :root {
+    --icon-size: 28px;
+    --grid-gap: 20px;
+  }
 }
 
 @media (min-width: 1025px) {
   .copyright {
-    font-size: 1em;
     padding: 0 30px;
   }
 }
@@ -271,6 +342,10 @@ footer {
     padding: 50px 0;
   }
 
+  .copyright {
+    padding: 0 30px;
+  }
+
   .social-media a {
     padding: 18px;
   }
@@ -280,6 +355,11 @@ footer {
     width: 32px;
     height: 32px;
     font-size: 1.6em;
+  }
+
+  :root {
+    --icon-size: 32px;
+    --grid-gap: 24px;
   }
 }
 
