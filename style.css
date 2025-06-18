@@ -57,6 +57,7 @@ body {
 #content h1 {
   font-size: 2em;
   margin: 0 0 10px 0;
+  font-weight: 400;
 }
 
 #content h2 {
@@ -78,13 +79,14 @@ body {
 /* HEADER STYLES FOR PROFILES PAGE */
 header {
   margin-bottom: var(--header-spacing);
-  text-align: left;
+  text-align: left !important;
 }
 
 header h1 {
   font-size: 2.5em;
   margin-bottom: 10px;
   font-weight: 400;
+  text-align: left !important;
 }
 
 .subtitle {
@@ -92,6 +94,7 @@ header h1 {
   color: #666;
   margin-bottom: 15px;
   font-weight: 400;
+  text-align: left !important;
 }
 
 .description {
@@ -110,7 +113,7 @@ header h1 {
 
 .profile-section h2 {
   color: var(--primary-color);
-  border-bottom: 2px solid var(--link-hover-color);
+  border-bottom: 2px solid var(--primary-color);
   padding-bottom: 8px;
   margin-bottom: 15px;
   font-weight: 400;
@@ -176,6 +179,12 @@ footer {
   padding: 0;
 }
 
+.social-media {
+  min-width: 280px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
 .social-media a,
 .profiles-grid a {
   color: var(--primary-color);
@@ -187,6 +196,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .social-media a:hover,
@@ -307,13 +317,18 @@ footer {
   }
 
   .copyright {
-    font-size: calc(1em * var(--copyright-scale) * 0.8);
+    font-size: calc(1em * var(--copyright-scale) * 1.2);
   }
 
   .social-media,
   .profiles-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
+  }
+
+  .social-media {
+    grid-template-columns: repeat(4, 1fr);
+    min-width: 240px;
   }
 
   .social-media a {
