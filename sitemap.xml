@@ -4,7 +4,7 @@
   <!-- HOMEPAGE -->
   <url>
     <loc>https://www.alexandertibbets.com/</loc>
-    <lastmod>2024-05-08</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -21,9 +21,9 @@
   
   <!-- PROFILES PAGE -->
   <url>
-    <loc>https://www.alexandertibbets.com/profiles.html</loc>
-    <lastmod>2024-05-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.alexandertibbets.com/profiles</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>
