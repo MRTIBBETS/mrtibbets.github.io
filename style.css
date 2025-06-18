@@ -62,7 +62,7 @@ body {
 #content h2 {
   font-size: 1.5em;
   margin: 0 0 15px 0;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 #content p {
@@ -78,12 +78,13 @@ body {
 /* HEADER STYLES FOR PROFILES PAGE */
 header {
   margin-bottom: var(--header-spacing);
-  text-align: center;
+  text-align: left;
 }
 
 header h1 {
   font-size: 2.5em;
   margin-bottom: 10px;
+  font-weight: 400;
 }
 
 .subtitle {
@@ -112,6 +113,7 @@ header h1 {
   border-bottom: 2px solid var(--link-hover-color);
   padding-bottom: 8px;
   margin-bottom: 15px;
+  font-weight: 400;
 }
 
 .profile-section p {
