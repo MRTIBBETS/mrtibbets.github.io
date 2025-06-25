@@ -1,19 +1,11 @@
-# GLOBAL RULES FOR ALL CRAWLERS
+# OPTIMIZED FOR MAXIMUM SEARCH VISIBILITY
 User-agent: *
 Allow: /
-Disallow: /404.html
-Disallow: /.git/
-Disallow: /.env
-Disallow: /.DS_Store
-Disallow: /README.md
-
-# CRAWL RATE
-Crawl-delay: 5
 
 # SITEMAP
 Sitemap: https://www.alexandertibbets.com/sitemap.xml
 
-# BLOCK ARCHIVE.ORG AND WAYBACK MACHINE
+# BLOCK ONLY ARCHIVE.ORG AND WAYBACK MACHINE
 User-agent: archive.org_bot
 Disallow: /
 
