@@ -3,6 +3,13 @@
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer-when-downgrade
+  
+  # Allow Google and other search engines
+  X-Robots-Tag: index, follow
+
+# Google Search Console Verification
+/ads.txt
+  Content-Type: text/plain
 
 # Cache Control Headers - Optimized for GitHub Pages
 /*.html

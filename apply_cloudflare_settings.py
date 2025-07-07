@@ -33,10 +33,10 @@ class CloudflareConfigurator:
         """Apply essential zone settings for a static website"""
         print("Applying zone settings...")
         
-        # Essential settings for static website
+        # Essential settings for static website - Less restrictive for search engines
         settings = {
             "ssl": {"value": "full"},
-            "security_level": {"value": "medium"},
+            "security_level": {"value": "low"},  # Changed from medium to low
             "minify": {
                 "value": {
                     "css": True,
@@ -49,10 +49,15 @@ class CloudflareConfigurator:
             "always_use_https": {"value": "on"},
             "automatic_https_rewrites": {"value": "on"},
             "always_online": {"value": "on"},
-            "rocket_loader": {"value": "on"},
-            "cache_level": {"value": "aggressive"},
+            "rocket_loader": {"value": "off"},  # Changed from on to off for better compatibility
+            "cache_level": {"value": "standard"},  # Changed from aggressive to standard
             "browser_cache_ttl": {"value": 14400},  # 4 hours
-            "development_mode": {"value": "off"}
+            "development_mode": {"value": "off"},
+            "challenge_ttl": {"value": 2700},  # 45 minutes for challenges
+            "privacy_pass": {"value": "on"},  # Enable Privacy Pass
+            "opportunistic_encryption": {"value": "on"},  # Enable opportunistic encryption
+            "tls_client_auth": {"value": "off"},  # Disable client certificate requirement
+            "websockets": {"value": "on"}  # Enable WebSockets
         }
         
         # Apply each setting
@@ -68,14 +73,21 @@ class CloudflareConfigurator:
         """Apply essential firewall rules for a static website"""
         print("\nApplying firewall rules...")
         
-        # Essential firewall rules for static website
+        # Less restrictive firewall rules for better search engine access
         rules = [
             {
-                "description": "Block known bad bots",
-                "expression": "(cf.client.bot)",
+                "description": "Block only known malicious bots",
+                "expression": "(cf.client.bot and not cf.client.bot.category in {\"search engine crawler\" \"search engine bot\" \"search engine\"})",
                 "action": "block",
                 "paused": False,
-                "ref": "rule_block_known_bad_bots"
+                "ref": "rule_block_malicious_bots_only"
+            },
+            {
+                "description": "Allow all search engines",
+                "expression": "(cf.client.bot.category in {\"search engine crawler\" \"search engine bot\" \"search engine\"})",
+                "action": "allow",
+                "paused": False,
+                "ref": "rule_allow_search_engines"
             }
         ]
         
@@ -108,6 +120,46 @@ class CloudflareConfigurator:
                 else:
                     print(f"✗ Failed to create firewall rule: {rule['description']}")
 
+    def apply_page_rules(self) -> None:
+        """Apply page rules for better performance and security"""
+        print("\nApplying page rules...")
+        
+        # Page rules for better performance
+        page_rules = [
+            {
+                "description": "Force HTTPS for all traffic",
+                "targets": [{"target": "url", "constraint": {"operator": "matches", "value": "http://*/*"}}],
+                "actions": [{"id": "always_use_https"}],
+                "priority": 1,
+                "status": "active"
+            },
+            {
+                "description": "Cache static assets aggressively",
+                "targets": [{"target": "url", "constraint": {"operator": "matches", "value": "*.css"}}],
+                "actions": [
+                    {"id": "cache_level", "value": "cache_everything"},
+                    {"id": "edge_cache_ttl", "value": 31536000}
+                ],
+                "priority": 2,
+                "status": "active"
+            }
+        ]
+        
+        # Get existing page rules
+        existing_rules = self._make_request("GET", f"/zones/{self.zone_id}/pagerules")
+        if existing_rules and "result" in existing_rules:
+            for rule in existing_rules["result"]:
+                print(f"Deleting existing page rule: {rule.get('id')}")
+                self._make_request("DELETE", f"/zones/{self.zone_id}/pagerules/{rule['id']}")
+
+        # Create page rules
+        for rule in page_rules:
+            result = self._make_request("POST", f"/zones/{self.zone_id}/pagerules", rule)
+            if result and result.get("success"):
+                print(f"✓ Created page rule: {rule['description']}")
+            else:
+                print(f"✗ Failed to create page rule: {rule['description']}")
+
 def main():
     # Check for required environment variables
     api_token = os.getenv("CLOUDFLARE_API_TOKEN")
@@ -124,6 +176,7 @@ def main():
     try:
         configurator.apply_zone_settings()
         configurator.apply_firewall_rules()
+        configurator.apply_page_rules()
         print("\nConfiguration completed!")
     except Exception as e:
         print(f"\nError applying settings: {str(e)}")
