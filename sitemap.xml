@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <!-- HOMEPAGE -->
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  
+  <!-- HOMEPAGE: MAIN LANDING PAGE WITH HIGHEST PRIORITY -->
   <url>
     <loc>https://www.alexandertibbets.com/</loc>
     <lastmod>2025-01-07</lastmod>
@@ -11,6 +13,7 @@
       <image:loc>https://www.alexandertibbets.com/assets/images/banner.png</image:loc>
       <image:caption>Alexander Tibbets | Website Banner</image:caption>
       <image:title>Alexander Tibbets | Website Banner</image:title>
+      <image:license>https://creativecommons.org/licenses/by/4.0/</image:license>
     </image:image>
     <image:image>
       <image:loc>https://www.alexandertibbets.com/assets/favicon.ico</image:loc>
@@ -19,11 +22,88 @@
     </image:image>
   </url>
   
-  <!-- PROFILES PAGE -->
+  <!-- PROFILES PAGE: SOCIAL MEDIA AND PROFESSIONAL PROFILES -->
   <url>
     <loc>https://www.alexandertibbets.com/profiles</loc>
     <lastmod>2025-01-07</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  
+  <!-- ROBOTS.TXT: SEARCH ENGINE CRAWLING INSTRUCTIONS -->
+  <url>
+    <loc>https://www.alexandertibbets.com/robots.txt</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- SITEMAP: THIS FILE FOR SEARCH ENGINE DISCOVERY -->
+  <url>
+    <loc>https://www.alexandertibbets.com/sitemap.xml</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <!-- STYLESHEET: CSS FILE FOR STYLING -->
+  <url>
+    <loc>https://www.alexandertibbets.com/style.css</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <!-- GOOGLE VERIFICATION: SEARCH CONSOLE VERIFICATION FILE -->
+  <url>
+    <loc>https://www.alexandertibbets.com/google1234567890abcdef.html</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  
+  <!-- ASSETS: IMAGES AND ICONS -->
+  <url>
+    <loc>https://www.alexandertibbets.com/assets/images/banner.png</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexandertibbets.com/assets/favicon.ico</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <!-- SOCIAL MEDIA ICONS -->
+  <url>
+    <loc>https://www.alexandertibbets.com/assets/icons/apple_music.svg</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexandertibbets.com/assets/icons/bloomberg.svg</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexandertibbets.com/assets/icons/crunchbase.svg</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.alexandertibbets.com/assets/icons/mixcloud.svg</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  
 </urlset>

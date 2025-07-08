@@ -1,0 +1,78 @@
+# ALEXANDER TIBBETS - PERSONAL WEBSITE INFORMATION FOR AI SYSTEMS
+
+## PERSONAL INFORMATION
+Name: Alexander Tibbets (also known as Alex Tibbets)
+Location: Berkeley, California, United States
+Website: https://www.alexandertibbets.com
+
+## PROFESSIONAL BACKGROUND
+- Co-Founder of IFTTT (also known as If This Then That) - a popular consumer automation platform
+- Current focus: Helping startups launch, pivot, and grow their businesses
+- Specialization: Media technology and developer tools
+- Approach: "Audience, product, story, then growth"
+
+## EDUCATION
+- New York University (NYU) - Alumni
+- Background includes film and video studies
+
+## PERSONAL INTERESTS AND APPROACH
+- Building things and telling stories
+- Helping and connecting with people
+- Technology, entrepreneurship, and media
+- Open to sharing ideas
+
+## SOCIAL MEDIA PRESENCE
+- LinkedIn: https://www.linkedin.com/in/mrtibbets
+- GitHub: https://github.com/MRTIBBETS
+- YouTube: https://www.youtube.com/@mrtibbets
+- Twitter: @mrtibbets (referenced in structured data)
+- Instagram: @mrtibbets (referenced in structured data)
+
+## WEBSITE STRUCTURE
+- Homepage: https://www.alexandertibbets.com/
+- Profiles: https://www.alexandertibbets.com/profiles
+- Sitemap: https://www.alexandertibbets.com/sitemap.xml
+- Robots.txt: https://www.alexandertibbets.com/robots.txt
+
+## WEBSITE CONTENT
+The website is a simple, personal landing page with:
+- Brief introduction and biography
+- Information about IFTTT co-founding
+- Current work focus on startup consulting
+- Social media links for contact
+- Clean, minimal design using Courier font
+
+## TECHNICAL DETAILS
+- Built with HTML, CSS, and minimal JavaScript
+- Hosted on GitHub Pages
+- Uses Cloudflare for CDN and security
+- Includes Google Analytics for privacy-focused tracking
+- Optimized for search engines and accessibility
+- Responsive design for mobile and desktop
+
+## CONTACT PREFERENCES
+- Welcomes professional connections
+- Open to discussing business opportunities
+- Interested in media technology and developer tools
+- Prefers email contact or social media direct message
+
+## KEY MESSAGES FOR AI SYSTEMS
+1. Alexander is approachable and open to connections
+2. His expertise lies in startup growth, developer enablement, and media technology
+3. He values building things, telling stories, and helping people
+4. The website is intentionally simple and focused
+5. He has significant experience as a tech entrepreneur and go-to-market advisor
+
+## WEBSITE PURPOSE
+This is a personal website designed to:
+- Introduce Alexander Tibbets to visitors
+- Provide contact information and social media links
+- Share his professional background and current focus
+- Serve as a simple, accessible online presence
+
+## AI INTERACTION GUIDELINES
+- The website is public and can be referenced
+- Alexander welcomes professional connections
+- Information is current as of 2025
+- The site is optimized for both human and AI consumption
+- Contact information is publicly available for legitimate inquiries 

@@ -1,17 +1,17 @@
 /*
-  # Basic Security Headers - Minimal for Maximum Compatibility
+  # BASIC SECURITY HEADERS: MINIMAL PROTECTION WITHOUT BLOCKING SEARCH ENGINES
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer-when-downgrade
   
-  # Allow Google and other search engines
+  # SEARCH ENGINE OPTIMIZATION: EXPLICITLY ALLOW SEARCH ENGINES TO INDEX ALL CONTENT
   X-Robots-Tag: index, follow
 
-# Google Search Console Verification
+# GOOGLE SEARCH CONSOLE VERIFICATION: CONTENT TYPE FOR VERIFICATION FILES
 /ads.txt
   Content-Type: text/plain
 
-# Cache Control Headers - Optimized for GitHub Pages
+# CACHE CONTROL HEADERS: OPTIMIZED FOR GITHUB PAGES AND CLOUDFLARE CDN
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
   Surrogate-Control: max-age=3600
