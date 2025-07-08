@@ -23,10 +23,3 @@ Allow: /
 
 # SITEMAP
 Sitemap: https://www.alexandertibbets.com/sitemap.xml
-
-# BLOCK ONLY ARCHIVE.ORG AND WAYBACK MACHINE
-User-agent: archive.org_bot
-Disallow: /
-
-User-agent: ia_archiver
-Disallow: /
