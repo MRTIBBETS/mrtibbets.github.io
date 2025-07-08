@@ -76,18 +76,18 @@ class CloudflareConfigurator:
         # Less restrictive firewall rules for better search engine access
         rules = [
             {
-                "description": "Block only known malicious bots",
-                "expression": "(cf.client.bot and not cf.client.bot.category in {\"search engine crawler\" \"search engine bot\" \"search engine\"})",
+                "description": "Block bots that are not verified",
+                "expression": "(cf.client.bot and not cf.bot_management.verified_bot)",
                 "action": "block",
                 "paused": False,
-                "ref": "rule_block_malicious_bots_only"
+                "ref": "rule_block_unverified_bots"
             },
             {
-                "description": "Allow all search engines",
-                "expression": "(cf.client.bot.category in {\"search engine crawler\" \"search engine bot\" \"search engine\"})",
+                "description": "Allow verified search engine bots",
+                "expression": "(cf.bot_management.verified_bot)",
                 "action": "allow",
                 "paused": False,
-                "ref": "rule_allow_search_engines"
+                "ref": "rule_allow_verified_bots"
             }
         ]
         
