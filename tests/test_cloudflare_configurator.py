@@ -42,7 +42,12 @@ class TestApplyMethods(unittest.TestCase):
             'rocket_loader',
             'cache_level',
             'browser_cache_ttl',
-            'development_mode'
+            'development_mode',
+            'challenge_ttl',
+            'privacy_pass',
+            'opportunistic_encryption',
+            'tls_client_auth',
+            'websockets'
         }
         called_endpoints = {call.args[1] for call in mock_request.call_args_list}
         self.assertEqual(
@@ -55,10 +60,12 @@ class TestApplyMethods(unittest.TestCase):
     @patch.object(CloudflareConfigurator, '_make_request')
     def test_apply_firewall_rules_invokes_api_sequence(self, mock_request):
         mock_request.side_effect = [
-            {'result': [{'id': '1'}], 'success': True},
-            {'success': True},
-            {'success': True, 'result': [{'id': 'filter-id'}]},
-            {'success': True}
+            {'result': [{'id': '1'}], 'success': True},  # GET existing rules
+            {'success': True},  # DELETE existing rule
+            {'success': True, 'result': [{'id': 'filter-id-1'}]},  # filter for rule 1
+            {'success': True},  # firewall rule 1
+            {'success': True, 'result': [{'id': 'filter-id-2'}]},  # filter for rule 2
+            {'success': True}  # firewall rule 2
         ]
         cfg = CloudflareConfigurator('token', 'zone')
         cfg.apply_firewall_rules()
@@ -66,6 +73,8 @@ class TestApplyMethods(unittest.TestCase):
         expected = [
             ('GET', f'/zones/zone/firewall/rules'),
             ('DELETE', f'/zones/zone/firewall/rules/1'),
+            ('POST', f'/zones/zone/filters'),
+            ('POST', f'/zones/zone/firewall/rules'),
             ('POST', f'/zones/zone/filters'),
             ('POST', f'/zones/zone/firewall/rules')
         ]
