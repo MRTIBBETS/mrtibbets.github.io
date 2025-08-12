@@ -1,11 +1,11 @@
-# ROBOTS.TXT: SEARCH ENGINE CRAWLING INSTRUCTIONS FOR ALEXANDER TIBBETS WEBSITE
-# THIS FILE TELLS SEARCH ENGINES WHICH PAGES THEY CAN AND CANNOT CRAWL
+# Search Engine Crawling Instructions
+# This file tells search engines which pages they can and cannot crawl
 
-# UNIVERSAL ACCESS: ALLOW ALL SEARCH ENGINES TO CRAWL THE ENTIRE WEBSITE
+# Universal Access
 User-agent: *
 Allow: /
 
-# MAJOR SEARCH ENGINES: EXPLICIT PERMISSION FOR ALL MAJOR SEARCH ENGINES
+# Major Search Engines
 User-agent: Googlebot
 Allow: /
 
@@ -24,10 +24,10 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
-# SITEMAP LOCATION: POINTS SEARCH ENGINES TO THE XML SITEMAP FOR EFFICIENT CRAWLING
+# Sitemap Location
 Sitemap: https://www.alexandertibbets.com/sitemap.xml
 
-# ARCHIVE BLOCKING: PREVENT INTERNET ARCHIVE AND WAYBACK MACHINE FROM ARCHIVING THE SITE
+# Archive Blocking
 User-agent: archive.org_bot
 Disallow: /
 

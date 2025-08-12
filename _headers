@@ -1,32 +1,42 @@
 /*
-  # BASIC SECURITY HEADERS: MINIMAL PROTECTION WITHOUT BLOCKING SEARCH ENGINES
+  # Security Headers
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
-  Referrer-Policy: no-referrer-when-downgrade
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-XSS-Protection: 1; mode=block
+  X-Download-Options: noopen
+  X-Permitted-Cross-Domain-Policies: none
   
-  # SEARCH ENGINE OPTIMIZATION: EXPLICITLY ALLOW SEARCH ENGINES TO INDEX ALL CONTENT
+  # Search Engine Optimization
   X-Robots-Tag: index, follow
+  
+  # Performance Headers
+  Vary: Accept-Encoding
+  X-Served-By: Cloudflare
 
-# GOOGLE SEARCH CONSOLE VERIFICATION: CONTENT TYPE FOR VERIFICATION FILES
+# Google Search Console Verification
 /ads.txt
   Content-Type: text/plain
 
-# CACHE CONTROL HEADERS: OPTIMIZED FOR GITHUB PAGES AND CLOUDFLARE CDN
+# HTML Files
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
   Surrogate-Control: max-age=3600
   Surrogate-Key: html
 
+# Stylesheets
 /*.css
   Cache-Control: public, max-age=0, must-revalidate
   Surrogate-Control: max-age=31536000
   Surrogate-Key: static
 
+# JavaScript Files
 /*.js
   Cache-Control: public, max-age=0, must-revalidate
   Surrogate-Control: max-age=31536000
   Surrogate-Key: static
 
+# Images
 /*.png
   Cache-Control: public, max-age=0, must-revalidate
   Surrogate-Control: max-age=31536000
@@ -52,6 +62,7 @@
   Surrogate-Control: max-age=31536000
   Surrogate-Key: static
 
+# Fonts
 /*.woff
   Cache-Control: public, max-age=0, must-revalidate
   Surrogate-Control: max-age=31536000

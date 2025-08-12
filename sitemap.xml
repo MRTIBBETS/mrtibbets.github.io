@@ -38,7 +38,7 @@
     <priority>0.3</priority>
   </url>
   
-  <!-- SITEMAP: THIS FILE FOR SEARCH ENGINE DISCOVERY -->
+  <!-- Sitemap -->
   <url>
     <loc>https://www.alexandertibbets.com/sitemap.xml</loc>
     <lastmod>2025-01-07</lastmod>
@@ -46,7 +46,7 @@
     <priority>0.5</priority>
   </url>
   
-  <!-- STYLESHEET: CSS FILE FOR STYLING -->
+  <!-- Stylesheet -->
   <url>
     <loc>https://www.alexandertibbets.com/style.css</loc>
     <lastmod>2025-01-07</lastmod>
@@ -54,7 +54,31 @@
     <priority>0.2</priority>
   </url>
   
-  <!-- GOOGLE VERIFICATION: SEARCH CONSOLE VERIFICATION FILE -->
+  <!-- JavaScript -->
+  <url>
+    <loc>https://www.alexandertibbets.com/assets/js/common.js</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <!-- Service Worker -->
+  <url>
+    <loc>https://www.alexandertibbets.com/sw.js</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  
+  <!-- PWA Manifest -->
+  <url>
+    <loc>https://www.alexandertibbets.com/manifest.json</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  
+  <!-- Google Verification -->
   <url>
     <loc>https://www.alexandertibbets.com/zF3aH2OlvOacziK6m58aGo47DsJNfHrdSPpfAUo5Y8k.html</loc>
     <lastmod>2025-01-07</lastmod>
@@ -62,7 +86,7 @@
     <priority>0.1</priority>
   </url>
   
-  <!-- ASSETS: IMAGES AND ICONS -->
+  <!-- Images -->
   <url>
     <loc>https://www.alexandertibbets.com/assets/images/banner.png</loc>
     <lastmod>2025-01-07</lastmod>
@@ -77,7 +101,7 @@
     <priority>0.2</priority>
   </url>
   
-  <!-- SOCIAL MEDIA ICONS -->
+  <!-- Icons -->
   <url>
     <loc>https://www.alexandertibbets.com/assets/icons/apple_music.svg</loc>
     <lastmod>2025-01-07</lastmod>

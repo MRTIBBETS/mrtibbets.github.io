@@ -1,116 +1,289 @@
 <!DOCTYPE html>
 <html lang="en-US">
-
 <head>
-  <!-- ESSENTIAL META TAGS FOR SEARCH ENGINE OPTIMIZATION AND SOCIAL MEDIA SHARING -->
-  <title>Alexander Tibbets | Website</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>Alexander Tibbets | Website</title>
   <meta name="description" content="👋 My name is Alexander and my work focuses on audience, product, story, then growth. Welcome to my website.">
   <meta name="author" content="Alexander Tibbets">
   <meta name="keywords" content="Alexander Tibbets, Alex Tibbets, website, startups, media technology, marketing, business, Berkeley, California, Duncanville, Dallas, Texas, New York University, NYU, film, video">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <link rel="canonical" href="https://www.alexandertibbets.com">
   
-  <!-- GOOGLE SEARCH CONSOLE VERIFICATION FOR DOMAIN OWNERSHIP -->
-  <meta name="google-site-verification" content="zF3aH2OlvOacziK6m58aGo47DsJNfHrdSPpfAUo5Y8k" />
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="zF3aH2OlvOacziK6m58aGo47DsJNfHrdSPpfAUo5Y8k">
   
-  <!-- PERFORMANCE OPTIMIZATION: PRELOAD CRITICAL RESOURCES FOR FASTER PAGE LOAD -->
+  <!-- Performance Optimization -->
   <link rel="preconnect" href="https://www.alexandertibbets.com" crossorigin>
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
   <link rel="preconnect" href="https://use.fontawesome.com" crossorigin>
-  <link rel="preload" href="/style.css" as="style">
-  <link rel="preload" href="/assets/images/banner.png" as="image">
-  <link rel="preload" href="/assets/favicon.ico" as="image">
-  <link rel="preload" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" as="style">
   
-  <!-- SECURITY HEADERS: BASIC PROTECTION WITHOUT BLOCKING SEARCH ENGINES -->
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Alex Tibbets">
+  <link rel="apple-touch-icon" href="/assets/images/banner.png">
+  
+  <!-- Security Headers -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="DENY">
 
-  <!-- OPEN GRAPH META TAGS: OPTIMIZED FOR FACEBOOK, LINKEDIN, AND OTHER SOCIAL PLATFORMS -->
+  <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Alexander Tibbets">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.alexandertibbets.com/">
   <meta property="og:description" content="Alexander Tibbets - Building things, telling stories, and helping people.">
   <meta property="og:image" content="https://www.alexandertibbets.com/assets/images/banner.png">
 
-  <!-- TWITTER CARD META TAGS: OPTIMIZED FOR TWITTER SHARING AND PREVIEW -->
+  <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://www.alexandertibbets.com/">
   <meta name="twitter:title" content="Alexander Tibbets">
   <meta name="twitter:description" content="Alexander Tibbets - Building things, telling stories, and helping people.">
   <meta name="twitter:image" content="https://www.alexandertibbets.com/assets/images/banner.png">
 
-  <!-- RESOURCE LOADING: STYLESHEETS, ICONS, AND EXTERNAL FONTS -->
+  <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
-  <link rel="stylesheet" href="/style.css">
+  
+  <!-- Critical CSS -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --primary-color: #000;
+      --background-color: #FAFAFA;
+      --font-family: 'Courier New', Courier, monospace;
+      --font-size-h1: 3.5rem;
+      --font-size-body: 1.2rem;
+      --line-height-base: 1.6;
+      --line-height-heading: 1.2;
+      --letter-spacing: 0.1em;
+      --font-weight-normal: 410;
+      --content-max-width: 900px;
+      --horizontal-margin: clamp(20px, 5vw, 60px);
+      --vertical-spacing: 2rem;
+    }
+    
+    html {
+      height: 100%;
+    }
+    
+    body {
+      font-family: var(--font-family);
+      line-height: var(--line-height-base);
+      color: var(--primary-color);
+      background-color: var(--background-color);
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      justify-items: center;
+      align-items: center;
+      padding: var(--vertical-spacing) var(--horizontal-margin);
+      margin: 0;
+      font-weight: var(--font-weight-normal);
+      letter-spacing: var(--letter-spacing);
+      font-size: var(--font-size-body);
+    }
+    
+    #content {
+      max-width: var(--content-max-width);
+      width: 100%;
+      padding: var(--vertical-spacing) 0;
+      margin: 0 auto;
+      text-align: left;
+      outline: none;
+    }
+    
+    #content h1 {
+      font-size: var(--font-size-h1);
+      margin: 0 0 1rem 0;
+      font-weight: normal;
+      line-height: var(--line-height-heading);
+      color: var(--primary-color);
+    }
+    
+    #content p {
+      font-size: var(--font-size-body);
+      line-height: var(--line-height-base);
+      margin: 0 0 1rem 0;
+      color: var(--primary-color);
+    }
+    
+    #content p:last-child {
+      margin-bottom: 2rem;
+    }
+    
+    #content a {
+      color: var(--primary-color);
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+    
+    footer {
+      width: 100%;
+      padding: 2rem 0;
+      text-align: center;
+      background-color: var(--background-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .copyright {
+      font-size: 0.8rem;
+      color: var(--primary-color);
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+    
+    .social-media {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      min-width: 280px;
+    }
+    
+    .social-media a {
+      color: var(--primary-color);
+      text-decoration: none !important;
+      padding: 1rem;
+      border-radius: 8px;
+      background-color: var(--background-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    
+    .social-media i {
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    @media (max-width: 480px) {
+      :root {
+        --font-size-h1: 2.5rem;
+        --font-size-body: 1rem;
+        --horizontal-margin: 20px;
+        --vertical-spacing: 1.5rem;
+      }
+      
+      .social-media {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        min-width: 200px;
+      }
+      
+      .social-media a {
+        padding: 0.75rem;
+      }
+      
+      .social-media i {
+        font-size: 20px;
+      }
+    }
+  </style>
+  
+  <!-- Non-Critical CSS -->
+  <link rel="preload" href="/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  
+  <!-- FontAwesome -->
   <link href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" rel="stylesheet">
 
-  <!-- DOMAIN REDIRECTION: AUTOMATIC REDIRECT FROM APEX DOMAIN TO WWW SUBDOMAIN -->
+  <!-- JavaScript -->
+  <script src="/assets/js/common.js" defer></script>
+  
+  <!-- Service Worker -->
   <script>
-    // AUTOMATIC REDIRECT FROM APEX DOMAIN TO WWW SUBDOMAIN WITH ERROR HANDLING
-    try {
-      if (location.hostname === 'alexandertibbets.com') {
-        location.href = 'https://www.alexandertibbets.com' + location.pathname + location.search + location.hash;
-      }
-    } catch (e) {
-      console.error('REDIRECT FAILED:', e);
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('Service worker registered:', registration);
+          })
+          .catch(error => {
+            console.log('Service worker registration failed:', error);
+          });
+      });
     }
   </script>
-
-  <!-- GOOGLE ANALYTICS: PRIVACY-FOCUSED TRACKING WITH ANONYMIZED IP ADDRESSES -->
+  
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GGXQFFQVVY"></script>
   <script defer>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-GGXQFFQVVY', {
-      'anonymize_ip': true,
-      'cookie_flags': 'SameSite=None;Secure'
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.AlexanderTibbetsWebsite) {
+        window.AlexanderTibbetsWebsite.initializeAnalytics();
+      }
     });
   </script>
-
 </head>
 
-<!-- MAIN DOCUMENT BODY: CONTAINS ALL VISIBLE CONTENT -->
 <body>
+  <!-- Google Analytics Fallback -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/gtag/js?id=G-GGXQFFQVVY"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
 
-  <!-- GOOGLE ANALYTICS FALLBACK: NOSCRIPT VERSION FOR USERS WITH JAVASCRIPT DISABLED -->
-  <noscript><iframe src="https://www.googletagmanager.com/gtag/js?id=G-GGXQFFQVVY"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-  <!-- MAIN CONTENT AREA: BIOGRAPHY, INTRODUCTION, AND SOCIAL MEDIA LINKS -->
-  <div id="content" role="main" aria-label="Main content">
+  <!-- Main Content -->
+  <main id="content" role="main" aria-label="Main content">
     <h1>👋</h1>
     <p>My name is Alexander Tibbets.</p> 
     <p>I like to build things, tell stories, and help people.</p>
     <p><a target="_blank" rel="noopener" href="https://ifttt.com" title="IFTTT">IFTTT</a> is an app I co-founded that lets you connect all the things in your life, on your terms.</p>
     <p>Today I help startups launch, pivot, and grow their business. Especially within media technology and developer tools.</p>
-    <p>Feel free to <a target="_blank" rel="noopener" href="mailto:alexander.tibbets@gmail.com?subject=%F0%9F%91%8B%20Let's%20connect%20and%20talk%20shop" title="Reach out">reach out</a> if you'd like to connect and share ideas</a>.</p>
+    <p>Feel free to <a target="_blank" rel="noopener" href="mailto:alexander.tibbets@gmail.com?subject=%F0%9F%91%8B%20Let's%20connect%20and%20talk%20shop" title="Reach out">reach out</a> if you'd like to connect and share ideas.</p>
     
     <br><br>
 
-    <!-- SOCIAL MEDIA NAVIGATION: EMAIL, LINKEDIN, GITHUB, AND YOUTUBE LINKS -->
-    <div class="social-media" aria-label="Social media links">   
-      <a href="mailto:alexander.tibbets@gmail.com?subject=%F0%9F%91%8B%20Let's%20connect%20and%20talk%20shop" target="_blank" rel="noopener" aria-label="Email Alexander Tibbets"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
-      <a href="https://www.linkedin.com/in/mrtibbets" target="_blank" rel="noopener" aria-label="Connect on LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
-      <a href="https://github.com/MRTIBBETS" target="_blank" rel="noopener" aria-label="Follow on GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
-      <a href="https://www.youtube.com/@mrtibbets" target="_blank" rel="noopener" aria-label="Follow on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
-    </div>
-  </div>
+    <!-- Social Media Navigation -->
+    <nav class="social-media" aria-label="Social media links">   
+      <a href="mailto:alexander.tibbets@gmail.com?subject=%F0%9F%91%8B%20Let's%20connect%20and%20talk%20shop" target="_blank" rel="noopener" aria-label="Email Alexander Tibbets">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/mrtibbets" target="_blank" rel="noopener" aria-label="Connect on LinkedIn">
+        <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+      </a>
+      <a href="https://github.com/MRTIBBETS" target="_blank" rel="noopener" aria-label="Follow on GitHub">
+        <i class="fa-brands fa-github" aria-hidden="true"></i>
+      </a>
+      <a href="https://www.youtube.com/@mrtibbets" target="_blank" rel="noopener" aria-label="Follow on YouTube">
+        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+      </a>
+    </nav>
+  </main>
 
-    <br><br>
+  <br><br>
 
-  <!-- SITE FOOTER: COPYRIGHT INFORMATION AND LEGAL NOTICES -->
+  <!-- Footer -->
   <footer role="contentinfo">
     <div class="copyright">
       © 2025&nbsp;&nbsp;&nbsp;Alexander Tibbets&nbsp;&nbsp;&nbsp;Berkeley
     </div>
   </footer>
 
-  <!-- STRUCTURED DATA: SCHEMA.ORG MARKUP FOR ENHANCED SEARCH ENGINE UNDERSTANDING -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
