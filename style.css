@@ -1,4 +1,44 @@
 /* ==========================================================================
+   STYLESHEET - ALEXANDER TIBBETS WEBSITE
+   ========================================================================== */
+
+/* ===== QUICK TWEAKS SECTION ===== */
+/* 
+   This section contains the most commonly adjusted values.
+   Change these to quickly modify the overall look and feel.
+*/
+
+:root {
+  /* ===== COLORS - Change these to update the color scheme ===== */
+  --primary-color: #000;                    /* Main text color */
+  --background-color: #FAFAFA;              /* Page background */
+  --hover-color: #D4AF37;                   /* Hover state color (gold) */
+  --border-color: #e0e0e0;                  /* Border color for cards */
+  --subtitle-color: #666;                   /* Subtitle text color */
+  
+  /* ===== TYPOGRAPHY - Adjust font sizes and spacing ===== */
+  --font-family: 'Courier New', Courier, monospace;  /* Typewriter font */
+  --font-size-h1: 3.5rem;                   /* Main heading size */
+  --font-size-h2: 2.2rem;                   /* Section heading size */
+  --font-size-body: 1.2rem;                 /* Body text size */
+  --line-height-base: 1.6;                  /* Line spacing for readability */
+  --line-height-heading: 1.2;               /* Line spacing for headings */
+  --letter-spacing: 0.1em;                  /* Letter spacing for typewriter feel */
+  --font-weight-normal: 410;                /* Font weight (400 = normal) */
+  
+  /* ===== LAYOUT - Adjust content width and margins ===== */
+  --content-max-width: 900px;               /* Maximum content width */
+  --horizontal-margin: clamp(20px, 5vw, 60px);  /* Side margins (responsive) */
+  --vertical-spacing: 2rem;                 /* Top/bottom spacing */
+  
+  /* ===== SPACING - Adjust gaps and padding ===== */
+  --section-gap: 2rem;                      /* Space between sections */
+  --card-padding: 1rem;                     /* Padding inside profile cards */
+  --card-gap: 1rem;                         /* Gap between profile cards */
+  --card-min-height: 80px;                  /* Minimum height of profile cards */
+}
+
+/* ==========================================================================
    GLOBAL RESET & BASE STYLES
    ========================================================================== */
 
@@ -8,58 +48,23 @@
   box-sizing: border-box;
 }
 
-:root {
-  /* Color System */
-  --primary-color: #000;
-  --background-color: #FAFAFA;
-  --link-color: #000;
-  --link-hover-color: #D4AF37;
-  --border-color: #e0e0e0;
-  --text-secondary: #666;
-  --text-tertiary: #555;
-  
-  /* Typography System */
-  --font-family: 'Courier New', Courier, monospace;
-  --font-size-h1: 3.5rem;
-  --font-size-body: 1.2rem;
-  --font-size-h2: 2.2rem;
-  --font-size-small: 0.8rem;
-  --line-height-base: 1.6;
-  --line-height-heading: 1.2;
-  --letter-spacing: 0.1em;
-  --font-weight-normal: 410;
-  
-  /* Layout System */
-  --content-max-width: 900px;
-  --horizontal-margin: clamp(20px, 5vw, 60px);
-  --vertical-spacing: 2rem;
-  --section-spacing: 40px;
-  --header-spacing: 30px;
-  
-  /* Component System */
-  --icon-size: 24px;
-  --grid-gap: 16px;
-  --border-radius: 8px;
-  --transition-duration: 0.2s;
-  --transition-timing: ease;
-  
-  /* Responsive Breakpoints */
-  --breakpoint-mobile: 480px;
-  --breakpoint-tablet: 768px;
-  --breakpoint-desktop: 992px;
-  --breakpoint-wide: 1200px;
-}
-
 html {
   height: 100%;
-  scroll-behavior: smooth;
 }
 
 body {
+  /* ===== FONT SETTINGS ===== */
   font-family: var(--font-family);
+  font-size: var(--font-size-body);
   line-height: var(--line-height-base);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing);
+  
+  /* ===== COLORS ===== */
   color: var(--primary-color);
   background-color: var(--background-color);
+  
+  /* ===== LAYOUT ===== */
   min-height: 100vh;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
@@ -67,13 +72,10 @@ body {
   align-items: center;
   padding: var(--vertical-spacing) var(--horizontal-margin);
   margin: 0;
-  font-weight: var(--font-weight-normal);
-  letter-spacing: var(--letter-spacing);
-  font-size: var(--font-size-body);
 }
 
 /* ==========================================================================
-   LAYOUT & CONTENT
+   MAIN CONTENT LAYOUT
    ========================================================================== */
 
 #content {
@@ -85,83 +87,69 @@ body {
   outline: none;
 }
 
+/* ==========================================================================
+   TYPOGRAPHY SYSTEM
+   ========================================================================== */
+
+/* ===== HEADINGS ===== */
 #content h1 {
   font-size: var(--font-size-h1);
-  margin: 0 0 1rem 0;
   font-weight: normal;
   line-height: var(--line-height-heading);
   color: var(--primary-color);
+  margin: 0 0 1rem 0;
 }
 
 #content h2 {
   font-size: var(--font-size-h2);
-  margin: 0 0 1rem 0;
   font-weight: normal;
   line-height: var(--line-height-heading);
   color: var(--primary-color);
+  margin: 0 0 1rem 0;
 }
 
+/* ===== BODY TEXT ===== */
 #content p {
   font-size: var(--font-size-body);
   line-height: var(--line-height-base);
-  margin: 0 0 1rem 0;
   color: var(--primary-color);
+  margin: 0 0 1rem 0;
 }
 
 #content p:last-child {
   margin-bottom: 2rem;
 }
 
+/* ===== LINKS ===== */
 #content a {
-  color: var(--link-color);
+  color: var(--primary-color);
   text-decoration: underline;
   text-underline-offset: 0.2em;
-  transition: color var(--transition-duration) var(--transition-timing);
-  font-size: var(--font-size-body);
-}
-
-#content a:hover,
-#content a:focus {
-  color: var(--link-hover-color);
-  outline: none;
 }
 
 /* ==========================================================================
-   HEADER & PROFILE SECTIONS
+   HEADER & SECTION LAYOUTS
    ========================================================================== */
 
+/* ===== PAGE HEADER ===== */
 header {
-  margin-bottom: var(--header-spacing);
-  text-align: left !important;
+  margin-bottom: var(--section-gap);
+  text-align: left;
 }
 
-header h1 {
-  font-size: var(--font-size-h1);
-  margin-bottom: 1rem;
-  font-weight: normal;
-  text-align: left !important;
-  color: var(--primary-color);
-}
-
+/* ===== SUBTITLE ===== */
 .subtitle {
   font-size: var(--font-size-body);
-  color: var(--text-secondary);
+  color: var(--subtitle-color);
   margin-bottom: 1rem;
   font-weight: normal;
-  text-align: left !important;
+  text-align: left;
 }
 
-.description {
-  font-size: var(--font-size-body);
-  line-height: var(--line-height-base);
-  max-width: 600px;
-  margin: 0 auto;
-  color: var(--text-tertiary);
-}
-
+/* ===== PROFILE SECTIONS ===== */
 .profile-section {
-  margin-bottom: var(--section-spacing);
-  padding: 2rem 0;
+  margin-bottom: var(--section-gap);
+  padding: var(--section-gap) 0;
 }
 
 .profile-section h2 {
@@ -173,65 +161,16 @@ header h1 {
   font-size: var(--font-size-h2);
 }
 
-.profile-section p {
-  margin-bottom: 1rem;
-  color: var(--text-tertiary);
-  font-size: var(--font-size-body);
-}
-
-.about-section {
-  margin-top: var(--section-spacing);
-  padding: 2rem 0;
-  border-top: 1px solid var(--border-color);
-}
-
-.about-section h2 {
-  margin-bottom: 1rem;
-  font-size: var(--font-size-h2);
-  font-weight: normal;
-  color: var(--primary-color);
-}
-
-.about-section p {
-  margin-bottom: 1rem;
-  line-height: var(--line-height-base);
-  font-size: var(--font-size-body);
-}
-
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
-
-footer {
-  width: 100%;
-  padding: 2rem 0;
-  text-align: center;
-  background-color: var(--background-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-x: auto;
-}
-
-.copyright {
-  font-size: var(--font-size-small);
-  color: var(--primary-color);
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-}
-
 /* ==========================================================================
    SOCIAL MEDIA & PROFILES GRID
    ========================================================================== */
 
+/* ===== GRID CONTAINERS ===== */
 .social-media,
 .profiles-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  gap: var(--card-gap);
   width: 100%;
   margin: 0;
   padding: 0;
@@ -243,91 +182,84 @@ footer {
   overflow-x: auto;
 }
 
+.profiles-grid {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--card-gap);
+}
+
+/* ===== GRID ITEMS (PROFILE CARDS) ===== */
 .social-media a,
 .profiles-grid a {
-  color: var(--primary-color);
-  text-decoration: none !important;
-  padding: 1rem;
-  border-radius: var(--border-radius);
-  background-color: var(--background-color);
-  transition: all var(--transition-duration) var(--transition-timing);
+  /* ===== LAYOUT ===== */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  
+  /* ===== SIZING ===== */
+  padding: var(--card-padding);
+  min-height: var(--card-min-height);
+  
+  /* ===== APPEARANCE ===== */
+  color: var(--primary-color);
+  text-decoration: none;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  
+  /* ===== INTERACTIONS ===== */
+  transition: all 0.2s ease;
 }
 
+.profiles-grid a {
+  flex-direction: column;
+  text-align: center;
+  padding: var(--card-padding) 0.5rem;
+  background-color: #fff;
+}
+
+/* ===== HOVER EFFECTS ===== */
 .social-media a:hover,
 .social-media a:focus,
 .profiles-grid a:hover,
 .profiles-grid a:focus {
-  color: var(--link-hover-color);
-  text-decoration: none !important;
+  color: var(--hover-color);
+  text-decoration: none;
   outline: none;
+  border-color: var(--hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* ===== ICONS & IMAGES ===== */
 .social-media i,
 .profiles-grid i {
-  font-size: var(--icon-size);
-  width: var(--icon-size);
-  height: var(--icon-size);
+  font-size: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .social-media img {
-  width: var(--icon-size);
-  height: var(--icon-size);
-}
-
-.social-media a:hover img {
-  filter: brightness(0) saturate(100%) invert(77%) sepia(29%) saturate(1000%) hue-rotate(358deg) brightness(103%) contrast(103%);
-}
-
-.profiles-grid {
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1rem;
-}
-
-.profiles-grid a {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 80px;
-  text-align: center;
-  padding: 1rem 0.5rem;
-  border: 1px solid var(--border-color);
-  background-color: #fff;
-  border-radius: var(--border-radius);
-  transition: all 0.3s ease;
-}
-
-.profiles-grid a:hover,
-.profiles-grid a:focus {
-  color: var(--link-hover-color);
-  text-decoration: none !important;
-  outline: none;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-color: var(--link-hover-color);
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .profiles-grid i,
 .profiles-grid img {
-  width: var(--icon-size);
-  height: var(--icon-size);
-  font-size: var(--icon-size);
-  text-decoration: none !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-bottom: 0.5rem;
-  transition: filter 0.3s ease;
+  transition: filter 0.2s ease;
+}
+
+/* ===== HOVER EFFECTS FOR ICONS ===== */
+.social-media a:hover img {
+  filter: brightness(0) saturate(100%) invert(77%) sepia(29%) saturate(1000%) hue-rotate(358deg) brightness(103%) contrast(103%);
 }
 
 .profiles-grid a:hover i {
-  color: var(--link-hover-color);
+  color: var(--hover-color);
 }
 
 .profiles-grid img {
@@ -338,6 +270,7 @@ footer {
   filter: brightness(0) saturate(100%) invert(77%) sepia(29%) saturate(1000%) hue-rotate(358deg) brightness(103%) contrast(103%);
 }
 
+/* ===== PLATFORM NAMES ===== */
 .platform-name {
   font-size: 0.8em;
   font-weight: 500;
@@ -348,36 +281,49 @@ footer {
 }
 
 /* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+footer {
+  width: 100%;
+  padding: var(--section-gap) 0;
+  text-align: center;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* ==========================================================================
    RESPONSIVE DESIGN
    ========================================================================== */
 
+/* ===== MOBILE (480px and below) ===== */
 @media (max-width: 480px) {
-  :root {
-    --font-size-h1: 2.5rem;
-    --font-size-body: 1rem;
-    --font-size-h2: 1.8rem;
-    --font-size-small: 0.7rem;
-    --horizontal-margin: 20px;
-    --vertical-spacing: 1.5rem;
-    --icon-size: 20px;
-  }
-  
-  .social-media,
   .profiles-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;
   }
   
   .social-media {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
     min-width: 200px;
   }
   
   .social-media a {
     padding: 0.75rem;
-  }
-  
-  .profiles-grid {
-    grid-template-columns: 1fr;
   }
   
   .profiles-grid a {
@@ -390,128 +336,70 @@ footer {
   }
 }
 
+/* ===== SMALL TABLET (481px - 767px) ===== */
 @media (min-width: 481px) and (max-width: 767px) {
-  :root {
-    --font-size-h1: 3rem;
-    --font-size-body: 1.1rem;
-    --font-size-h2: 2rem;
-    --font-size-small: 0.75rem;
-    --horizontal-margin: 30px;
-    --vertical-spacing: 2rem;
-    --icon-size: 28px;
-  }
-  
-  .social-media a {
-    padding: 1rem;
-  }
-  
   .profiles-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  .profiles-grid a {
-    padding: 1rem;
-    min-height: 75px;
-  }
-  
-  .profiles-grid i {
-    margin-bottom: 0.5rem;
-  }
 }
 
+/* ===== TABLET (768px - 991px) ===== */
 @media (min-width: 768px) and (max-width: 991px) {
-  :root {
-    --font-size-h1: 3.5rem;
-    --font-size-body: 1.2rem;
-    --font-size-h2: 2.2rem;
-    --font-size-small: 0.8rem;
-    --horizontal-margin: 40px;
-    --vertical-spacing: 2.5rem;
-    --icon-size: 32px;
-  }
-  
   .profiles-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-  
-  .profiles-grid a {
-    padding: 1.25rem;
-    min-height: 80px;
-  }
-  
-  .profiles-grid i {
-    margin-bottom: 0.5rem;
-  }
 }
 
+/* ===== DESKTOP (992px and above) ===== */
 @media (min-width: 992px) {
-  :root {
-    --font-size-h1: 4rem;
-    --font-size-body: 1.3rem;
-    --font-size-h2: 2.5rem;
-    --font-size-small: 0.85rem;
-    --horizontal-margin: 50px;
-    --vertical-spacing: 3rem;
-    --icon-size: 36px;
-  }
-  
-  .social-media a {
-    padding: 1.5rem;
-  }
-  
   .profiles-grid {
     grid-template-columns: repeat(4, 1fr);
-  }
-  
-  .profiles-grid a {
-    padding: 1.5rem;
-    min-height: 85px;
-  }
-  
-  .profiles-grid i {
-    margin-bottom: 0.5rem;
   }
 }
 
 /* ==========================================================================
-   ACCESSIBILITY & UTILITIES
+   CUSTOMIZATION GUIDE
    ========================================================================== */
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-:focus {
-  outline: 2px solid var(--link-hover-color);
-  outline-offset: 2px;
-}
-
-@media (forced-colors: active) {
-  .social-media a,
-  .profiles-grid a {
-    border: 1px solid currentColor;
-  }
-}
-
-@media print {
-  body {
-    background: white;
-    color: black;
-    font-size: 12pt;
-  }
-  
-  .social-media,
-  .profiles-grid {
-    display: none;
-  }
-  
-  a {
-    color: black;
-    text-decoration: underline;
-  }
-}
+/*
+   QUICK TWEAKS - Change these values in the :root section above:
+   
+   1. COLORS:
+      - Change --primary-color to update main text color
+      - Change --background-color to update page background
+      - Change --hover-color to update hover effects
+      - Change --border-color to update card borders
+      - Change --subtitle-color to update subtitle text
+   
+   2. TYPOGRAPHY:
+      - Change --font-size-h1 to adjust main heading size
+      - Change --font-size-h2 to adjust section heading size
+      - Change --font-size-body to adjust body text size
+      - Change --line-height-base to adjust text spacing
+      - Change --letter-spacing to adjust typewriter feel
+   
+   3. LAYOUT:
+      - Change --content-max-width to adjust content width
+      - Change --horizontal-margin to adjust side margins
+      - Change --vertical-spacing to adjust top/bottom spacing
+   
+   4. SPACING:
+      - Change --section-gap to adjust space between sections
+      - Change --card-padding to adjust card internal spacing
+      - Change --card-gap to adjust space between cards
+      - Change --card-min-height to adjust card height
+   
+   5. RESPONSIVE:
+      - Modify the media query breakpoints if needed
+      - Adjust grid columns for different screen sizes
+   
+   EXAMPLE: To make everything more spacious, increase these values:
+   --vertical-spacing: 3rem;        (from 2rem)
+   --section-gap: 3rem;            (from 2rem)
+   --card-padding: 1.5rem;         (from 1rem)
+   --card-gap: 1.5rem;             (from 1rem)
+   
+   EXAMPLE: To make text larger, increase these values:
+   --font-size-h1: 4rem;           (from 3.5rem)
+   --font-size-body: 1.4rem;       (from 1.2rem)
+*/
