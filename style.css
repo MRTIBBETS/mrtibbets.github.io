@@ -11,7 +11,7 @@
 :root {
   /* ===== COLORS - Change these to update the color scheme ===== */
   --primary-color: #000;                    /* Main text color */
-  --background-color: #FAFAFA;              /* Page background */
+  --background-color: #faf8f3;              /* Page background - warm paper color */
   --hover-color: #D4AF37;                   /* Hover state color (gold) */
   --border-color: #e0e0e0;                  /* Border color for cards */
   --subtitle-color: #666;                   /* Subtitle text color */
@@ -20,7 +20,7 @@
   --font-family: 'Courier New', Courier, monospace;  /* Typewriter font */
   --font-size-h1: 3.5rem;                   /* Main heading size */
   --font-size-h2: 2.2rem;                   /* Section heading size */
-  --font-size-body: 1.2rem;                 /* Body text size */
+  --font-size-body: 1.8rem;                 /* Body text size (increased 1.5x from 1.2rem) */
   --line-height-base: 1.6;                  /* Line spacing for readability */
   --line-height-heading: 1.2;               /* Line spacing for headings */
   --letter-spacing: 0.1em;                  /* Letter spacing for typewriter feel */
@@ -28,7 +28,7 @@
   
   /* ===== LAYOUT - Adjust content width and margins ===== */
   --content-max-width: 900px;               /* Maximum content width */
-  --horizontal-margin: clamp(20px, 5vw, 60px);  /* Side margins (responsive) */
+  --horizontal-margin: clamp(40px, 10vw, 120px);  /* Side margins (doubled from 20px, 5vw, 60px) */
   --vertical-spacing: 2rem;                 /* Top/bottom spacing */
   
   /* ===== SPACING - Adjust gaps and padding ===== */
@@ -125,6 +125,12 @@ body {
   color: var(--primary-color);
   text-decoration: underline;
   text-underline-offset: 0.2em;
+  transition: color 0.2s ease;
+}
+
+#content a:hover,
+#content a:focus {
+  color: var(--hover-color);
 }
 
 /* ==========================================================================
@@ -180,6 +186,8 @@ header {
   min-width: 280px;
   flex-wrap: nowrap;
   overflow-x: auto;
+  /* Prevent wrapping on homepage */
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .profiles-grid {
@@ -204,11 +212,11 @@ header {
   color: var(--primary-color);
   text-decoration: none;
   background-color: var(--background-color);
-  border: 1px solid var(--border-color);
+  border: none; /* Removed border */
   border-radius: 8px;
   
   /* ===== INTERACTIONS ===== */
-  transition: all 0.2s ease;
+  transition: color 0.2s ease; /* Only color transition, no motion */
 }
 
 .profiles-grid a {
@@ -216,6 +224,7 @@ header {
   text-align: center;
   padding: var(--card-padding) 0.5rem;
   background-color: #fff;
+  text-decoration: none; /* Remove underline from profiles grid */
 }
 
 /* ===== HOVER EFFECTS ===== */
@@ -226,9 +235,7 @@ header {
   color: var(--hover-color);
   text-decoration: none;
   outline: none;
-  border-color: var(--hover-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* Removed transform and box-shadow (no motion) */
 }
 
 /* ===== ICONS & IMAGES ===== */
@@ -341,6 +348,10 @@ footer {
   .profiles-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  
+  .social-media {
+    grid-template-columns: repeat(4, 1fr); /* Keep 4 columns on homepage */
+  }
 }
 
 /* ===== TABLET (768px - 991px) ===== */
@@ -348,12 +359,20 @@ footer {
   .profiles-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  
+  .social-media {
+    grid-template-columns: repeat(4, 1fr); /* Keep 4 columns on homepage */
+  }
 }
 
 /* ===== DESKTOP (992px and above) ===== */
 @media (min-width: 992px) {
   .profiles-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .social-media {
+    grid-template-columns: repeat(4, 1fr); /* Keep 4 columns on homepage */
   }
 }
 
@@ -401,5 +420,5 @@ footer {
    
    EXAMPLE: To make text larger, increase these values:
    --font-size-h1: 4rem;           (from 3.5rem)
-   --font-size-body: 1.4rem;       (from 1.2rem)
+   --font-size-body: 2rem;         (from 1.8rem)
 */
