@@ -19,7 +19,7 @@
   --font-family: 'Courier New', Courier, monospace;  /* Typewriter font */
   --font-size-h1: 1.8rem;                   /* Main heading size (same as body) */
   --font-size-h2: 1.8rem;                   /* Section heading size (same as body) */
-  --font-size-body: 1.8rem;                 /* Body text size */
+  --font-size-body: 1.8rem;                 /* Body text size (increased 1.5x from 1.2rem) */
   --line-height-base: 1.6;                  /* Line spacing for readability */
   --line-height-heading: 1.2;               /* Line spacing for headings */
   --letter-spacing: 0.1em;                  /* Letter spacing for typewriter feel */
@@ -27,7 +27,7 @@
   
   /* ===== LAYOUT - Adjust content width and margins ===== */
   --content-max-width: 900px;               /* Maximum content width */
-  --horizontal-margin: clamp(80px, 20vw, 240px);  /* Side margins */
+  --horizontal-margin: clamp(80px, 20vw, 240px);  /* Side margins (doubled again for more space) */
   --vertical-spacing: 2rem;                 /* Top/bottom spacing */
   
   /* ===== SPACING - Adjust gaps and padding ===== */
@@ -36,9 +36,9 @@
   --card-gap: 1rem;                         /* Gap between profile cards */
   --card-min-height: 80px;                  /* Minimum height of profile cards */
   
-  /* ===== ICON SIZES ===== */
-  --icon-size: 3rem;                        /* Icon size */
-  --icon-size-mobile: 2.5rem;               /* Icon size on mobile */
+  /* ===== ICON SIZES - Doubled for better visibility ===== */
+  --icon-size: 3rem;                        /* Icon size (doubled from 1.5rem) */
+  --icon-size-mobile: 2.5rem;               /* Icon size on mobile (doubled from 1.25rem) */
 }
 
 /* ==========================================================================
@@ -189,6 +189,7 @@ header {
   min-width: 280px;
   flex-wrap: nowrap;
   overflow-x: auto;
+  /* Prevent wrapping on homepage */
   grid-template-columns: repeat(4, 1fr);
 }
 
@@ -212,13 +213,13 @@ header {
   
   /* ===== APPEARANCE ===== */
   color: var(--primary-color);
-  text-decoration: none;
+  text-decoration: none; /* Remove underline from all social icons */
   background-color: var(--background-color);
-  border: none;
+  border: none; /* Removed border */
   border-radius: 8px;
   
   /* ===== INTERACTIONS ===== */
-  transition: color 0.2s ease;
+  transition: color 0.2s ease; /* Only color transition, no motion */
 }
 
 .profiles-grid a {
@@ -226,6 +227,7 @@ header {
   text-align: center;
   padding: var(--card-padding) 0.5rem;
   background-color: #fff;
+  text-decoration: none; /* Remove underline from profiles grid */
 }
 
 /* ===== HOVER EFFECTS ===== */
@@ -236,6 +238,7 @@ header {
   color: var(--hover-color);
   text-decoration: none;
   outline: none;
+  /* Removed transform and box-shadow (no motion) */
 }
 
 /* ===== ICONS & IMAGES ===== */
@@ -306,11 +309,11 @@ footer {
   font-size: 0.8rem;
   color: var(--primary-color);
   text-align: center;
-  white-space: normal;
-  overflow: visible;
-  text-overflow: clip;
+  white-space: normal; /* Allow wrapping instead of truncation */
+  overflow: visible; /* Show full text */
+  text-overflow: clip; /* Remove ellipsis */
   max-width: 100%;
-  word-wrap: break-word;
+  word-wrap: break-word; /* Break long words if needed */
 }
 
 /* ==========================================================================
@@ -343,6 +346,7 @@ footer {
     font-size: 0.75em;
   }
   
+  /* Keep large icon sizes on mobile */
   .social-media i,
   .profiles-grid i,
   .social-media img,
@@ -360,9 +364,10 @@ footer {
   }
   
   .social-media {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* Keep 4 columns on homepage */
   }
   
+  /* Keep large icon sizes */
   .social-media i,
   .profiles-grid i,
   .social-media img,
@@ -380,9 +385,10 @@ footer {
   }
   
   .social-media {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* Keep 4 columns on homepage */
   }
   
+  /* Keep large icon sizes */
   .social-media i,
   .profiles-grid i,
   .social-media img,
@@ -400,9 +406,10 @@ footer {
   }
   
   .social-media {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* Keep 4 columns on homepage */
   }
   
+  /* Keep large icon sizes */
   .social-media i,
   .profiles-grid i,
   .social-media img,
