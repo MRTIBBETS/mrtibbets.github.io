@@ -1,11 +1,10 @@
 /**
  * Service Worker for Alexander Tibbets website
- * Provides offline capabilities, caching, and performance improvements
+ * Provides offline capabilities and performance improvements
  */
 
 const CACHE_NAME = 'alexander-tibbets-v1.0.0';
 const STATIC_CACHE = 'static-v1.0.0';
-const DYNAMIC_CACHE = 'dynamic-v1.0.0';
 
 const STATIC_ASSETS = [
   '/',
@@ -48,7 +47,7 @@ self.addEventListener('activate', event => {
       .then(cacheNames => {
         return Promise.all(
           cacheNames.map(cacheName => {
-            if (cacheName !== STATIC_CACHE && cacheName !== DYNAMIC_CACHE) {
+            if (cacheName !== STATIC_CACHE) {
               console.log('Deleting old cache:', cacheName);
               return caches.delete(cacheName);
             }
@@ -90,7 +89,7 @@ self.addEventListener('fetch', event => {
     event.respondWith(cacheFirst(request, STATIC_CACHE));
   } else {
     // Other requests: network first, then cache
-    event.respondWith(networkFirst(request, DYNAMIC_CACHE));
+    event.respondWith(networkFirst(request, STATIC_CACHE));
   }
 });
 
@@ -112,7 +111,7 @@ async function cacheFirst(request, cacheName) {
     return networkResponse;
   } catch (error) {
     console.log('Cache first strategy failed:', error);
-    return new Response('Network error', { status: 503 });
+    return new Response('Resource not available', { status: 503 });
   }
 }
 
@@ -136,86 +135,3 @@ async function networkFirst(request, cacheName) {
     return new Response('Offline content not available', { status: 503 });
   }
 }
-
-/**
- * Background sync - handle offline actions
- */
-self.addEventListener('sync', event => {
-  if (event.tag === 'background-sync') {
-    event.waitUntil(doBackgroundSync());
-  }
-});
-
-/**
- * Perform background sync tasks
- */
-async function doBackgroundSync() {
-  try {
-    console.log('Performing background sync');
-    
-    // Update cache with new content
-    const cache = await caches.open(STATIC_CACHE);
-    const requests = await cache.keys();
-    
-    for (const request of requests) {
-      try {
-        const response = await fetch(request);
-        if (response.ok) {
-          await cache.put(request, response);
-        }
-      } catch (error) {
-        console.log('Failed to update cache for:', request.url);
-      }
-    }
-  } catch (error) {
-    console.log('Background sync failed:', error);
-  }
-}
-
-/**
- * Push notifications - handle push events
- */
-self.addEventListener('push', event => {
-  if (event.data) {
-    const data = event.data.json();
-    const options = {
-      body: data.body,
-      icon: '/assets/favicon.ico',
-      badge: '/assets/favicon.ico',
-      vibrate: [100, 50, 100],
-      data: {
-        dateOfArrival: Date.now(),
-        primaryKey: 1
-      }
-    };
-    
-    event.waitUntil(
-      self.registration.showNotification(data.title, options)
-    );
-  }
-});
-
-/**
- * Notification click - handle notification interactions
- */
-self.addEventListener('notificationclick', event => {
-  event.notification.close();
-  
-  event.waitUntil(
-    clients.openWindow('/')
-  );
-});
-
-/**
- * Error handling - log errors for debugging
- */
-self.addEventListener('error', event => {
-  console.error('Service worker error:', event.error);
-});
-
-/**
- * Unhandled rejection - log promise rejections
- */
-self.addEventListener('unhandledrejection', event => {
-  console.error('Service worker unhandled rejection:', event.reason);
-});
