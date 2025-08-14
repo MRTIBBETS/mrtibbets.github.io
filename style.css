@@ -13,14 +13,13 @@
   --primary-color: #000;                    /* Main text color */
   --background-color: #faf8f3;              /* Page background - warm paper color */
   --hover-color: #D4AF37;                   /* Hover state color (gold) */
-  --border-color: #e0e0e0;                  /* Border color for cards */
   --subtitle-color: #666;                   /* Subtitle text color */
   
   /* ===== TYPOGRAPHY - Adjust font sizes and spacing ===== */
   --font-family: 'Courier New', Courier, monospace;  /* Typewriter font */
-  --font-size-h1: 3.5rem;                   /* Main heading size */
-  --font-size-h2: 2.2rem;                   /* Section heading size */
-  --font-size-body: 1.8rem;                 /* Body text size (increased 1.5x from 1.2rem) */
+  --font-size-h1: 1.8rem;                   /* Main heading size (same as body) */
+  --font-size-h2: 1.8rem;                   /* Section heading size (same as body) */
+  --font-size-body: 1.8rem;                 /* Body text size */
   --line-height-base: 1.6;                  /* Line spacing for readability */
   --line-height-heading: 1.2;               /* Line spacing for headings */
   --letter-spacing: 0.1em;                  /* Letter spacing for typewriter feel */
@@ -28,7 +27,7 @@
   
   /* ===== LAYOUT - Adjust content width and margins ===== */
   --content-max-width: 900px;               /* Maximum content width */
-  --horizontal-margin: clamp(40px, 10vw, 120px);  /* Side margins (doubled from 20px, 5vw, 60px) */
+  --horizontal-margin: clamp(80px, 20vw, 240px);  /* Side margins */
   --vertical-spacing: 2rem;                 /* Top/bottom spacing */
   
   /* ===== SPACING - Adjust gaps and padding ===== */
@@ -36,6 +35,10 @@
   --card-padding: 1rem;                     /* Padding inside profile cards */
   --card-gap: 1rem;                         /* Gap between profile cards */
   --card-min-height: 80px;                  /* Minimum height of profile cards */
+  
+  /* ===== ICON SIZES ===== */
+  --icon-size: 3rem;                        /* Icon size */
+  --icon-size-mobile: 2.5rem;               /* Icon size on mobile */
 }
 
 /* ==========================================================================
@@ -186,7 +189,6 @@ header {
   min-width: 280px;
   flex-wrap: nowrap;
   overflow-x: auto;
-  /* Prevent wrapping on homepage */
   grid-template-columns: repeat(4, 1fr);
 }
 
@@ -212,11 +214,11 @@ header {
   color: var(--primary-color);
   text-decoration: none;
   background-color: var(--background-color);
-  border: none; /* Removed border */
+  border: none;
   border-radius: 8px;
   
   /* ===== INTERACTIONS ===== */
-  transition: color 0.2s ease; /* Only color transition, no motion */
+  transition: color 0.2s ease;
 }
 
 .profiles-grid a {
@@ -224,7 +226,6 @@ header {
   text-align: center;
   padding: var(--card-padding) 0.5rem;
   background-color: #fff;
-  text-decoration: none; /* Remove underline from profiles grid */
 }
 
 /* ===== HOVER EFFECTS ===== */
@@ -235,23 +236,22 @@ header {
   color: var(--hover-color);
   text-decoration: none;
   outline: none;
-  /* Removed transform and box-shadow (no motion) */
 }
 
 /* ===== ICONS & IMAGES ===== */
 .social-media i,
 .profiles-grid i {
-  font-size: 1.5rem;
-  width: 1.5rem;
-  height: 1.5rem;
+  font-size: var(--icon-size);
+  width: var(--icon-size);
+  height: var(--icon-size);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .social-media img {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: var(--icon-size);
+  height: var(--icon-size);
 }
 
 .profiles-grid i,
@@ -306,10 +306,11 @@ footer {
   font-size: 0.8rem;
   color: var(--primary-color);
   text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
   max-width: 100%;
+  word-wrap: break-word;
 }
 
 /* ==========================================================================
@@ -341,6 +342,15 @@ footer {
   .platform-name {
     font-size: 0.75em;
   }
+  
+  .social-media i,
+  .profiles-grid i,
+  .social-media img,
+  .profiles-grid img {
+    width: var(--icon-size-mobile);
+    height: var(--icon-size-mobile);
+    font-size: var(--icon-size-mobile);
+  }
 }
 
 /* ===== SMALL TABLET (481px - 767px) ===== */
@@ -350,7 +360,16 @@ footer {
   }
   
   .social-media {
-    grid-template-columns: repeat(4, 1fr); /* Keep 4 columns on homepage */
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .social-media i,
+  .profiles-grid i,
+  .social-media img,
+  .profiles-grid img {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    font-size: var(--icon-size);
   }
 }
 
@@ -361,7 +380,16 @@ footer {
   }
   
   .social-media {
-    grid-template-columns: repeat(4, 1fr); /* Keep 4 columns on homepage */
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .social-media i,
+  .profiles-grid i,
+  .social-media img,
+  .profiles-grid img {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    font-size: var(--icon-size);
   }
 }
 
@@ -372,53 +400,15 @@ footer {
   }
   
   .social-media {
-    grid-template-columns: repeat(4, 1fr); /* Keep 4 columns on homepage */
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .social-media i,
+  .profiles-grid i,
+  .social-media img,
+  .profiles-grid img {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    font-size: var(--icon-size);
   }
 }
-
-/* ==========================================================================
-   CUSTOMIZATION GUIDE
-   ========================================================================== */
-
-/*
-   QUICK TWEAKS - Change these values in the :root section above:
-   
-   1. COLORS:
-      - Change --primary-color to update main text color
-      - Change --background-color to update page background
-      - Change --hover-color to update hover effects
-      - Change --border-color to update card borders
-      - Change --subtitle-color to update subtitle text
-   
-   2. TYPOGRAPHY:
-      - Change --font-size-h1 to adjust main heading size
-      - Change --font-size-h2 to adjust section heading size
-      - Change --font-size-body to adjust body text size
-      - Change --line-height-base to adjust text spacing
-      - Change --letter-spacing to adjust typewriter feel
-   
-   3. LAYOUT:
-      - Change --content-max-width to adjust content width
-      - Change --horizontal-margin to adjust side margins
-      - Change --vertical-spacing to adjust top/bottom spacing
-   
-   4. SPACING:
-      - Change --section-gap to adjust space between sections
-      - Change --card-padding to adjust card internal spacing
-      - Change --card-gap to adjust space between cards
-      - Change --card-min-height to adjust card height
-   
-   5. RESPONSIVE:
-      - Modify the media query breakpoints if needed
-      - Adjust grid columns for different screen sizes
-   
-   EXAMPLE: To make everything more spacious, increase these values:
-   --vertical-spacing: 3rem;        (from 2rem)
-   --section-gap: 3rem;            (from 2rem)
-   --card-padding: 1.5rem;         (from 1rem)
-   --card-gap: 1.5rem;             (from 1rem)
-   
-   EXAMPLE: To make text larger, increase these values:
-   --font-size-h1: 4rem;           (from 3.5rem)
-   --font-size-body: 2rem;         (from 1.8rem)
-*/
