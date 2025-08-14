@@ -214,7 +214,7 @@ header {
   /* ===== APPEARANCE ===== */
   color: var(--primary-color);
   text-decoration: none; /* Remove underline from all social icons */
-  background-color: var(--background-color);
+  background-color: var(--background-color); /* Use consistent cream background */
   border: none; /* Removed border */
   border-radius: 8px;
   
@@ -226,7 +226,7 @@ header {
   flex-direction: column;
   text-align: center;
   padding: var(--card-padding) 0.5rem;
-  background-color: #fff;
+  background-color: var(--background-color); /* Use consistent cream background */
   text-decoration: none; /* Remove underline from profiles grid */
 }
 
@@ -288,6 +288,20 @@ header {
   text-align: center;
   line-height: 1.2;
   color: inherit;
+  text-decoration: none; /* Remove underline from platform names */
+}
+
+/* ==========================================================================
+   PROFILES PAGE SPECIFIC STYLES
+   ========================================================================== */
+
+/* Hide the h1 "Profiles" visually while keeping it in DOM for SEO */
+.profiles-page h1 {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 /* ==========================================================================
