@@ -14,7 +14,7 @@
   --background-color: #faf8f3;              /* Page background - warm paper color */
   --hover-color: #D4AF37;                   /* Hover state color (gold) */
   
-  /* ===== TYPOGRAPHY ===== */
+/* ===== TYPOGRAPHY ===== */
   --font-family: 'Courier New', Courier, monospace;  /* Typewriter font */
   --font-size-h1: 1.8rem;                   /* Main heading size */
   --font-size-h2: 1.8rem;                   /* Section heading size */
@@ -22,9 +22,10 @@
   --line-height-base: 1.6;                  /* Line spacing for readability */
   --letter-spacing: 0.1em;                  /* Letter spacing for typewriter feel */
   --font-weight-normal: 410;                /* Font weight (400 = normal) */
+  --font-display: swap;                     /* Font loading strategy */
   
   /* ===== LAYOUT ===== */
-  --content-max-width: 900px;               /* Maximum content width */
+  --content-max-width: 800px;               /* Maximum content width */
   --horizontal-margin: clamp(80px, 20vw, 240px);  /* Side margins */
   --vertical-spacing: 2rem;                 /* Top/bottom spacing */
   
@@ -67,6 +68,7 @@ body {
   align-items: center;
   padding: var(--vertical-spacing) var(--horizontal-margin);
   margin: 0;
+  font-display: var(--font-display);
 }
 
 /* ==========================================================================
