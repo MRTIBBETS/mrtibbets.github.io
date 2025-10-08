@@ -98,7 +98,7 @@ body {
 }
 
 #content h2 {
-  font-size: var(--font-size-h2);
+  font-size: var(--font-size-body);
   font-weight: normal;
   line-height: 1.2;
   color: var(--primary-color);
@@ -134,64 +134,25 @@ body {
    HEADER & SECTION LAYOUTS
    ========================================================================== */
 
-/* ===== PAGE HEADER ===== */
-header {
-  margin-bottom: var(--section-gap);
-  text-align: left;
-}
 
-/* ===== SUBTITLE ===== */
-.subtitle {
-  font-size: var(--font-size-body);
-  color: #666;
-  margin-bottom: 1rem;
-  font-weight: normal;
-  text-align: left;
-}
-
-/* ===== PROFILE SECTIONS ===== */
-.profile-section {
-  margin-bottom: var(--section-gap);
-  padding: var(--section-gap) 0;
-}
-
-.profile-section h2 {
-  color: var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-  font-weight: normal;
-  font-size: var(--font-size-h2);
-}
 
 /* ==========================================================================
-   SOCIAL MEDIA & PROFILES GRID
+   SOCIAL MEDIA NAVIGATION
    ========================================================================== */
 
-/* ===== GRID CONTAINERS ===== */
-.social-media,
-.profiles-grid {
+/* ===== SOCIAL MEDIA GRID ===== */
+.social-media {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--card-gap);
   width: 100%;
   margin: 0;
   padding: 0;
-}
-
-.social-media {
   min-width: 280px;
-  grid-template-columns: repeat(4, 1fr);
 }
 
-.profiles-grid {
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: var(--card-gap);
-}
-
-/* ===== GRID ITEMS (PROFILE CARDS) ===== */
-.social-media a,
-.profiles-grid a {
+/* ===== SOCIAL MEDIA LINKS ===== */
+.social-media a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -206,25 +167,16 @@ header {
   transition: color 0.2s ease;
 }
 
-.profiles-grid a {
-  flex-direction: column;
-  text-align: center;
-  padding: var(--card-padding) 0.5rem;
-}
-
 /* ===== HOVER EFFECTS ===== */
 .social-media a:hover,
-.social-media a:focus,
-.profiles-grid a:hover,
-.profiles-grid a:focus {
+.social-media a:focus {
   color: var(--hover-color);
   text-decoration: none !important;
   outline: none;
 }
 
-/* ===== ICONS & IMAGES ===== */
-.social-media i,
-.profiles-grid i {
+/* ===== ICONS ===== */
+.social-media i {
   font-size: var(--icon-size);
   width: var(--icon-size);
   height: var(--icon-size);
@@ -233,57 +185,6 @@ header {
   justify-content: center;
 }
 
-.social-media img {
-  width: var(--icon-size);
-  height: var(--icon-size);
-}
-
-.profiles-grid i,
-.profiles-grid img {
-  margin-bottom: 0.5rem;
-  transition: filter 0.2s ease;
-}
-
-/* ===== HOVER EFFECTS FOR ICONS ===== */
-.social-media a:hover img {
-  filter: brightness(0) saturate(100%) invert(77%) sepia(29%) saturate(1000%) hue-rotate(358deg) brightness(103%) contrast(103%);
-}
-
-.profiles-grid a:hover i {
-  color: var(--hover-color);
-}
-
-.profiles-grid img {
-  filter: brightness(0);
-}
-
-.profiles-grid a:hover img {
-  filter: brightness(0) saturate(100%) invert(77%) sepia(29%) saturate(1000%) hue-rotate(358deg) brightness(103%) contrast(103%);
-}
-
-/* ===== PLATFORM NAMES ===== */
-.platform-name {
-  font-size: 0.8em;
-  font-weight: 500;
-  margin-top: 0.25rem;
-  text-align: center;
-  line-height: 1.2;
-  color: inherit;
-  text-decoration: none !important;
-}
-
-/* ==========================================================================
-   PROFILES PAGE SPECIFIC STYLES
-   ========================================================================== */
-
-/* Hide the h1 "Profiles" visually while keeping it in DOM for SEO */
-.profiles-page h1 {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
 
 /* ==========================================================================
    FOOTER
@@ -324,11 +225,6 @@ footer {
     --icon-size: 2.2rem;
   }
   
-  .profiles-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-  
   .social-media {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
@@ -337,26 +233,6 @@ footer {
   
   .social-media a {
     padding: 0.75rem;
-  }
-  
-  .profiles-grid a {
-    padding: 0.75rem 0.5rem;
-    min-height: 70px;
-  }
-  
-  .platform-name {
-    font-size: 0.7em;
-    margin-top: 0.3rem;
-  }
-  
-  .profile-section {
-    margin-bottom: 1.5rem;
-    padding: 1.5rem 0;
-  }
-  
-  .profile-section h2 {
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.4rem;
   }
 }
 
@@ -369,22 +245,8 @@ footer {
     --icon-size: 2.5rem;
   }
   
-  .profiles-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-  
   .social-media {
     grid-template-columns: repeat(4, 1fr);
-  }
-  
-  .profile-section {
-    margin-bottom: 1.75rem;
-    padding: 1.75rem 0;
-  }
-  
-  .profile-section h2 {
-    margin-bottom: 0.85rem;
   }
 }
 
@@ -395,11 +257,6 @@ footer {
     --font-size-h2: 1.7rem;
     --font-size-body: 1.7rem;
     --icon-size: 2.8rem;
-  }
-  
-  .profiles-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
   }
   
   .social-media {
@@ -414,11 +271,6 @@ footer {
     --font-size-h2: 1.8rem;
     --font-size-body: 1.8rem;
     --icon-size: 3rem;
-  }
-  
-  .profiles-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--card-gap);
   }
   
   .social-media {

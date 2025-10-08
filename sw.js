@@ -14,10 +14,6 @@ const STATIC_ASSETS = [
   '/assets/js/common.js',
   '/assets/favicon.ico',
   '/assets/images/banner.png',
-  '/assets/icons/apple_music.svg',
-  '/assets/icons/bloomberg.svg',
-  '/assets/icons/crunchbase.svg',
-  '/assets/icons/mixcloud.svg',
   'https://use.fontawesome.com/releases/v6.4.2/css/all.css'
 ];
 

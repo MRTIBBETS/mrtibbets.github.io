@@ -30,6 +30,14 @@
     <priority>0.8</priority>
   </url>
   
+  <!-- LINKS PAGE: CURATED COLLECTION OF LINKS AND ARTICLES -->
+  <url>
+    <loc>https://www.alexandertibbets.com/links</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
   <!-- ROBOTS.TXT: SEARCH ENGINE CRAWLING INSTRUCTIONS -->
   <url>
     <loc>https://www.alexandertibbets.com/robots.txt</loc>
@@ -101,33 +109,5 @@
     <priority>0.2</priority>
   </url>
   
-  <!-- Icons -->
-  <url>
-    <loc>https://www.alexandertibbets.com/assets/icons/apple_music.svg</loc>
-    <lastmod>2025-01-07</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.alexandertibbets.com/assets/icons/bloomberg.svg</loc>
-    <lastmod>2025-01-07</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.alexandertibbets.com/assets/icons/crunchbase.svg</loc>
-    <lastmod>2025-01-07</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.alexandertibbets.com/assets/icons/mixcloud.svg</loc>
-    <lastmod>2025-01-07</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
-  </url>
   
 </urlset>

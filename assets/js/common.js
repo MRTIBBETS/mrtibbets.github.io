@@ -64,7 +64,7 @@ function trackPerformance() {
  * Enhance keyboard navigation for social media links
  */
 function enhanceAccessibility() {
-  const socialLinks = document.querySelectorAll('.social-media a, .profiles-grid a');
+  const socialLinks = document.querySelectorAll('.social-media a');
   
   socialLinks.forEach(link => {
     link.addEventListener('keydown', (event) => {

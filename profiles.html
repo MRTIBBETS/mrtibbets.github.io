@@ -17,10 +17,6 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="preload" href="/assets/favicon.ico" as="image">
   <link rel="preload" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" as="style">
-  <link rel="preload" href="/assets/icons/apple_music.svg" as="image">
-  <link rel="preload" href="/assets/icons/bloomberg.svg" as="image">
-  <link rel="preload" href="/assets/icons/crunchbase.svg" as="image">
-  <link rel="preload" href="/assets/icons/mixcloud.svg" as="image">
   
   <!-- Favicon (for search results) -->
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
@@ -75,140 +71,44 @@
   </script>
 </head>
 
-<body class="profiles-page">
+<body>
   <!-- Main Content -->
   <main id="content" role="main" aria-label="Main content">
-    <header>
-      <h1>Profiles</h1>
-      <p class="subtitle">A running list of places that I may be found on.</p>
-    </header>
-
-    <!-- Professional Networks -->
-    <section class="profile-section" aria-labelledby="professional-heading">
-      <h2 id="professional-heading">Work</h2>
-      <div class="profiles-grid" aria-label="Professional network links">
-        <a href="https://www.linkedin.com/in/mrtibbets" target="_blank" rel="noopener" aria-label="Alexander Tibbets on LinkedIn - Professional Network">
-          <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
-          <span class="platform-name">LinkedIn</span>
-        </a>
-        <a href="https://www.crunchbase.com/person/alexander-tibbets" target="_blank" rel="noopener" aria-label="Alexander Tibbets on Crunchbase - Business Profile">
-          <img src="/assets/icons/crunchbase.svg" alt="Crunchbase logo" width="26" height="26" loading="lazy">
-          <span class="platform-name">Crunchbase</span>
-        </a>
-        <a href="https://en.wikipedia.org/wiki/IFTTT" target="_blank" rel="noopener" aria-label="IFTTT on Wikipedia - Company Information">
-          <i class="fa-brands fa-wikipedia-w" aria-hidden="true"></i>
-          <span class="platform-name">Wikipedia</span>
-        </a>
-        <a href="https://www.bloomberg.com/profile/person/21866457" target="_blank" rel="noopener" aria-label="Alexander Tibbets on Bloomberg - Business Profile">
-          <i class="fa-solid fa-b" aria-hidden="true"></i>
-          <span class="platform-name">Bloomberg</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Communities -->
-    <section class="profile-section" aria-labelledby="communities-heading">
-      <h2 id="communities-heading">Community</h2>
-      <div class="profiles-grid" aria-label="Community links">
-        <a href="https://github.com/MRTIBBETS" target="_blank" rel="noopener" aria-label="Alexander Tibbets on GitHub - Code Repository">
-          <i class="fa-brands fa-github" aria-hidden="true"></i>
-          <span class="platform-name">GitHub</span>
-        </a>
-        <a href="https://www.reddit.com/user/mrtibbets" target="_blank" rel="noopener" aria-label="Alexander Tibbets on Reddit - Community Discussions">
-          <i class="fa-brands fa-reddit-alien" aria-hidden="true"></i>
-          <span class="platform-name">Reddit</span>
-        </a>
-        <a href="https://www.producthunt.com/@mrtibbets" target="_blank" rel="noopener" aria-label="Alexander Tibbets on ProductHunt - Product Discovery">
-          <i class="fa-brands fa-product-hunt" aria-hidden="true"></i>
-          <span class="platform-name">ProductHunt</span>
-        </a>
-        <a href="https://www.figma.com/@mrtibbets" target="_blank" rel="noopener" aria-label="Alexander Tibbets on Figma - Design Community">
-          <i class="fa-brands fa-figma" aria-hidden="true"></i>
-          <span class="platform-name">Figma</span>
-        </a>
-        <a href="https://dev.to/mrtibbets" target="_blank" rel="noopener" aria-label="Alexander Tibbets on Dev.to - Developer Content">
-          <i class="fa-brands fa-dev" aria-hidden="true"></i>
-          <span class="platform-name">Dev.to</span>
-        </a>
-        <a href="https://www.quora.com/profile/Alexander-Tibbets" target="_blank" rel="noopener" aria-label="Alexander Tibbets on Quora - Question and Answer Content">
-          <i class="fa-brands fa-quora" aria-hidden="true"></i>
-          <span class="platform-name">Quora</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Social Media -->
-    <section class="profile-section" aria-labelledby="social-heading">
-      <h2 id="social-heading">Social</h2>
-      <div class="profiles-grid" aria-label="Social media links">
-        <a href="https://x.com/mrtibbets" target="_blank" rel="noopener" aria-label="Alexander Tibbets on X (Twitter) - Social Updates">
-          <i class="fa-brands fa-square-x-twitter" aria-hidden="true"></i>
-          <span class="platform-name">Twitter aka X</span>
-        </a>
-        <a href="https://www.instagram.com/mrtibbets" target="_blank" rel="noopener" aria-label="Alexander Tibbets on Instagram - Visual Content">
-          <i class="fa-brands fa-square-instagram" aria-hidden="true"></i>
-          <span class="platform-name">Instagram</span>
-        </a>
-        <a href="https://www.facebook.com/mrtibbets" target="_blank" rel="noopener" aria-label="Alexander Tibbets on Facebook - Social Network">
-          <i class="fa-brands fa-square-facebook" aria-hidden="true"></i>
-          <span class="platform-name">Facebook</span>
-        </a>
-        <a href="https://bsky.app/profile/mrtibbets.bsky.social" target="_blank" rel="noopener" aria-label="Alexander Tibbets on Bluesky - Social Platform">
-          <i class="fa-brands fa-square-bluesky" aria-hidden="true"></i>
-          <span class="platform-name">Bluesky</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Content Creation -->
-    <section class="profile-section" aria-labelledby="content-heading">
-      <h2 id="content-heading">Media</h2>
-      <div class="profiles-grid" aria-label="Content and media platform links">
-        <a href="https://www.youtube.com/@mrtibbets" target="_blank" rel="noopener" aria-label="Alexander Tibbets on YouTube - Video Content">
-          <i class="fa-brands fa-youtube" aria-hidden="true"></i>
-          <span class="platform-name">YouTube</span>
-        </a>
-        <a href="https://music.apple.com/profile/mrtibbets" target="_blank" rel="noopener" aria-label="Alexander Tibbets on Apple Music - Music Profile">
-          <img src="/assets/icons/apple_music.svg" alt="Apple Music logo" width="26" height="26" loading="lazy">
-          <span class="platform-name">Apple Music</span>
-        </a>
-        <a href="https://soundcloud.com/mrtibbets" target="_blank" rel="noopener" aria-label="Alexander Tibbets on SoundCloud - Audio Content">
-          <i class="fa-brands fa-soundcloud" aria-hidden="true"></i>
-          <span class="platform-name">SoundCloud</span>
-        </a>
-        <a href="https://www.mixcloud.com/mrtibbets" target="_blank" rel="noopener" aria-label="Alexander Tibbets on MixCloud - Music Mixes">
-          <img src="/assets/icons/mixcloud.svg" alt="MixCloud logo" width="26" height="26" loading="lazy">
-          <span class="platform-name">MixCloud</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Abandoned Profiles -->
-    <section class="profile-section" aria-labelledby="abandoned-heading">
-      <h2 id="abandoned-heading">Abandoned</h2>
-      <div class="profiles-grid" aria-label="Abandoned profiles and links">
-        <a href="https://wadesabout.tumblr.com" target="_blank" rel="noopener" aria-label="Alexander Tibbets on Tumblr - Photo Blog Content">
-          <i class="fa-brands fa-square-tumblr" aria-hidden="true"></i>
-          <span class="platform-name">Tumblr</span>
-        </a>
-        <a href="https://medium.com/@mrtibbets" target="_blank" rel="noopener" aria-label="Alexander Tibbets on Medium - Writing Content">
-          <i class="fa-brands fa-medium" aria-hidden="true"></i>
-          <span class="platform-name">Medium</span>
-        </a>
-        <a href="https://www.pinterest.com/mrtibbets/" target="_blank" rel="noopener" aria-label="Alexander Tibbets on Pinterest - Visual Content">
-          <i class="fa-brands fa-square-pinterest" aria-hidden="true"></i>
-          <span class="platform-name">Pinterest</span>
-        </a>
-        <a href="https://vimeo.com/mrtibbets" target="_blank" rel="noopener" aria-label="Alexander Tibbets on Vimeo - Video Content">
-          <i class="fa-brands fa-vimeo" aria-hidden="true"></i>
-          <span class="platform-name">Vimeo</span>
-        </a>
-        <a href="https://dribbble.com/MrTibbets" target="_blank" rel="noopener" aria-label="Alexander Tibbets on Dribbble - Design Content">
-          <i class="fa-brands fa-square-dribbble" aria-hidden="true"></i>
-          <span class="platform-name">Dribbble</span>
-        </a>
-      </div>
-    </section>
+    <h1>👤</h1>
+    <p>A bunch of places that I may or may not be found on.</p>
+    
+    <h2>Work stuffs</h2>
+    <p>Connect with me on <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/mrtibbets" title="LinkedIn">LinkedIn</a>, 
+      <a target="_blank" rel="noopener" href="https://www.crunchbase.com/person/alexander-tibbets" title="Crunchbase">Crunchbase</a>, 
+      <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/IFTTT" title="Wikipedia">Wikipedia</a>, 
+      and <a target="_blank" rel="noopener" href="https://www.bloomberg.com/profile/person/21866457" title="Bloomberg">Bloomberg</a>.</p>
+    
+    <h2>Communities</h2>
+    <p>Follow me on <a target="_blank" rel="noopener" href="https://github.com/MRTIBBETS" title="GitHub">GitHub</a>, 
+      <a target="_blank" rel="noopener" href="https://www.reddit.com/user/mrtibbets" title="Reddit">Reddit</a>, 
+      <a target="_blank" rel="noopener" href="https://www.producthunt.com/@mrtibbets" title="ProductHunt">ProductHunt</a>, 
+      <a target="_blank" rel="noopener" href="https://www.figma.com/@mrtibbets" title="Figma">Figma</a>, 
+      <a target="_blank" rel="noopener" href="https://dev.to/mrtibbets" title="Dev.to">Dev.to</a>, 
+      and <a target="_blank" rel="noopener" href="https://www.quora.com/profile/Alexander-Tibbets" title="Quora">Quora</a>.</p>
+    
+    <h2>Social medias</h2>
+    <p>Poke me on <a target="_blank" rel="noopener" href="https://x.com/mrtibbets" title="Twitter">Twitter aka X</a>, 
+      <a target="_blank" rel="noopener" href="https://www.instagram.com/mrtibbets" title="Instagram">Instagram</a>, 
+      <a target="_blank" rel="noopener" href="https://www.facebook.com/mrtibbets" title="Facebook">Facebook</a>, 
+      and <a target="_blank" rel="noopener" href="https://bsky.app/profile/mrtibbets.bsky.social" title="Bluesky">Bluesky</a>.</p>
+    
+    <h2>Multimedias</h2>
+    <p>See me on <a target="_blank" rel="noopener" href="https://www.youtube.com/@mrtibbets" title="YouTube">YouTube</a>, 
+      <a target="_blank" rel="noopener" href="https://music.apple.com/profile/mrtibbets" title="Apple Music">Apple Music</a>, 
+      <a target="_blank" rel="noopener" href="https://soundcloud.com/mrtibbets" title="SoundCloud">SoundCloud</a>, 
+      and <a target="_blank" rel="noopener" href="https://www.mixcloud.com/mrtibbets" title="MixCloud">MixCloud</a>.</p>
+    
+    <h2>Abandoned profiles</h2>
+    <p>Look at dead stuff on <a target="_blank" rel="noopener" href="https://wadesabout.tumblr.com" title="Tumblr">Tumblr</a>, 
+      <a target="_blank" rel="noopener" href="https://medium.com/@mrtibbets" title="Medium">Medium</a>, 
+      <a target="_blank" rel="noopener" href="https://www.pinterest.com/mrtibbets/" title="Pinterest">Pinterest</a>, 
+      <a target="_blank" rel="noopener" href="https://vimeo.com/mrtibbets" title="Vimeo">Vimeo</a>, 
+      and <a target="_blank" rel="noopener" href="https://dribbble.com/MrTibbets" title="Dribbble">Dribbble</a>.</p>
   </main>
 
   <!-- Footer -->
