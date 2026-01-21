@@ -38,7 +38,7 @@
       "name": "Profiles",
       "short_name": "Profiles",
       "description": "View social media and professional profiles",
-      "url": "/profiles",
+      "url": "/profiles.html",
       "icons": [
         {
           "src": "/assets/favicon.ico",

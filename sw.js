@@ -3,13 +3,14 @@
  * Provides offline capabilities and performance improvements
  */
 
-const CACHE_NAME = 'alexander-tibbets-v1.0.0';
-const STATIC_CACHE = 'static-v1.0.0';
+const CACHE_NAME = 'alexander-tibbets-v1.0.1';
+const STATIC_CACHE = 'static-v1.0.1';
 
 const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/profiles.html',
+  '/links.html',
   '/style.css',
   '/assets/js/common.js',
   '/assets/favicon.ico',
