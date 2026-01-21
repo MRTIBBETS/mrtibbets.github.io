@@ -21,7 +21,7 @@
   --font-size-body: 1.8rem;                 /* Body text size */
   --line-height-base: 1.6;                  /* Line spacing for readability */
   --letter-spacing: 0.1em;                  /* Letter spacing for typewriter feel */
-  --font-weight-normal: 410;                /* Font weight (400 = normal) */
+  --font-weight-normal: 400;                /* Font weight (400 = normal) */
   --font-display: swap;                     /* Font loading strategy */
   
   /* ===== LAYOUT ===== */
