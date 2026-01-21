@@ -21,16 +21,21 @@
       "type": "image/x-icon"
     },
     {
-      "src": "/assets/images/banner.png",
+      "src": "/assets/images/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/assets/images/banner.png",
+      "src": "/assets/images/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     }
   ],
   "shortcuts": [
@@ -41,8 +46,8 @@
       "url": "/profiles.html",
       "icons": [
         {
-          "src": "/assets/favicon.ico",
-          "sizes": "96x96"
+          "src": "/assets/images/icon-192.png",
+          "sizes": "192x192"
         }
       ]
     }
