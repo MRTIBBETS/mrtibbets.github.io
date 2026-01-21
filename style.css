@@ -219,9 +219,10 @@ footer {
 /* ===== MOBILE (480px and below) ===== */
 @media (max-width: 480px) {
   :root {
-    --font-size-h1: 1.5rem;
-    --font-size-h2: 1.5rem;
-    --font-size-body: 1.5rem;
+    --font-size-h1: 1.4rem;
+    --font-size-h2: 1.3rem;
+    --font-size-body: 1.2rem;
+    --horizontal-margin: 1.5rem;
     --icon-size: 2.2rem;
   }
   
