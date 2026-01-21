@@ -3,8 +3,8 @@
  * Provides offline capabilities and performance improvements
  */
 
-const CACHE_NAME = 'alexander-tibbets-v1.0.1';
-const STATIC_CACHE = 'static-v1.0.1';
+const CACHE_NAME = 'alexander-tibbets-v1.0.2';
+const STATIC_CACHE = 'static-v1.0.2';
 
 const STATIC_ASSETS = [
   '/',
@@ -14,6 +14,10 @@ const STATIC_ASSETS = [
   '/style.css',
   '/assets/js/common.js',
   '/assets/favicon.ico',
+  '/assets/images/favicon.svg',
+  '/assets/images/icon-192.png',
+  '/assets/images/icon-512.png',
+  '/assets/images/apple-touch-icon.png',
   '/assets/images/banner.png',
   'https://use.fontawesome.com/releases/v6.4.2/css/all.css'
 ];
