@@ -4,19 +4,6 @@
  */
 
 /**
- * Redirect from apex domain to www subdomain
- */
-function redirectToWWW() {
-  try {
-    if (location.hostname === 'alexandertibbets.com') {
-      location.href = 'https://www.alexandertibbets.com' + location.pathname + location.search + location.hash;
-    }
-  } catch (error) {
-    console.error('Redirect failed:', error);
-  }
-}
-
-/**
  * Initialize Google Analytics with privacy-focused settings
  */
 function initializeAnalytics() {
@@ -80,7 +67,6 @@ function enhanceAccessibility() {
  * Initialize all functionality when DOM is ready
  */
 function initialize() {
-  redirectToWWW();
   enhanceAccessibility();
   trackPerformance();
 }
@@ -90,7 +76,6 @@ document.addEventListener('DOMContentLoaded', initialize);
 
 // Export functions for external use
 window.AlexanderTibbetsWebsite = {
-  redirectToWWW,
   initializeAnalytics,
   trackPerformance,
   enhanceAccessibility,
