@@ -42,11 +42,11 @@ self.addEventListener('activate', event => {
     caches.keys()
       .then(cacheNames => {
         return Promise.all(
-          cacheNames.map(cacheName => {
-            if (cacheName !== STATIC_CACHE) {
-              console.log('Deleting old cache:', cacheName);
-              return caches.delete(cacheName);
-            }
+          cacheNames.filter(cacheName => {
+            return cacheName !== STATIC_CACHE;
+          }).map(cacheName => {
+            console.log('Deleting old cache:', cacheName);
+            return caches.delete(cacheName);
           })
         );
       })
