@@ -22,7 +22,6 @@
   --line-height-base: 1.6;                  /* Line spacing for readability */
   --letter-spacing: 0.1em;                  /* Letter spacing for typewriter feel */
   --font-weight-normal: 400;                /* Font weight (400 = normal) */
-  --font-display: swap;                     /* Font loading strategy */
   
   /* ===== LAYOUT ===== */
   --content-max-width: 800px;               /* Maximum content width */
@@ -68,7 +67,6 @@ body {
   align-items: center;
   padding: var(--vertical-spacing) var(--horizontal-margin);
   margin: 0;
-  font-display: var(--font-display);
 }
 
 /* ==========================================================================
