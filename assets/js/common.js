@@ -48,32 +48,9 @@ function trackPerformance() {
 }
 
 /**
- * Enhance keyboard navigation for social media links
- */
-function enhanceAccessibility() {
-  const socialMediaContainers = document.querySelectorAll('.social-media');
-  
-  socialMediaContainers.forEach(container => {
-    container.addEventListener('keydown', (event) => {
-      // Find the closest anchor tag if the event target is inside one (e.g. an icon)
-      const link = event.target.closest('a');
-
-      // Ensure the link exists and is within our container
-      if (link && container.contains(link)) {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          link.click();
-        }
-      }
-    });
-  });
-}
-
-/**
  * Initialize all functionality when DOM is ready
  */
 function initialize() {
-  enhanceAccessibility();
   trackPerformance();
 }
 
@@ -84,6 +61,5 @@ document.addEventListener('DOMContentLoaded', initialize);
 window.AlexanderTibbetsWebsite = {
   initializeAnalytics,
   trackPerformance,
-  enhanceAccessibility,
   initialize
 };

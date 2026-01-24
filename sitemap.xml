@@ -86,14 +86,6 @@
     <priority>0.1</priority>
   </url>
   
-  <!-- Google Verification -->
-  <url>
-    <loc>https://www.alexandertibbets.com/zF3aH2OlvOacziK6m58aGo47DsJNfHrdSPpfAUo5Y8k.html</loc>
-    <lastmod>2025-01-07</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
-  </url>
-  
   <!-- Images -->
   <url>
     <loc>https://www.alexandertibbets.com/assets/images/banner.png</loc>
