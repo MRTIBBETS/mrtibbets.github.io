@@ -72,3 +72,9 @@
   Cache-Control: public, max-age=31536000, immutable
   Surrogate-Control: max-age=31536000
   Surrogate-Key: static
+
+# Service Worker
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=0
+  Surrogate-Key: sw
