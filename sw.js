@@ -3,14 +3,13 @@
  * Provides offline capabilities and performance improvements
  */
 
-const STATIC_CACHE = 'static-v1.0.4';
+const STATIC_CACHE = 'static-v1.0.5';
 
-const STATIC_ASSETS = [
+const CRITICAL_ASSETS = [
   '/',
   '/index.html',
   '/profiles.html',
   '/links.html',
-  '/style.css?v=6294ffc1',
   '/assets/js/common.js?v=9ab4fd10',
   '/assets/favicon.ico',
   '/assets/images/favicon.svg',
@@ -21,24 +20,37 @@ const STATIC_ASSETS = [
   'https://use.fontawesome.com/releases/v6.4.2/css/all.css'
 ];
 
+const STATIC_ASSETS = [...CRITICAL_ASSETS, ...NON_CRITICAL_ASSETS];
+
 /**
  * Install event - cache static assets
  */
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(STATIC_CACHE)
-      .then(cache => {
+      .then(async cache => {
         console.log('Caching static assets');
-        return Promise.all(
-          STATIC_ASSETS.map(url => {
+
+        // Cache critical assets - fail installation if any fail
+        try {
+            await cache.addAll(CRITICAL_ASSETS);
+        } catch (error) {
+            console.error('Critical asset caching failed:', error);
+            throw error;
+        }
+
+        // Cache non-critical assets - continue installation even if some fail
+        await Promise.all(
+          NON_CRITICAL_ASSETS.map(url => {
             return cache.add(url).catch(error => {
-              console.log('Failed to cache asset:', url, error);
+              console.log('Failed to cache non-critical asset:', url, error);
             });
           })
         );
       })
       .catch(error => {
-        console.log('Failed to cache static assets:', error);
+        console.log('Failed to install service worker:', error);
+        throw error;
       })
   );
   self.skipWaiting();
@@ -146,24 +158,36 @@ async function networkFirst(request, cacheName) {
  * Stale-while-revalidate strategy - serve from cache, then update from network
  */
 async function staleWhileRevalidate(event, request, cacheName) {
-  const cache = await caches.open(cacheName);
-  const cachedResponse = await cache.match(request);
-
+  // Start network fetch immediately
   const networkFetch = fetch(request).then(networkResponse => {
-    if (networkResponse.ok) {
-      cache.put(request, networkResponse.clone());
-    }
+    // Clone immediately for cache
+    const clonedResponse = networkResponse.clone();
+
+    const cacheUpdate = async () => {
+      if (clonedResponse.ok) {
+        const cache = await caches.open(cacheName);
+        await cache.put(request, clonedResponse);
+      }
+    };
+
+    // Extend lifetime for the cache update
+    event.waitUntil(cacheUpdate().catch(err => console.log('SWR cache update failed', err)));
+
     return networkResponse;
   });
 
-  event.waitUntil(
-    networkFetch.catch(err => console.log('SWR background update failed', err))
-  );
+  // Keep SW alive for the fetch itself
+  event.waitUntil(networkFetch.catch(err => console.log('SWR background fetch failed', err)));
+
+  // Check cache (parallel to fetch)
+  const cache = await caches.open(cacheName);
+  const cachedResponse = await cache.match(request);
 
   if (cachedResponse) {
     return cachedResponse;
   }
 
+  // Fallback to network
   try {
     return await networkFetch;
   } catch (error) {
