@@ -17,17 +17,15 @@
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
   <link rel="preconnect" href="https://use.fontawesome.com" crossorigin>
-
-  <link rel="preload" href="/style.css?v=6294ffc1" as="style">
   <link rel="preload" href="/assets/favicon.ico" as="image">
   <link rel="preload" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" as="style">
   <link rel="preload" href="https://use.fontawesome.com/releases/v6.4.2/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="https://use.fontawesome.com/releases/v6.4.2/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
   
   <!-- Favicon (for search results) -->
-  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
-  <link rel="alternate icon" href="/assets/favicon.ico">
-  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg?v=assets1">
+  <link rel="alternate icon" href="/assets/favicon.ico?v=assets1">
+  <link rel="shortcut icon" href="/assets/favicon.ico?v=assets1">
   
   <!-- PWA Manifest -->
   <link rel="manifest" href="/manifest.json">
@@ -35,23 +33,302 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Alex Tibbets">
-  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png?v=assets1">
   
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Alexander Tibbets | Links">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.alexandertibbets.com/links">
   <meta property="og:description" content="An archive of links, articles, and internet presence related to Alexander Tibbets.">
-  <meta property="og:image" content="https://www.alexandertibbets.com/assets/images/banner.png">
+  <meta property="og:image" content="https://www.alexandertibbets.com/assets/images/banner.png?v=assets1">
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Alexander Tibbets | Links">
   <meta name="twitter:description" content="An archive of links, articles, and internet presence related to Alexander Tibbets.">
-  <meta name="twitter:image" content="https://www.alexandertibbets.com/assets/images/banner.png">
+  <meta name="twitter:image" content="https://www.alexandertibbets.com/assets/images/banner.png?v=assets1">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/style.css?v=6294ffc1">
+  <style>
+/* ==========================================================================
+   STYLESHEET - ALEXANDER TIBBETS WEBSITE
+   ========================================================================== */
+
+/* ===== QUICK TWEAKS SECTION ===== */
+/*
+   This section contains the most commonly adjusted values.
+   Change these to quickly modify the overall look and feel.
+*/
+
+:root {
+  /* ===== COLORS ===== */
+  --primary-color: #000;                    /* Main text color */
+  --background-color: #faf8f3;              /* Page background - warm paper color */
+  --hover-color: #D4AF37;                   /* Hover state color (gold) */
+
+/* ===== TYPOGRAPHY ===== */
+  --font-family: 'Courier New', Courier, monospace;  /* Typewriter font */
+  --font-size-h1: 1.8rem;                   /* Main heading size */
+  --font-size-h2: 1.8rem;                   /* Section heading size */
+  --font-size-body: 1.8rem;                 /* Body text size */
+  --line-height-base: 1.6;                  /* Line spacing for readability */
+  --letter-spacing: 0.1em;                  /* Letter spacing for typewriter feel */
+  --font-weight-normal: 400;                /* Font weight (400 = normal) */
+
+  /* ===== LAYOUT ===== */
+  --content-max-width: 800px;               /* Maximum content width */
+  --horizontal-margin: clamp(80px, 20vw, 240px);  /* Side margins */
+  --vertical-spacing: 2rem;                 /* Top/bottom spacing */
+
+  /* ===== SPACING ===== */
+  --section-gap: 2rem;                      /* Space between sections */
+  --card-padding: 1rem;                     /* Padding inside profile cards */
+  --card-gap: 1rem;                         /* Gap between profile cards */
+  --card-min-height: 80px;                  /* Minimum height of profile cards */
+
+  /* ===== ICON SIZES ===== */
+  --icon-size: 3rem;                        /* Icon size */
+}
+
+/* ==========================================================================
+   GLOBAL RESET & BASE STYLES
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-base);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing);
+  color: var(--primary-color);
+  background-color: var(--background-color);
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  justify-items: center;
+  align-items: center;
+  padding: var(--vertical-spacing) var(--horizontal-margin);
+  margin: 0;
+}
+
+/* ==========================================================================
+   MAIN CONTENT LAYOUT
+   ========================================================================== */
+
+#content {
+  max-width: var(--content-max-width);
+  width: 100%;
+  padding: var(--vertical-spacing) 0;
+  margin: 0 auto;
+  text-align: left;
+  outline: none;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY SYSTEM
+   ========================================================================== */
+
+/* ===== HEADINGS ===== */
+#content h1 {
+  font-size: var(--font-size-h1);
+  font-weight: normal;
+  line-height: 1.2;
+  color: var(--primary-color);
+  margin: 0 0 1rem 0;
+}
+
+#content h2 {
+  font-size: var(--font-size-body);
+  font-weight: normal;
+  line-height: 1.2;
+  color: var(--primary-color);
+  margin: 0 0 1rem 0;
+}
+
+/* ===== BODY TEXT ===== */
+#content p {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-base);
+  color: var(--primary-color);
+  margin: 0 0 1rem 0;
+}
+
+#content p:last-child {
+  margin-bottom: 2rem;
+}
+
+/* ===== LINKS ===== */
+#content a {
+  color: var(--primary-color);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: color 0.2s ease;
+}
+
+#content a:hover,
+#content a:focus {
+  color: var(--hover-color);
+}
+
+/* ==========================================================================
+   HEADER & SECTION LAYOUTS
+   ========================================================================== */
+
+
+
+/* ==========================================================================
+   SOCIAL MEDIA NAVIGATION
+   ========================================================================== */
+
+/* ===== SOCIAL MEDIA GRID ===== */
+.social-media {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--card-gap);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  min-width: 280px;
+}
+
+/* ===== SOCIAL MEDIA LINKS ===== */
+.social-media a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  padding: var(--card-padding);
+  min-height: var(--card-min-height);
+  color: var(--primary-color);
+  text-decoration: none !important;
+  background-color: var(--background-color);
+  border: none;
+  border-radius: 8px;
+  transition: color 0.2s ease;
+}
+
+/* ===== HOVER EFFECTS ===== */
+.social-media a:hover,
+.social-media a:focus {
+  color: var(--hover-color);
+  text-decoration: none !important;
+  outline: none;
+}
+
+/* ===== ICONS ===== */
+.social-media i {
+  font-size: var(--icon-size);
+  width: var(--icon-size);
+  height: var(--icon-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+footer {
+  width: 100%;
+  padding: var(--section-gap) 0;
+  text-align: center;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.copyright {
+  font-size: clamp(0.6rem, 2vw, 0.8rem);
+  color: var(--primary-color);
+  text-align: center;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+  max-width: 100%;
+  word-wrap: normal;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* ===== MOBILE (480px and below) ===== */
+@media (max-width: 480px) {
+  :root {
+    --font-size-h1: 1.4rem;
+    --font-size-h2: 1.3rem;
+    --font-size-body: 1.2rem;
+    --horizontal-margin: 1.5rem;
+    --icon-size: 2.2rem;
+  }
+
+  .social-media {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    min-width: 200px;
+  }
+
+  .social-media a {
+    padding: 0.75rem;
+  }
+}
+
+/* ===== SMALL TABLET (481px - 767px) ===== */
+@media (min-width: 481px) and (max-width: 767px) {
+  :root {
+    --font-size-h1: 1.6rem;
+    --font-size-h2: 1.6rem;
+    --font-size-body: 1.6rem;
+    --icon-size: 2.5rem;
+  }
+
+  .social-media {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ===== TABLET (768px - 991px) ===== */
+@media (min-width: 768px) and (max-width: 991px) {
+  :root {
+    --font-size-h1: 1.7rem;
+    --font-size-h2: 1.7rem;
+    --font-size-body: 1.7rem;
+    --icon-size: 2.8rem;
+  }
+
+  .social-media {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ===== DESKTOP (992px and above) ===== */
+@media (min-width: 992px) {
+  :root {
+    --font-size-h1: 1.8rem;
+    --font-size-h2: 1.8rem;
+    --font-size-body: 1.8rem;
+    --icon-size: 3rem;
+  }
+
+  .social-media {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+  </style>
   
   <!-- FontAwesome -->
   <link href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" rel="stylesheet" media="print" onload="this.media='all'">
