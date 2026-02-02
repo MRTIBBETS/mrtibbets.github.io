@@ -12,12 +12,12 @@ const STATIC_ASSETS = [
   '/links.html',
   '/style.css?v=6294ffc1',
   '/assets/js/common.js?v=9ab4fd10',
-  '/assets/favicon.ico?v=27b79c7c',
-  '/assets/images/favicon.svg?v=67d2e436',
-  '/assets/images/icon-192.png?v=d11434c6',
-  '/assets/images/icon-512.png?v=60baf519',
-  '/assets/images/apple-touch-icon.png?v=fdde4c1f',
-  '/assets/images/banner.png?v=7b920f81',
+  '/assets/favicon.ico?v=assets1',
+  '/assets/images/favicon.svg?v=assets1',
+  '/assets/images/icon-192.png?v=assets1',
+  '/assets/images/icon-512.png?v=assets1',
+  '/assets/images/apple-touch-icon.png?v=assets1',
+  '/assets/images/banner.png?v=assets1',
   'https://use.fontawesome.com/releases/v6.4.2/css/all.css'
 ];
 
