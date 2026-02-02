@@ -26,13 +26,13 @@
 
 # Stylesheets
 /*.css
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
   Surrogate-Control: max-age=31536000
   Surrogate-Key: static
 
 # JavaScript Files
 /*.js
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
   Surrogate-Control: max-age=31536000
   Surrogate-Key: static
 
