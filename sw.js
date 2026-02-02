@@ -29,7 +29,13 @@ self.addEventListener('install', event => {
     caches.open(STATIC_CACHE)
       .then(cache => {
         console.log('Caching static assets');
-        return cache.addAll(STATIC_ASSETS);
+        return Promise.all(
+          STATIC_ASSETS.map(url => {
+            return cache.add(url).catch(error => {
+              console.log('Failed to cache asset:', url, error);
+            });
+          })
+        );
       })
       .catch(error => {
         console.log('Failed to cache static assets:', error);
