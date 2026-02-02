@@ -10,11 +10,7 @@ const CRITICAL_ASSETS = [
   '/index.html',
   '/profiles.html',
   '/links.html',
-  '/style.css?v=6294ffc1',
-  '/assets/js/common.js?v=9ab4fd10'
-];
-
-const NON_CRITICAL_ASSETS = [
+  '/assets/js/common.js?v=9ab4fd10',
   '/assets/favicon.ico',
   '/assets/images/favicon.svg',
   '/assets/images/icon-192.png',
