@@ -10,8 +10,8 @@ const STATIC_ASSETS = [
   '/index.html',
   '/profiles.html',
   '/links.html',
-  '/style.css',
-  '/assets/js/common.js',
+  '/style.css?v=6294ffc1',
+  '/assets/js/common.js?v=9ab4fd10',
   '/assets/favicon.ico',
   '/assets/images/favicon.svg',
   '/assets/images/icon-192.png',
@@ -76,8 +76,8 @@ self.addEventListener('fetch', event => {
 
   // Handle different types of requests
   if (url.pathname === '/' || url.pathname.endsWith('.html')) {
-    // HTML pages: network first, then cache
-    event.respondWith(networkFirst(request, STATIC_CACHE));
+    // HTML pages: stale-while-revalidate strategy for instant load
+    event.respondWith(staleWhileRevalidate(event, request, STATIC_CACHE));
   } else if (url.pathname.endsWith('.css') || url.pathname.endsWith('.js')) {
     // CSS/JS: cache first, then network
     event.respondWith(cacheFirst(request, STATIC_CACHE));
@@ -132,6 +132,36 @@ async function networkFirst(request, cacheName) {
     if (cachedResponse) {
       return cachedResponse;
     }
+    return new Response('Offline content not available', { status: 503 });
+  }
+}
+
+/**
+ * Stale-while-revalidate strategy - serve from cache, then update from network
+ */
+async function staleWhileRevalidate(event, request, cacheName) {
+  const cache = await caches.open(cacheName);
+  const cachedResponse = await cache.match(request);
+
+  const networkFetch = fetch(request).then(networkResponse => {
+    if (networkResponse.ok) {
+      cache.put(request, networkResponse.clone());
+    }
+    return networkResponse;
+  });
+
+  event.waitUntil(
+    networkFetch.catch(err => console.log('SWR background update failed', err))
+  );
+
+  if (cachedResponse) {
+    return cachedResponse;
+  }
+
+  try {
+    return await networkFetch;
+  } catch (error) {
+    console.log('SWR network fallback failed:', error);
     return new Response('Offline content not available', { status: 503 });
   }
 }
