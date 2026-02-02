@@ -3,7 +3,7 @@
  * Provides offline capabilities and performance improvements
  */
 
-const STATIC_CACHE = 'static-v1.0.4';
+const STATIC_CACHE = 'static-v1.0.5';
 
 const STATIC_ASSETS = [
   '/',
@@ -12,12 +12,12 @@ const STATIC_ASSETS = [
   '/links.html',
   '/style.css?v=6294ffc1',
   '/assets/js/common.js?v=9ab4fd10',
-  '/assets/favicon.ico',
-  '/assets/images/favicon.svg',
-  '/assets/images/icon-192.png',
-  '/assets/images/icon-512.png',
-  '/assets/images/apple-touch-icon.png',
-  '/assets/images/banner.png',
+  '/assets/favicon.ico?v=assets1',
+  '/assets/images/favicon.svg?v=assets1',
+  '/assets/images/icon-192.png?v=assets1',
+  '/assets/images/icon-512.png?v=assets1',
+  '/assets/images/apple-touch-icon.png?v=assets1',
+  '/assets/images/banner.png?v=assets1',
   'https://use.fontawesome.com/releases/v6.4.2/css/all.css'
 ];
 
