@@ -146,12 +146,14 @@ async function networkFirst(request, cacheName) {
  * Stale-while-revalidate strategy - serve from cache, then update from network
  */
 async function staleWhileRevalidate(event, request, cacheName) {
-  const cache = await caches.open(cacheName);
-  const cachedResponse = await cache.match(request);
+  // Start network request immediately (parallel)
+  const cachePromise = caches.open(cacheName);
+  const matchPromise = cachePromise.then(cache => cache.match(request));
 
-  const networkFetch = fetch(request).then(networkResponse => {
+  const networkFetch = fetch(request).then(async networkResponse => {
     if (networkResponse.ok) {
-      cache.put(request, networkResponse.clone());
+      const cache = await cachePromise;
+      await cache.put(request, networkResponse.clone());
     }
     return networkResponse;
   });
@@ -160,6 +162,7 @@ async function staleWhileRevalidate(event, request, cacheName) {
     networkFetch.catch(err => console.log('SWR background update failed', err))
   );
 
+  const cachedResponse = await matchPromise;
   if (cachedResponse) {
     return cachedResponse;
   }
