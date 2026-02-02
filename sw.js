@@ -3,14 +3,13 @@
  * Provides offline capabilities and performance improvements
  */
 
-const STATIC_CACHE = 'static-v1.0.4';
+const STATIC_CACHE = 'static-v1.0.5';
 
 const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/profiles.html',
   '/links.html',
-  '/style.css?v=6294ffc1',
   '/assets/js/common.js?v=9ab4fd10',
   '/assets/favicon.ico',
   '/assets/images/favicon.svg',
