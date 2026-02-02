@@ -3,7 +3,7 @@
  * Provides offline capabilities and performance improvements
  */
 
-const STATIC_CACHE = 'static-v1.0.3';
+const STATIC_CACHE = 'static-v1.0.4';
 
 const STATIC_ASSETS = [
   '/',
