@@ -14,10 +14,15 @@
   
   <!-- Performance Optimization -->
   <link rel="preconnect" href="https://www.alexandertibbets.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
   <link rel="preconnect" href="https://use.fontawesome.com" crossorigin>
+
   <link rel="preload" href="/style.css?v=6294ffc1" as="style">
   <link rel="preload" href="/assets/favicon.ico" as="image">
   <link rel="preload" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" as="style">
+  <link rel="preload" href="https://use.fontawesome.com/releases/v6.4.2/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://use.fontawesome.com/releases/v6.4.2/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
   
   <!-- Favicon (for search results) -->
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
@@ -49,11 +54,24 @@
   <link rel="stylesheet" href="/style.css?v=6294ffc1">
   
   <!-- FontAwesome -->
-  <link href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" rel="stylesheet">
+  </noscript>
 
   <!-- JavaScript -->
   <script src="/assets/js/common.js?v=9ab4fd10" defer></script>
   
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GGXQFFQVVY"></script>
+  <script defer>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.AlexanderTibbetsWebsite) {
+        window.AlexanderTibbetsWebsite.initializeAnalytics();
+      }
+    });
+  </script>
+
   <!-- Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {
@@ -71,6 +89,12 @@
 </head>
 
 <body>
+  <!-- Google Analytics Fallback -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/gtag/js?id=G-GGXQFFQVVY"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
   <!-- Main Content -->
   <main id="content" role="main" aria-label="Main content">
     <h1>🔗</h1>

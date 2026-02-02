@@ -13,14 +13,36 @@
     <link rel="alternate" type="text/plain" title="Robots" href="/robots.txt">
     
     <!-- Performance Optimizations -->
-    <link rel="preload" href="/style.css" as="style">
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+
+    <link rel="preload" href="/style.css?v=6294ffc1" as="style">
     <link rel="preload" href="/assets/favicon.ico" as="image">
     
     <!-- Resource Loading -->
     <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css?v=6294ffc1">
+
+    <!-- JavaScript -->
+    <script src="/assets/js/common.js?v=9ab4fd10" defer></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GGXQFFQVVY"></script>
+    <script defer>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.AlexanderTibbetsWebsite) {
+          window.AlexanderTibbetsWebsite.initializeAnalytics();
+        }
+      });
+    </script>
 </head>
 <body>
+    <!-- Google Analytics Fallback -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/gtag/js?id=G-GGXQFFQVVY"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
     <!-- Main Content -->
     <main id="content" role="main" aria-label="Main content">
         <h1>404</h1>
