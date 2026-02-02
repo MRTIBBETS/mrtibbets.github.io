@@ -3,7 +3,7 @@
  * Provides offline capabilities and performance improvements
  */
 
-const STATIC_CACHE = 'static-v1.0.4';
+const STATIC_CACHE = 'static-v1.0.5';
 
 const CRITICAL_ASSETS = [
   '/',
@@ -162,24 +162,36 @@ async function networkFirst(request, cacheName) {
  * Stale-while-revalidate strategy - serve from cache, then update from network
  */
 async function staleWhileRevalidate(event, request, cacheName) {
-  const cache = await caches.open(cacheName);
-  const cachedResponse = await cache.match(request);
-
+  // Start network fetch immediately
   const networkFetch = fetch(request).then(networkResponse => {
-    if (networkResponse.ok) {
-      cache.put(request, networkResponse.clone());
-    }
+    // Clone immediately for cache
+    const clonedResponse = networkResponse.clone();
+
+    const cacheUpdate = async () => {
+      if (clonedResponse.ok) {
+        const cache = await caches.open(cacheName);
+        await cache.put(request, clonedResponse);
+      }
+    };
+
+    // Extend lifetime for the cache update
+    event.waitUntil(cacheUpdate().catch(err => console.log('SWR cache update failed', err)));
+
     return networkResponse;
   });
 
-  event.waitUntil(
-    networkFetch.catch(err => console.log('SWR background update failed', err))
-  );
+  // Keep SW alive for the fetch itself
+  event.waitUntil(networkFetch.catch(err => console.log('SWR background fetch failed', err)));
+
+  // Check cache (parallel to fetch)
+  const cache = await caches.open(cacheName);
+  const cachedResponse = await cache.match(request);
 
   if (cachedResponse) {
     return cachedResponse;
   }
 
+  // Fallback to network
   try {
     return await networkFetch;
   } catch (error) {

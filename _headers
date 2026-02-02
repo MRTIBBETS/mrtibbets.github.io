@@ -38,37 +38,37 @@
 
 # Images
 /*.png
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
   Surrogate-Control: max-age=31536000
   Surrogate-Key: static
 
 /*.jpg
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
   Surrogate-Control: max-age=31536000
   Surrogate-Key: static
 
 /*.gif
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
   Surrogate-Control: max-age=31536000
   Surrogate-Key: static
 
 /*.svg
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
   Surrogate-Control: max-age=31536000
   Surrogate-Key: static
 
 /*.ico
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
   Surrogate-Control: max-age=31536000
   Surrogate-Key: static
 
 # Fonts
 /*.woff
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
   Surrogate-Control: max-age=31536000
   Surrogate-Key: static
 
 /*.woff2
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
   Surrogate-Control: max-age=31536000
-  Surrogate-Key: static 
+  Surrogate-Key: static
