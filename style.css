@@ -2,44 +2,38 @@
    STYLESHEET - ALEXANDER TIBBETS WEBSITE
    ========================================================================== */
 
-/* ===== QUICK TWEAKS SECTION ===== */
-/* 
-   This section contains the most commonly adjusted values.
-   Change these to quickly modify the overall look and feel.
-*/
-
 :root {
-  /* ===== COLORS ===== */
-  --primary-color: #000;                    /* Main text color */
-  --background-color: #faf8f3;              /* Page background - warm paper color */
-  --hover-color: #D4AF37;                   /* Hover state color (gold) */
-  
-/* ===== TYPOGRAPHY ===== */
-  --font-family: 'Courier New', Courier, monospace;  /* Typewriter font */
-  --font-size-h1: 1.8rem;                   /* Main heading size */
-  --font-size-h2: 1.8rem;                   /* Section heading size */
-  --font-size-body: 1.8rem;                 /* Body text size */
-  --line-height-base: 1.6;                  /* Line spacing for readability */
-  --letter-spacing: 0.1em;                  /* Letter spacing for typewriter feel */
-  --font-weight-normal: 400;                /* Font weight (400 = normal) */
-  
-  /* ===== LAYOUT ===== */
-  --content-max-width: 800px;               /* Maximum content width */
-  --horizontal-margin: clamp(80px, 20vw, 240px);  /* Side margins */
-  --vertical-spacing: 2rem;                 /* Top/bottom spacing */
-  
-  /* ===== SPACING ===== */
-  --section-gap: 2rem;                      /* Space between sections */
-  --card-padding: 1rem;                     /* Padding inside profile cards */
-  --card-gap: 1rem;                         /* Gap between profile cards */
-  --card-min-height: 80px;                  /* Minimum height of profile cards */
-  
-  /* ===== ICON SIZES ===== */
-  --icon-size: 3rem;                        /* Icon size */
+  /* Colors */
+  --primary-color: #000;
+  --background-color: #faf8f3;
+  --hover-color: #D4AF37;
+
+  /* Typography */
+  --font-family: 'Courier New', Courier, monospace;
+  --font-size-h1: 1.8rem;
+  --font-size-h2: 1.8rem;
+  --font-size-body: 1.8rem;
+  --line-height-base: 1.6;
+  --letter-spacing: 0.1em;
+  --font-weight-normal: 400;
+
+  /* Layout */
+  --content-max-width: 800px;
+  --horizontal-margin: clamp(80px, 20vw, 240px);
+  --vertical-spacing: 2rem;
+
+  /* Spacing */
+  --section-gap: 2rem;
+  --card-padding: 1rem;
+  --card-gap: 1rem;
+  --card-min-height: 80px;
+
+  /* Icons */
+  --icon-size: 3rem;
 }
 
 /* ==========================================================================
-   GLOBAL RESET & BASE STYLES
+   BASE STYLES
    ========================================================================== */
 
 * {
@@ -70,7 +64,7 @@ body {
 }
 
 /* ==========================================================================
-   MAIN CONTENT LAYOUT
+   LAYOUT & CONTENT
    ========================================================================== */
 
 #content {
@@ -82,11 +76,7 @@ body {
   outline: none;
 }
 
-/* ==========================================================================
-   TYPOGRAPHY SYSTEM
-   ========================================================================== */
-
-/* ===== HEADINGS ===== */
+/* Headings */
 #content h1 {
   font-size: var(--font-size-h1);
   font-weight: normal;
@@ -103,7 +93,7 @@ body {
   margin: 0 0 1rem 0;
 }
 
-/* ===== BODY TEXT ===== */
+/* Body Text */
 #content p {
   font-size: var(--font-size-body);
   line-height: var(--line-height-base);
@@ -115,7 +105,7 @@ body {
   margin-bottom: 2rem;
 }
 
-/* ===== LINKS ===== */
+/* Links */
 #content a {
   color: var(--primary-color);
   text-decoration: underline;
@@ -129,16 +119,9 @@ body {
 }
 
 /* ==========================================================================
-   HEADER & SECTION LAYOUTS
+   SOCIAL MEDIA
    ========================================================================== */
 
-
-
-/* ==========================================================================
-   SOCIAL MEDIA NAVIGATION
-   ========================================================================== */
-
-/* ===== SOCIAL MEDIA GRID ===== */
 .social-media {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -149,7 +132,6 @@ body {
   min-width: 280px;
 }
 
-/* ===== SOCIAL MEDIA LINKS ===== */
 .social-media a {
   display: flex;
   justify-content: center;
@@ -165,7 +147,6 @@ body {
   transition: color 0.2s ease;
 }
 
-/* ===== HOVER EFFECTS ===== */
 .social-media a:hover,
 .social-media a:focus {
   color: var(--hover-color);
@@ -173,7 +154,6 @@ body {
   outline: none;
 }
 
-/* ===== ICONS ===== */
 .social-media i {
   font-size: var(--icon-size);
   width: var(--icon-size);
@@ -182,7 +162,6 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 
 /* ==========================================================================
    FOOTER
@@ -214,7 +193,7 @@ footer {
    RESPONSIVE DESIGN
    ========================================================================== */
 
-/* ===== MOBILE (480px and below) ===== */
+/* Mobile (480px and below) */
 @media (max-width: 480px) {
   :root {
     --font-size-h1: 1.4rem;
@@ -235,7 +214,7 @@ footer {
   }
 }
 
-/* ===== SMALL TABLET (481px - 767px) ===== */
+/* Small Tablet (481px - 767px) */
 @media (min-width: 481px) and (max-width: 767px) {
   :root {
     --font-size-h1: 1.6rem;
@@ -249,7 +228,7 @@ footer {
   }
 }
 
-/* ===== TABLET (768px - 991px) ===== */
+/* Tablet (768px - 991px) */
 @media (min-width: 768px) and (max-width: 991px) {
   :root {
     --font-size-h1: 1.7rem;
@@ -263,7 +242,7 @@ footer {
   }
 }
 
-/* ===== DESKTOP (992px and above) ===== */
+/* Desktop (992px and above) */
 @media (min-width: 992px) {
   :root {
     --font-size-h1: 1.8rem;

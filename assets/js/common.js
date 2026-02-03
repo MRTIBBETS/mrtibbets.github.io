@@ -1,6 +1,5 @@
 /**
  * Common functionality for Alexander Tibbets website
- * Consolidates shared JavaScript functionality to eliminate duplication
  */
 
 /**
@@ -29,14 +28,14 @@ function trackPerformance() {
   try {
     const observer = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
-        if (entry.entryType === 'navigation') {
-          const loadTime = entry.loadEventEnd - entry.loadEventStart;
-          if (loadTime > 0 && window.gtag) {
-            gtag('event', 'timing_complete', {
-              name: 'load',
-              value: Math.round(loadTime)
-            });
-          }
+        if (entry.entryType !== 'navigation') continue;
+
+        const loadTime = entry.loadEventEnd - entry.loadEventStart;
+        if (loadTime > 0 && window.gtag) {
+          gtag('event', 'timing_complete', {
+            name: 'load',
+            value: Math.round(loadTime)
+          });
         }
       }
     });
@@ -48,10 +47,28 @@ function trackPerformance() {
 }
 
 /**
+ * Register Service Worker
+ */
+function registerServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => {
+          console.log('Service worker registered:', registration);
+        })
+        .catch(error => {
+          console.log('Service worker registration failed:', error);
+        });
+    });
+  }
+}
+
+/**
  * Initialize all functionality when DOM is ready
  */
 function initialize() {
   trackPerformance();
+  registerServiceWorker();
 }
 
 // Initialize when DOM is ready
