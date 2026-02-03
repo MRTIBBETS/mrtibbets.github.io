@@ -3,7 +3,7 @@
  * Provides offline capabilities and performance improvements
  */
 
-const STATIC_CACHE = 'static-v1.0.5';
+const STATIC_CACHE = 'static-v1.0.6';
 
 const CRITICAL_ASSETS = [
   '/',
@@ -20,7 +20,7 @@ const CRITICAL_ASSETS = [
   'https://use.fontawesome.com/releases/v6.4.2/css/all.css'
 ];
 
-const STATIC_ASSETS = [...CRITICAL_ASSETS, ...NON_CRITICAL_ASSETS];
+const STATIC_ASSETS = [...CRITICAL_ASSETS];
 
 /**
  * Install event - cache static assets
@@ -30,27 +30,12 @@ self.addEventListener('install', event => {
     caches.open(STATIC_CACHE)
       .then(async cache => {
         console.log('Caching static assets');
-
-        // Cache critical assets - fail installation if any fail
         try {
-            await cache.addAll(CRITICAL_ASSETS);
+          await cache.addAll(STATIC_ASSETS);
         } catch (error) {
-            console.error('Critical asset caching failed:', error);
-            throw error;
+          console.error('Asset caching failed:', error);
+          throw error;
         }
-
-        // Cache non-critical assets - continue installation even if some fail
-        await Promise.all(
-          NON_CRITICAL_ASSETS.map(url => {
-            return cache.add(url).catch(error => {
-              console.log('Failed to cache non-critical asset:', url, error);
-            });
-          })
-        );
-      })
-      .catch(error => {
-        console.log('Failed to install service worker:', error);
-        throw error;
       })
   );
   self.skipWaiting();
@@ -158,31 +143,25 @@ async function networkFirst(request, cacheName) {
  * Stale-while-revalidate strategy - serve from cache, then update from network
  */
 async function staleWhileRevalidate(event, request, cacheName) {
-  // Start network request immediately (parallel)
-  const cachePromise = caches.open(cacheName);
-  const matchPromise = cachePromise.then(cache => cache.match(request));
+  const cache = await caches.open(cacheName);
 
-  const networkFetch = fetch(request).then(async networkResponse => {
-    if (networkResponse.ok) {
-      const cache = await cachePromise;
-      await cache.put(request, networkResponse.clone());
+  // Start network request immediately (parallel)
+  const networkFetch = fetch(request).then(response => {
+    if (response.ok) {
+      cache.put(request, response.clone());
     }
-    return networkResponse;
+    return response;
   });
 
   // Keep SW alive for the fetch itself
   event.waitUntil(networkFetch.catch(err => console.log('SWR background fetch failed', err)));
 
-  // Check cache (parallel to fetch)
-  const cache = await caches.open(cacheName);
+  // Check cache
   const cachedResponse = await cache.match(request);
-
-  const cachedResponse = await matchPromise;
   if (cachedResponse) {
     return cachedResponse;
   }
 
-  // Fallback to network
   try {
     return await networkFetch;
   } catch (error) {
