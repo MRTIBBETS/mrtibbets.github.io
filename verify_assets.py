@@ -11,20 +11,26 @@ async def verify_index(browser):
         print("Navigating to index.html...")
         await page.goto("http://localhost:8080/")
 
-        # Check for versioned assets
-        # Note: browser might not request og:image, but it requests favicon.
-        # index.html has: <link rel="icon" ... href="/assets/images/favicon.svg?v=assets1">
-
         found_assets = []
+        found_common_js = False
+
         for url in requests:
             if "?v=assets1" in url:
                 found_assets.append(url)
                 print(f"Found versioned asset: {url}")
+            if "common.js?v=" in url:
+                found_common_js = True
+                print(f"Found common.js with version: {url}")
 
         if len(found_assets) == 0:
-            print("WARNING: No versioned assets found in requests. Check if browser is requesting them.")
+            print("WARNING: No v=assets1 assets found.")
 
-        await page.screenshot(path="/home/jules/verification/index_verification.png")
+        if not found_common_js:
+            print("WARNING: common.js with version query not found.")
+        else:
+            print("SUCCESS: common.js found with version.")
+
+        await page.screenshot(path="index_verification.png")
     finally:
         await page.close()
 
@@ -33,7 +39,7 @@ async def verify_links(browser):
     try:
         print("Navigating to links.html...")
         await page.goto("http://localhost:8080/links.html")
-        await page.screenshot(path="/home/jules/verification/links_verification.png")
+        await page.screenshot(path="links_verification.png")
     finally:
         await page.close()
 
