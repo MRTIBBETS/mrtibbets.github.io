@@ -2,12 +2,17 @@ import asyncio
 from playwright.async_api import async_playwright
 import os
 
-# Ensure verification directory exists
-os.makedirs("/home/jules/verification", exist_ok=True)
+async def check_preconnects(page, page_name):
+    preconnects = await page.query_selector_all('link[rel="preconnect"]')
+    for link in preconnects:
+        href = await link.get_attribute('href')
+        if href and "alexandertibbets.com" in href:
+             print(f"FAILURE: Redundant preconnect to origin found in {page_name}: {href}")
+             raise Exception(f"Redundant preconnect to origin found in {page_name}")
+        elif href:
+             print(f"Verified preconnect in {page_name}: {href}")
 
-PAGES = ["/", "/links.html", "/profiles.html", "/404.html"]
-
-async def verify_page(browser, path):
+async def verify_index(browser):
     page = await browser.new_page()
     url = f"http://localhost:8080{path}"
     try:
@@ -20,32 +25,45 @@ async def verify_page(browser, path):
         # "load" is safer for asset verification.
         await page.goto(url, wait_until="load")
 
-        # Check for versioned assets
-        # We look for either assets1 (images) or common1 (js) as at least one should be present.
         found_assets = []
-        for req_url in requests:
-            if "?v=assets1" in req_url or "?v=common1" in req_url:
-                found_assets.append(req_url)
-                # print(f"Found versioned asset on {path}: {req_url}")
+        found_common_js = False
+
+        for url in requests:
+            if "?v=assets1" in url:
+                found_assets.append(url)
+                print(f"Found versioned asset: {url}")
+            if "common.js?v=" in url:
+                found_common_js = True
+                print(f"Found common.js with version: {url}")
 
         if len(found_assets) == 0:
-            print(f"WARNING: No versioned assets found in requests for {path}. Check if browser is requesting them.")
-            # Print debug info only on failure
-            print(f"DEBUG: All requests for {path} ({len(requests)}):")
-            for r in requests:
-                print(f" - {r}")
+            print("WARNING: No v=assets1 assets found.")
+
+        if not found_common_js:
+            print("WARNING: common.js with version query not found.")
         else:
-            print(f"SUCCESS: Found {len(found_assets)} versioned assets on {path}")
+            print("SUCCESS: common.js found with version.")
 
-        # Generate screenshot name from path
-        safe_name = path.replace("/", "").replace(".html", "")
-        if not safe_name: safe_name = "index"
+        await page.screenshot(path="index_verification.png")
+    finally:
+        await page.close()
 
-        screenshot_path = f"/home/jules/verification/{safe_name}_verification.png"
-        await page.screenshot(path=screenshot_path)
+async def verify_links(browser):
+    page = await browser.new_page()
+    try:
+        print("Navigating to links.html...")
+        await page.goto("http://localhost:8080/links.html")
+        await page.screenshot(path="links_verification.png")
+    finally:
+        await page.close()
 
-    except Exception as e:
-        print(f"ERROR verifying {path}: {e}")
+async def verify_profiles(browser):
+    page = await browser.new_page()
+    try:
+        print("Navigating to profiles.html...")
+        await page.goto("http://localhost:8080/profiles.html")
+        await check_preconnects(page, "profiles.html")
+        await page.screenshot(path="/home/jules/verification/profiles_verification.png")
     finally:
         await page.close()
 
@@ -53,8 +71,11 @@ async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         try:
-            tasks = [verify_page(browser, page) for page in PAGES]
-            await asyncio.gather(*tasks)
+            await asyncio.gather(
+                verify_index(browser),
+                verify_links(browser),
+                verify_profiles(browser)
+            )
         finally:
             await browser.close()
 
