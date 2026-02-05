@@ -1,5 +1,6 @@
 import asyncio
 from playwright.async_api import async_playwright
+import os
 
 async def check_preconnects(page, page_name):
     preconnects = await page.query_selector_all('link[rel="preconnect"]')
@@ -13,13 +14,16 @@ async def check_preconnects(page, page_name):
 
 async def verify_index(browser):
     page = await browser.new_page()
+    url = f"http://localhost:8080{path}"
     try:
         # Track requests
         requests = []
         page.on("request", lambda request: requests.append(request.url))
 
-        print("Navigating to index.html...")
-        await page.goto("http://localhost:8080/")
+        print(f"Navigating to {path}...")
+        # waitUntil="domcontentloaded" might be faster, but we need to ensure assets are requested.
+        # "load" is safer for asset verification.
+        await page.goto(url, wait_until="load")
 
         found_assets = []
         found_common_js = False
