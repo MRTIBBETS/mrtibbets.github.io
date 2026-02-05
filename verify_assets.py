@@ -1,39 +1,51 @@
 import asyncio
 from playwright.async_api import async_playwright
+import os
 
-async def verify_index(browser):
+# Ensure verification directory exists
+os.makedirs("/home/jules/verification", exist_ok=True)
+
+PAGES = ["/", "/links.html", "/profiles.html", "/404.html"]
+
+async def verify_page(browser, path):
     page = await browser.new_page()
+    url = f"http://localhost:8080{path}"
     try:
         # Track requests
         requests = []
         page.on("request", lambda request: requests.append(request.url))
 
-        print("Navigating to index.html...")
-        await page.goto("http://localhost:8080/")
+        print(f"Navigating to {path}...")
+        # waitUntil="domcontentloaded" might be faster, but we need to ensure assets are requested.
+        # "load" is safer for asset verification.
+        await page.goto(url, wait_until="load")
 
         # Check for versioned assets
-        # Note: browser might not request og:image, but it requests favicon.
-        # index.html has: <link rel="icon" ... href="/assets/images/favicon.svg?v=assets1">
-
+        # We look for either assets1 (images) or common1 (js) as at least one should be present.
         found_assets = []
-        for url in requests:
-            if "?v=assets1" in url:
-                found_assets.append(url)
-                print(f"Found versioned asset: {url}")
+        for req_url in requests:
+            if "?v=assets1" in req_url or "?v=common1" in req_url:
+                found_assets.append(req_url)
+                # print(f"Found versioned asset on {path}: {req_url}")
 
         if len(found_assets) == 0:
-            print("WARNING: No versioned assets found in requests. Check if browser is requesting them.")
+            print(f"WARNING: No versioned assets found in requests for {path}. Check if browser is requesting them.")
+            # Print debug info only on failure
+            print(f"DEBUG: All requests for {path} ({len(requests)}):")
+            for r in requests:
+                print(f" - {r}")
+        else:
+            print(f"SUCCESS: Found {len(found_assets)} versioned assets on {path}")
 
-        await page.screenshot(path="/home/jules/verification/index_verification.png")
-    finally:
-        await page.close()
+        # Generate screenshot name from path
+        safe_name = path.replace("/", "").replace(".html", "")
+        if not safe_name: safe_name = "index"
 
-async def verify_links(browser):
-    page = await browser.new_page()
-    try:
-        print("Navigating to links.html...")
-        await page.goto("http://localhost:8080/links.html")
-        await page.screenshot(path="/home/jules/verification/links_verification.png")
+        screenshot_path = f"/home/jules/verification/{safe_name}_verification.png"
+        await page.screenshot(path=screenshot_path)
+
+    except Exception as e:
+        print(f"ERROR verifying {path}: {e}")
     finally:
         await page.close()
 
@@ -41,10 +53,8 @@ async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         try:
-            await asyncio.gather(
-                verify_index(browser),
-                verify_links(browser)
-            )
+            tasks = [verify_page(browser, page) for page in PAGES]
+            await asyncio.gather(*tasks)
         finally:
             await browser.close()
 
