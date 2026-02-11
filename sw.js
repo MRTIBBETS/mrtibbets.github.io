@@ -17,7 +17,6 @@ const CRITICAL_ASSETS = [
   '/assets/images/icon-192.png?v=assets1',
   '/assets/images/icon-512.png?v=assets1',
   '/assets/images/apple-touch-icon.png?v=assets1',
-  '/assets/images/banner.png?v=assets1',
   'https://use.fontawesome.com/releases/v6.4.2/css/all.css'
 ];
 
