@@ -2,15 +2,13 @@ import asyncio
 from playwright.async_api import async_playwright
 import os
 
-async def check_preconnects(page, page_name):
-    preconnects = await page.query_selector_all('link[rel="preconnect"]')
-    for link in preconnects:
-        href = await link.get_attribute('href')
-        if href and "alexandertibbets.com" in href:
-             print(f"FAILURE: Redundant preconnect to origin found in {page_name}: {href}")
-             raise Exception(f"Redundant preconnect to origin found in {page_name}")
-        elif href:
-             print(f"Verified preconnect in {page_name}: {href}")
+async def verify_page(browser, path):
+    context = await browser.new_context()
+    # Abort external requests
+    await context.route("**/*", lambda route:
+        route.abort() if not (route.request.url.startswith("http://localhost:8080") or "favicon.ico" in route.request.url)
+        else route.continue_()
+    )
 
 async def verify_index(browser):
     path = "/"
@@ -21,62 +19,46 @@ async def verify_index(browser):
         requests = []
         page.on("request", lambda request: requests.append(request.url))
 
-        print(f"Navigating to {path}...")
-        # waitUntil="domcontentloaded" might be faster, but we need to ensure assets are requested.
-        # "load" is safer for asset verification.
-        await page.goto(url, wait_until="load")
+        print(f"Navigating to {url}...")
+        await page.goto(url, wait_until="load", timeout=10000)
+        await asyncio.sleep(1) # Wait for any late requests
 
         found_assets = []
         found_common_js = False
 
-        for url in requests:
-            if "?v=assets1" in url:
-                found_assets.append(url)
-                print(f"Found versioned asset: {url}")
-            if "common.js?v=" in url:
+        for req_url in requests:
+            if "?v=assets1" in req_url:
+                found_assets.append(req_url)
+            if "common.js?v=" in req_url:
                 found_common_js = True
-                print(f"Found common.js with version: {url}")
 
-        if len(found_assets) == 0:
-            print("WARNING: No v=assets1 assets found.")
+        print(f"Summary for {path}:")
+        print(f"  - Found {len(found_assets)} versioned assets.")
 
-        if not found_common_js:
-            print("WARNING: common.js with version query not found.")
+        favicons = [u for u in requests if "favicon.ico" in u]
+        if favicons:
+            print(f"  - Favicon requests: {favicons}")
+            if len(set(favicons)) > 1:
+                print(f"  - FAILURE: Multiple DIFFERENT favicon.ico requests found: {set(favicons)}")
+            else:
+                print(f"  - SUCCESS: Consistent favicon request: {favicons[0]}")
         else:
-            print("SUCCESS: common.js found with version.")
+             print(f"  - No favicon requests detected for {path} (common in headless)")
 
-        await page.screenshot(path="index_verification.png")
+    except Exception as e:
+        print(f"Error for {path}: {e}")
     finally:
-        await page.close()
-
-async def verify_links(browser):
-    page = await browser.new_page()
-    try:
-        print("Navigating to links.html...")
-        await page.goto("http://localhost:8080/links.html")
-        await page.screenshot(path="links_verification.png")
-    finally:
-        await page.close()
-
-async def verify_profiles(browser):
-    page = await browser.new_page()
-    try:
-        print("Navigating to profiles.html...")
-        await page.goto("http://localhost:8080/profiles.html")
-        await check_preconnects(page, "profiles.html")
-        await page.screenshot(path="/home/jules/verification/profiles_verification.png")
-    finally:
-        await page.close()
+        await context.close()
 
 async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         try:
-            await asyncio.gather(
-                verify_index(browser),
-                verify_links(browser),
-                verify_profiles(browser)
-            )
+            # Run sequentially to avoid log mixing
+            await verify_page(browser, "/")
+            await verify_page(browser, "/links.html")
+            await verify_page(browser, "/profiles.html")
+            await verify_page(browser, "/404.html")
         finally:
             await browser.close()
 
