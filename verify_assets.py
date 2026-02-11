@@ -4,8 +4,8 @@ import os
 
 async def check_preconnects(page, page_name):
     preconnects = await page.query_selector_all('link[rel="preconnect"]')
-    for link in preconnects:
-        href = await link.get_attribute('href')
+    hrefs = await asyncio.gather(*[link.get_attribute('href') for link in preconnects])
+    for href in hrefs:
         if href and "alexandertibbets.com" in href:
              print(f"FAILURE: Redundant preconnect to origin found in {page_name}: {href}")
              raise Exception(f"Redundant preconnect to origin found in {page_name}")
@@ -14,6 +14,7 @@ async def check_preconnects(page, page_name):
 
 async def verify_index(browser):
     page = await browser.new_page()
+    path = "/"
     url = f"http://localhost:8080{path}"
     try:
         # Track requests
