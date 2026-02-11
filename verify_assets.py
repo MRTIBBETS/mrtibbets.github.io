@@ -10,7 +10,9 @@ async def verify_page(browser, path):
         else route.continue_()
     )
 
-    page = await context.new_page()
+async def verify_index(browser):
+    path = "/"
+    page = await browser.new_page()
     url = f"http://localhost:8080{path}"
     try:
         # Track requests
