@@ -13,6 +13,7 @@ async def check_preconnects(page, page_name):
              print(f"Verified preconnect in {page_name}: {href}")
 
 async def verify_index(browser):
+    path = "/"
     page = await browser.new_page()
     url = f"http://localhost:8080{path}"
     try:
