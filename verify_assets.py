@@ -14,7 +14,7 @@ async def check_preconnects(page, page_name):
 
 async def verify_index(browser):
     page = await browser.new_page()
-    path = "/"
+    path = "/index.html"
     url = f"http://localhost:8080{path}"
     try:
         # Track requests
