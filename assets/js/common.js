@@ -6,14 +6,19 @@
  * Initialize Google Analytics with privacy-focused settings
  */
 function initializeAnalytics() {
+  if (window.alexanderTibbetsAnalyticsInitialized) return;
+  window.alexanderTibbetsAnalyticsInitialized = true;
+
   window.dataLayer = window.dataLayer || [];
   
-  function gtag() {
-    dataLayer.push(arguments);
+  if (!window.gtag) {
+    window.gtag = function() {
+      window.dataLayer.push(arguments);
+    };
   }
   
-  gtag('js', new Date());
-  gtag('config', 'G-GGXQFFQVVY', {
+  window.gtag('js', new Date());
+  window.gtag('config', 'G-GGXQFFQVVY', {
     anonymize_ip: true,
     cookie_flags: 'SameSite=None;Secure'
   });
@@ -32,7 +37,7 @@ function trackPerformance() {
 
         const loadTime = entry.loadEventEnd - entry.loadEventStart;
         if (loadTime > 0 && window.gtag) {
-          gtag('event', 'timing_complete', {
+          window.gtag('event', 'timing_complete', {
             name: 'load',
             value: Math.round(loadTime)
           });
@@ -67,6 +72,7 @@ function registerServiceWorker() {
  * Initialize all functionality when DOM is ready
  */
 function initialize() {
+  initializeAnalytics();
   trackPerformance();
   registerServiceWorker();
 }
