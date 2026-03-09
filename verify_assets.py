@@ -46,10 +46,8 @@ async def main():
         browser = await p.chromium.launch(headless=True)
         try:
             paths = ["/", "/links.html", "/profiles.html", "/404.html"]
-            results = []
-            for path in paths:
-                success = await verify_page(browser, path)
-                results.append(success)
+            tasks = [verify_page(browser, path) for path in paths]
+            results = await asyncio.gather(*tasks)
 
             if all(results):
                 print("\nAll pages verified successfully.")
