@@ -32,9 +32,7 @@ function trackPerformance() {
   
   try {
     const observer = new PerformanceObserver((list) => {
-      for (const entry of list.getEntries()) {
-        if (entry.entryType !== 'navigation') continue;
-
+      for (const entry of list.getEntriesByType('navigation')) {
         const loadTime = entry.loadEventEnd - entry.loadEventStart;
         if (loadTime > 0 && window.gtag) {
           window.gtag('event', 'timing_complete', {
