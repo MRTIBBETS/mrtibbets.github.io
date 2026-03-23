@@ -26,10 +26,7 @@ async def verify_page(browser, path):
 
         await asyncio.sleep(1) # Wait for any late requests
 
-        found_assets = []
-        for req_url in requests:
-            if "?v=" in req_url:
-                found_assets.append(req_url)
+        found_assets = [req_url for req_url in requests if "?v=" in req_url]
 
         print(f"Summary for {path}: SUCCESS")
         print(f"  - Found {len(found_assets)} versioned assets.")
