@@ -22,6 +22,9 @@ const CRITICAL_ASSETS = [
 
 const STATIC_ASSETS = [...CRITICAL_ASSETS];
 
+// Regex for identifying static assets that should use cache-first strategy
+const STATIC_ASSETS_RE = /\.(?:css|js|ico|png|svg)$|\/assets\//;
+
 /**
  * Install event - cache static assets
  */
@@ -82,14 +85,8 @@ self.addEventListener('fetch', event => {
   if (url.pathname === '/' || url.pathname.endsWith('.html')) {
     // HTML pages: stale-while-revalidate strategy for instant load
     event.respondWith(staleWhileRevalidate(event, request, STATIC_CACHE));
-  } else if (url.pathname.endsWith('.css') || url.pathname.endsWith('.js')) {
-    // CSS/JS: cache first, then network
-    event.respondWith(cacheFirst(request, STATIC_CACHE));
-  } else if (url.pathname.includes('/assets/') || url.pathname.includes('.ico') || url.pathname.includes('.png') || url.pathname.includes('.svg')) {
-    // Static assets: cache first, then network
-    event.respondWith(cacheFirst(request, STATIC_CACHE));
-  } else if (url.hostname === 'use.fontawesome.com') {
-    // External fonts: cache first, then network
+  } else if (url.hostname === 'use.fontawesome.com' || STATIC_ASSETS_RE.test(url.pathname)) {
+    // Static assets, CSS/JS, and external fonts: cache first, then network
     event.respondWith(cacheFirst(request, STATIC_CACHE));
   } else {
     // Other requests: network first, then cache
