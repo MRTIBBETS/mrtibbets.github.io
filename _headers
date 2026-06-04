@@ -24,6 +24,18 @@
   Surrogate-Control: max-age=3600
   Surrogate-Key: html
 
+# Clean HTML URLs
+/profiles
+  Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=3600
+  Surrogate-Key: html
+
+/links
+  Cache-Control: public, max-age=0, must-revalidate
+  Surrogate-Control: max-age=3600
+  Surrogate-Key: html
+
+
 # Stylesheets
 /*.css
   Cache-Control: public, max-age=31536000, immutable

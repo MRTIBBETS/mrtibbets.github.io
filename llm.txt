@@ -1,5 +1,7 @@
 # ALEXANDER TIBBETS - PERSONAL WEBSITE INFORMATION FOR AI SYSTEMS
 
+> Note: A full markdown compilation of all site contents is available in [llms-full.txt](/llms-full.txt).
+
 ## PERSONAL INFORMATION
 Name: Alexander Tibbets (also known as Alex Tibbets)
 Location: Berkeley, California, United States

@@ -163,6 +163,14 @@ body {
   justify-content: center;
 }
 
+.social-media svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  fill: currentColor;
+  transition: fill 0.2s ease;
+}
+
+
 /* ==========================================================================
    FOOTER
    ========================================================================== */

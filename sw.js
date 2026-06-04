@@ -3,21 +3,20 @@
  * Provides offline capabilities and performance improvements
  */
 
-const STATIC_CACHE = 'static-v1.0.9';
+const STATIC_CACHE = 'static-v408ea1f1';
 
 const CRITICAL_ASSETS = [
   '/',
   '/index.html',
   '/profiles.html',
   '/links.html',
-  '/style.css?v=assets1',
-  '/assets/js/common.js?v=9ab4fd10',
+  '/style.css?v=3087dcd7',
+  '/assets/js/common.js?v=78c0437b',
   '/assets/favicon.ico?v=assets1',
   '/assets/images/favicon.svg?v=assets1',
   '/assets/images/icon-192.png?v=assets1',
   '/assets/images/icon-512.png?v=assets1',
-  '/assets/images/apple-touch-icon.png?v=assets1',
-  'https://use.fontawesome.com/releases/v6.4.2/css/all.css'
+  '/assets/images/apple-touch-icon.png?v=assets1'
 ];
 
 const STATIC_ASSETS = [...CRITICAL_ASSETS];
@@ -85,8 +84,8 @@ self.addEventListener('fetch', event => {
   if (url.pathname === '/' || url.pathname.endsWith('.html')) {
     // HTML pages: stale-while-revalidate strategy for instant load
     event.respondWith(staleWhileRevalidate(event, request, STATIC_CACHE));
-  } else if (url.hostname === 'use.fontawesome.com' || STATIC_ASSETS_RE.test(url.pathname)) {
-    // Static assets, CSS/JS, and external fonts: cache first, then network
+  } else if (STATIC_ASSETS_RE.test(url.pathname)) {
+    // Static assets, CSS/JS: cache first, then network
     event.respondWith(cacheFirst(request, STATIC_CACHE));
   } else {
     // Other requests: network first, then cache
@@ -140,28 +139,35 @@ async function networkFirst(request, cacheName) {
 /**
  * Stale-while-revalidate strategy - serve from cache, then update from network
  */
-async function staleWhileRevalidate(event, request, cacheName) {
-  const cache = await caches.open(cacheName);
-
+function staleWhileRevalidate(event, request, cacheName) {
   // Start network request immediately (parallel)
-  const networkFetch = fetch(request).then(response => {
+  const networkFetch = fetch(request).then(async response => {
     if (response.ok) {
-      cache.put(request, response.clone());
+      const cache = await caches.open(cacheName);
+      await cache.put(request, response.clone());
     }
     return response;
+  }).catch(err => {
+    console.log('SWR background fetch failed', err);
   });
 
-  // Keep SW alive for the fetch itself
-  event.waitUntil(networkFetch.catch(err => console.log('SWR background fetch failed', err)));
+  // Call event.waitUntil synchronously within the main event dispatch loop
+  event.waitUntil(networkFetch);
 
-  // Check cache
+  // Return the promise handling the cached/network response
+  return respondSWR(request, cacheName, networkFetch);
+}
+
+async function respondSWR(request, cacheName, networkFetch) {
+  const cache = await caches.open(cacheName);
   const cachedResponse = await cache.match(request);
   if (cachedResponse) {
     return cachedResponse;
   }
-
   try {
-    return await networkFetch;
+    const response = await networkFetch;
+    if (response) return response;
+    return new Response('Offline content not available', { status: 503 });
   } catch (error) {
     console.log('SWR network fallback failed:', error);
     return new Response('Offline content not available', { status: 503 });

@@ -66,17 +66,16 @@ function registerServiceWorker() {
   }
 }
 
-/**
- * Initialize all functionality when DOM is ready
- */
 function initialize() {
   initializeAnalytics();
-  trackPerformance();
   registerServiceWorker();
 }
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', initialize);
+
+// Track performance after page has completely loaded
+window.addEventListener('load', trackPerformance);
 
 // Export functions for external use
 window.AlexanderTibbetsWebsite = {

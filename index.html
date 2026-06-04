@@ -18,13 +18,9 @@
   <!-- Performance Optimization -->
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
-  <link rel="preconnect" href="https://use.fontawesome.com" crossorigin>
   <link rel="preload" href="/assets/favicon.ico?v=assets1" as="image">
-  
-  <link rel="preload" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" as="style">
-  <link rel="preload" href="https://use.fontawesome.com/releases/v6.4.2/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="https://use.fontawesome.com/releases/v6.4.2/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/js/common.js?v=9ab4fd10" as="script">
+  <link rel="preload" href="/style.css?v=3087dcd7" as="style">
+  <link rel="preload" href="/assets/js/common.js?v=78c0437b" as="script">
 
   <!-- Favicon (for search results) -->
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg?v=assets1">
@@ -53,287 +49,14 @@
   <meta name="twitter:description" content="Alexander Tibbets - Building things, telling stories, and helping people.">
   <meta name="twitter:image" content="https://www.alexandertibbets.com/assets/images/banner.png?v=assets1">
 
-  
   <!-- CSS -->
-  <style>
-/* ==========================================================================
-   STYLESHEET - ALEXANDER TIBBETS WEBSITE
-   ========================================================================== */
-
-:root {
-  /* Colors */
-  --primary-color: #000;
-  --background-color: #faf8f3;
-  --hover-color: #D4AF37;
-
-  /* Typography */
-  --font-family: 'Courier New', Courier, monospace;
-  --font-size-h1: 1.8rem;
-  --font-size-h2: 1.8rem;
-  --font-size-body: 1.8rem;
-  --line-height-base: 1.6;
-  --letter-spacing: 0.1em;
-  --font-weight-normal: 400;
-
-  /* Layout */
-  --content-max-width: 800px;
-  --horizontal-margin: clamp(80px, 20vw, 240px);
-  --vertical-spacing: 2rem;
-
-  /* Spacing */
-  --section-gap: 2rem;
-  --card-padding: 1rem;
-  --card-gap: 1rem;
-  --card-min-height: 80px;
-
-  /* Icons */
-  --icon-size: 3rem;
-}
-
-/* ==========================================================================
-   BASE STYLES
-   ========================================================================== */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  height: 100%;
-}
-
-body {
-  font-family: var(--font-family);
-  font-size: var(--font-size-body);
-  line-height: var(--line-height-base);
-  font-weight: var(--font-weight-normal);
-  letter-spacing: var(--letter-spacing);
-  color: var(--primary-color);
-  background-color: var(--background-color);
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  justify-items: center;
-  align-items: center;
-  padding: var(--vertical-spacing) var(--horizontal-margin);
-  margin: 0;
-}
-
-/* ==========================================================================
-   LAYOUT & CONTENT
-   ========================================================================== */
-
-#content {
-  max-width: var(--content-max-width);
-  width: 100%;
-  padding: var(--vertical-spacing) 0;
-  margin: 0 auto;
-  text-align: left;
-  outline: none;
-}
-
-/* Headings */
-#content h1 {
-  font-size: var(--font-size-h1);
-  font-weight: normal;
-  line-height: 1.2;
-  color: var(--primary-color);
-  margin: 0 0 1rem 0;
-}
-
-#content h2 {
-  font-size: var(--font-size-body);
-  font-weight: normal;
-  line-height: 1.2;
-  color: var(--primary-color);
-  margin: 0 0 1rem 0;
-}
-
-/* Body Text */
-#content p {
-  font-size: var(--font-size-body);
-  line-height: var(--line-height-base);
-  color: var(--primary-color);
-  margin: 0 0 1rem 0;
-}
-
-#content p:last-child {
-  margin-bottom: 2rem;
-}
-
-/* Links */
-#content a {
-  color: var(--primary-color);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-  transition: color 0.2s ease;
-}
-
-#content a:hover,
-#content a:focus {
-  color: var(--hover-color);
-}
-
-/* ==========================================================================
-   SOCIAL MEDIA
-   ========================================================================== */
-
-.social-media {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--card-gap);
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  min-width: 280px;
-}
-
-.social-media a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  padding: var(--card-padding);
-  min-height: var(--card-min-height);
-  color: var(--primary-color);
-  text-decoration: none !important;
-  background-color: var(--background-color);
-  border: none;
-  border-radius: 8px;
-  transition: color 0.2s ease;
-}
-
-.social-media a:hover,
-.social-media a:focus {
-  color: var(--hover-color);
-  text-decoration: none !important;
-  outline: none;
-}
-
-.social-media i {
-  font-size: var(--icon-size);
-  width: var(--icon-size);
-  height: var(--icon-size);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
-
-footer {
-  width: 100%;
-  padding: var(--section-gap) 0;
-  text-align: center;
-  background-color: var(--background-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-x: auto;
-}
-
-.copyright {
-  font-size: clamp(0.6rem, 2vw, 0.8rem);
-  color: var(--primary-color);
-  text-align: center;
-  white-space: nowrap;
-  overflow: visible;
-  text-overflow: clip;
-  max-width: 100%;
-  word-wrap: normal;
-}
-
-/* ==========================================================================
-   RESPONSIVE DESIGN
-   ========================================================================== */
-
-/* Mobile (480px and below) */
-@media (max-width: 480px) {
-  :root {
-    --font-size-h1: 1.4rem;
-    --font-size-h2: 1.3rem;
-    --font-size-body: 1.2rem;
-    --horizontal-margin: 1.5rem;
-    --icon-size: 2.2rem;
-  }
-
-  .social-media {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-    min-width: 200px;
-  }
-
-  .social-media a {
-    padding: 0.75rem;
-  }
-}
-
-/* Small Tablet (481px - 767px) */
-@media (min-width: 481px) and (max-width: 767px) {
-  :root {
-    --font-size-h1: 1.6rem;
-    --font-size-h2: 1.6rem;
-    --font-size-body: 1.6rem;
-    --icon-size: 2.5rem;
-  }
-
-  .social-media {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* Tablet (768px - 991px) */
-@media (min-width: 768px) and (max-width: 991px) {
-  :root {
-    --font-size-h1: 1.7rem;
-    --font-size-h2: 1.7rem;
-    --font-size-body: 1.7rem;
-    --icon-size: 2.8rem;
-  }
-
-  .social-media {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* Desktop (992px and above) */
-@media (min-width: 992px) {
-  :root {
-    --font-size-h1: 1.8rem;
-    --font-size-h2: 1.8rem;
-    --font-size-body: 1.8rem;
-    --icon-size: 3rem;
-  }
-
-  .social-media {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-  </style>
-  
-  <!-- FontAwesome -->
-  <link href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript>
-    <link href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" rel="stylesheet">
-  </noscript>
+  <link rel="stylesheet" href="/style.css?v=3087dcd7">
 
   <!-- JavaScript -->
-  <script src="/assets/js/common.js?v=9ab4fd10" defer></script>
+  <script src="/assets/js/common.js?v=78c0437b" defer></script>
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GGXQFFQVVY"></script>
-  <script defer>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (window.AlexanderTibbetsWebsite) {
-        window.AlexanderTibbetsWebsite.initializeAnalytics();
-      }
-    });
-  </script>
 </head>
 
 <body>
@@ -356,17 +79,25 @@ footer {
 
     <!-- Social Media Navigation -->
     <nav class="social-media" aria-label="Social media links">   
-      <a href="mailto:alexander.tibbets@gmail.com?subject=%F0%9F%91%8B%20Let's%20connect%20and%20talk%20shop" target="_blank" rel="noopener" aria-label="Email Alexander Tibbets">
-        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      <a href="mailto:alexander.tibbets@gmail.com?subject=%F0%9F%91%8B%20Let's%20connect%20and%20talk%20shop" target="_blank" rel="noopener" aria-label="Email Alexander Tibbets" data-agent-locator="social-link" data-agent-platform="email">
+        <svg viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">
+          <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
+        </svg>
       </a>
-      <a href="https://www.linkedin.com/in/mrtibbets" target="_blank" rel="noopener" aria-label="Connect on LinkedIn">
-        <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+      <a href="https://www.linkedin.com/in/mrtibbets" target="_blank" rel="noopener" aria-label="Connect on LinkedIn" data-agent-locator="social-link" data-agent-platform="linkedin">
+        <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+          <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
+        </svg>
       </a>
-      <a href="https://github.com/MRTIBBETS" target="_blank" rel="noopener" aria-label="Follow on GitHub">
-        <i class="fa-brands fa-github" aria-hidden="true"></i>
+      <a href="https://github.com/MRTIBBETS" target="_blank" rel="noopener" aria-label="Follow on GitHub" data-agent-locator="social-link" data-agent-platform="github">
+        <svg viewBox="0 0 496 512" fill="currentColor" aria-hidden="true">
+          <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5.7 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-.7zm-14.4-17.1c-1.2 1-1.2 3.6.3 5.5 1.6 2 4.2 2.3 5.5 1 1.2-1 1.2-3.6-.3-5.5-1.6-2-4.2-2.3-5.5-1z"/>
+        </svg>
       </a>
-      <a href="https://www.youtube.com/@mrtibbets" target="_blank" rel="noopener" aria-label="Follow on YouTube">
-        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+      <a href="https://www.youtube.com/@mrtibbets" target="_blank" rel="noopener" aria-label="Follow on YouTube" data-agent-locator="social-link" data-agent-platform="youtube">
+        <svg viewBox="0 0 576 512" fill="currentColor" aria-hidden="true">
+          <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.537V174.38L382.48 250l-150.335 87.62z"/>
+        </svg>
       </a>
     </nav>
   </main>
@@ -384,33 +115,37 @@ footer {
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": ["Person", "WebSite"],
-      "name": "Alexander Tibbets",
+      "@type": "WebSite",
+      "name": "Alexander Tibbets | Website",
       "url": "https://www.alexandertibbets.com",
       "description": "Personal website of Alexander Tibbets, co-founder of IFTTT and go-to-market advisor focusing on media technology and developer tools.",
-      "sameAs": [
-        "https://www.linkedin.com/in/mrtibbets",
-        "https://github.com/MRTIBBETS",
-        "https://twitter.com/mrtibbets",
-        "https://www.youtube.com/@mrtibbets",
-        "https://www.instagram.com/mrtibbets"
-      ],
-      "jobTitle": "Co-founder",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "IFTTT",
-        "url": "https://ifttt.com"
+      "author": {
+        "@type": "Person",
+        "name": "Alexander Tibbets",
+        "jobTitle": "Co-founder",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "IFTTT",
+          "url": "https://ifttt.com"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "New York University",
+          "sameAs": "https://www.nyu.edu"
+        },
+        "knowsAbout": ["Startups", "Go-To-Market", "Developer Platforms", "Media Technology", "Marketing", "Business"],
+        "sameAs": [
+          "https://www.linkedin.com/in/mrtibbets",
+          "https://github.com/MRTIBBETS",
+          "https://twitter.com/mrtibbets",
+          "https://www.youtube.com/@mrtibbets",
+          "https://www.instagram.com/mrtibbets"
+        ]
       },
-      "knowsAbout": ["Startups", "Go-To-Market", "Developer Platforms", "Media Technology", "Marketing", "Business"],
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "New York University",
-        "sameAs": "https://www.nyu.edu"
-      },
-      "mainEntity": {
-        "@type": "WebSite",
-        "name": "Alexander Tibbets | Website",
-        "description": "👋 My name is Alexander and my work focuses on audience, product, story, then growth. Welcome to my website."
+      "about": {
+        "@type": "Person",
+        "name": "Alexander Tibbets",
+        "description": "👋 My name is Alexander and my work focuses on audience, product, story, then growth."
       }
     }
   </script>
