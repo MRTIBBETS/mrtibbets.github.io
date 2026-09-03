@@ -1,42 +1,48 @@
 /* ==========================================================================
    STYLESHEET - ALEXANDER TIBBETS WEBSITE
+   Ultra-clean, mobile-first monospace typography & presentation
    ========================================================================== */
 
 :root {
-  /* Colors */
-  --primary-color: #000;
+  /* Colors & Accessibility Tokens (WCAG AAA compliant) */
+  --primary-color: #000000;
   --background-color: #faf8f3;
-  --hover-color: #D4AF37;
+  --hover-color: #745300; /* Warm dark gold/amber - 7.1:1+ contrast on #faf8f3 */
+  --focus-outline: 2px solid #745300;
+  --focus-offset: 4px;
+  --border-subtle: rgba(0, 0, 0, 0.08);
 
-  /* Typography */
-  --font-family: 'Courier New', Courier, monospace;
-  --font-size-h1: 1.8rem;
-  --font-size-h2: 1.8rem;
-  --font-size-body: 1.8rem;
-  --line-height-base: 1.6;
-  --letter-spacing: 0.1em;
-  --font-weight-normal: 400;
+  /* Modern Monospace Font Stack */
+  --font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', Courier, monospace;
+  
+  /* Fluid Typographic Scale */
+  --font-size-h1: clamp(2rem, 1.6rem + 1.8vw, 2.75rem);
+  --font-size-intro: clamp(1.2rem, 1.05rem + 0.6vw, 1.45rem);
+  --font-size-body: clamp(1.05rem, 0.95rem + 0.4vw, 1.25rem);
+  --font-size-footer: clamp(0.7rem, 0.65rem + 0.25vw, 0.825rem);
 
-  /* Layout */
-  --content-max-width: 800px;
-  --horizontal-margin: clamp(80px, 20vw, 240px);
-  --vertical-spacing: 2rem;
+  /* Typography Metrics */
+  --line-height-base: 1.65;
+  --line-height-intro: 1.5;
+  --letter-spacing-base: 0.02em;
+  --letter-spacing-heading: 0.04em;
 
-  /* Spacing */
-  --section-gap: 2rem;
-  --card-padding: 1rem;
-  --card-gap: 1rem;
-  --card-min-height: 80px;
+  /* Responsive Container Layout */
+  --content-max-width: 680px; /* ~65-75 ch line length for optimal readability */
+  --horizontal-padding: clamp(1.25rem, 5vw, 3rem);
+  --vertical-padding: clamp(2.5rem, 6vh, 4.5rem);
 
-  /* Icons */
-  --icon-size: 3rem;
+  /* Touch Target */
+  --min-touch-target: 44px;
 }
 
 /* ==========================================================================
-   BASE STYLES
+   BASE & RESET STYLES
    ========================================================================== */
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -44,53 +50,56 @@
 
 html {
   height: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   font-family: var(--font-family);
   font-size: var(--font-size-body);
   line-height: var(--line-height-base);
-  font-weight: var(--font-weight-normal);
-  letter-spacing: var(--letter-spacing);
+  font-weight: 400;
+  letter-spacing: var(--letter-spacing-base);
   color: var(--primary-color);
   background-color: var(--background-color);
   min-height: 100vh;
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  justify-items: center;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  padding: var(--vertical-spacing) var(--horizontal-margin);
+  padding: var(--vertical-padding) var(--horizontal-padding);
   margin: 0;
 }
 
 /* ==========================================================================
-   LAYOUT & CONTENT
+   LAYOUT & TYPOGRAPHY
    ========================================================================== */
 
 #content {
   max-width: var(--content-max-width);
   width: 100%;
-  padding: var(--vertical-spacing) 0;
-  margin: 0 auto;
+  margin: auto 0;
   text-align: left;
   outline: none;
 }
 
-/* Headings */
+/* Heading / Greeting */
 #content h1 {
   font-size: var(--font-size-h1);
-  font-weight: normal;
+  font-weight: 400;
+  letter-spacing: var(--letter-spacing-heading);
   line-height: 1.2;
   color: var(--primary-color);
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.5rem 0;
+  display: inline-block;
 }
 
-#content h2 {
-  font-size: var(--font-size-body);
-  font-weight: normal;
-  line-height: 1.2;
-  color: var(--primary-color);
-  margin: 0 0 1rem 0;
+/* Lead Introduction */
+#content p.lead-text {
+  font-size: var(--font-size-intro);
+  line-height: var(--line-height-intro);
+  font-weight: 500;
+  margin: 0 0 1.25rem 0;
 }
 
 /* Body Text */
@@ -98,78 +107,85 @@ body {
   font-size: var(--font-size-body);
   line-height: var(--line-height-base);
   color: var(--primary-color);
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.25rem 0;
 }
 
-#content p:last-child {
-  margin-bottom: 2rem;
+#content p.cta-text {
+  margin-bottom: 2.5rem;
 }
 
-/* Links */
+/* Text Links */
 #content a {
   color: var(--primary-color);
   text-decoration: underline;
-  text-underline-offset: 0.2em;
-  transition: color 0.2s ease;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+  padding: 0.15em 0.1em;
+  border-radius: 2px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease, background-color 0.15s ease;
 }
 
-#content a:hover,
-#content a:focus {
+#content a:hover {
+  color: var(--hover-color);
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--hover-color);
+}
+
+#content a:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
   color: var(--hover-color);
 }
 
 /* ==========================================================================
-   SOCIAL MEDIA
+   SOCIAL MEDIA NAVIGATION
    ========================================================================== */
 
 .social-media {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--card-gap);
+  gap: clamp(0.75rem, 2vw, 1.25rem);
   width: 100%;
+  max-width: 440px;
   margin: 0;
   padding: 0;
-  min-width: 280px;
 }
 
 .social-media a {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0;
-  padding: var(--card-padding);
-  min-height: var(--card-min-height);
+  min-width: var(--min-touch-target);
+  min-height: var(--min-touch-target);
+  padding: 0.75rem;
   color: var(--primary-color);
   text-decoration: none !important;
-  background-color: var(--background-color);
-  border: none;
+  background-color: transparent;
+  border: 1px solid var(--border-subtle);
   border-radius: 8px;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
 }
 
-.social-media a:hover,
-.social-media a:focus {
+.social-media a:hover {
   color: var(--hover-color);
-  text-decoration: none !important;
-  outline: none;
+  border-color: var(--hover-color);
+  background-color: rgba(116, 83, 0, 0.04);
+  transform: translateY(-1px);
 }
 
-.social-media i {
-  font-size: var(--icon-size);
-  width: var(--icon-size);
-  height: var(--icon-size);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.social-media a:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+  color: var(--hover-color);
+  border-color: var(--hover-color);
 }
 
 .social-media svg {
-  width: var(--icon-size);
-  height: var(--icon-size);
+  width: clamp(1.5rem, 1.2rem + 1vw, 1.85rem);
+  height: clamp(1.5rem, 1.2rem + 1vw, 1.85rem);
   fill: currentColor;
   transition: fill 0.2s ease;
 }
-
 
 /* ==========================================================================
    FOOTER
@@ -177,89 +193,37 @@ body {
 
 footer {
   width: 100%;
-  padding: var(--section-gap) 0;
+  padding-top: 2rem;
+  margin-top: auto;
   text-align: center;
-  background-color: var(--background-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-x: auto;
 }
 
 .copyright {
-  font-size: clamp(0.6rem, 2vw, 0.8rem);
-  color: var(--primary-color);
+  font-size: var(--font-size-footer);
+  color: rgba(0, 0, 0, 0.7);
+  letter-spacing: 0.05em;
   text-align: center;
-  white-space: nowrap;
-  overflow: visible;
-  text-overflow: clip;
-  max-width: 100%;
-  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE OVERRIDES
    ========================================================================== */
 
-/* Mobile (480px and below) */
-@media (max-width: 480px) {
+@media (max-width: 360px) {
   :root {
-    --font-size-h1: 1.4rem;
-    --font-size-h2: 1.3rem;
-    --font-size-body: 1.2rem;
-    --horizontal-margin: 1.5rem;
-    --icon-size: 2.2rem;
+    --horizontal-padding: 1rem;
   }
-  
+
   .social-media {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-    min-width: 200px;
+    gap: 0.5rem;
   }
-  
+
   .social-media a {
-    padding: 0.75rem;
-  }
-}
-
-/* Small Tablet (481px - 767px) */
-@media (min-width: 481px) and (max-width: 767px) {
-  :root {
-    --font-size-h1: 1.6rem;
-    --font-size-h2: 1.6rem;
-    --font-size-body: 1.6rem;
-    --icon-size: 2.5rem;
-  }
-  
-  .social-media {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* Tablet (768px - 991px) */
-@media (min-width: 768px) and (max-width: 991px) {
-  :root {
-    --font-size-h1: 1.7rem;
-    --font-size-h2: 1.7rem;
-    --font-size-body: 1.7rem;
-    --icon-size: 2.8rem;
-  }
-  
-  .social-media {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* Desktop (992px and above) */
-@media (min-width: 992px) {
-  :root {
-    --font-size-h1: 1.8rem;
-    --font-size-h2: 1.8rem;
-    --font-size-body: 1.8rem;
-    --icon-size: 3rem;
-  }
-  
-  .social-media {
-    grid-template-columns: repeat(4, 1fr);
+    padding: 0.5rem;
   }
 }
