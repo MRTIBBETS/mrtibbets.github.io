@@ -176,7 +176,8 @@ body {
 footer {
   width: 100%;
   max-width: var(--content-max-width);
-  padding-top: 3rem;
+  padding-top: clamp(5.5rem, 13vh, 9rem);
+  padding-bottom: clamp(2rem, 4vh, 3.5rem);
   margin-top: auto;
   margin-left: auto;
   margin-right: auto;
