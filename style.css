@@ -1,39 +1,27 @@
 /* ==========================================================================
    STYLESHEET - ALEXANDER TIBBETS WEBSITE
-   Ultra-clean, mobile-first monospace typography & presentation
+   Ultra-clean, minimalist monospace typography & presentation
    ========================================================================== */
 
 :root {
-  /* Colors & Accessibility Tokens (WCAG AAA compliant) */
+  /* Colors */
   --primary-color: #000000;
   --background-color: #faf8f3;
-  --hover-color: #745300; /* Warm dark gold/amber - 7.1:1+ contrast on #faf8f3 */
-  --focus-outline: 2px solid #745300;
-  --focus-offset: 4px;
-  --border-subtle: rgba(0, 0, 0, 0.08);
+  --hover-color: #D4AF37; /* Signature Gold */
 
-  /* Modern Monospace Font Stack */
-  --font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', Courier, monospace;
-  
-  /* Fluid Typographic Scale */
-  --font-size-h1: clamp(2rem, 1.6rem + 1.8vw, 2.75rem);
-  --font-size-intro: clamp(1.2rem, 1.05rem + 0.6vw, 1.45rem);
-  --font-size-body: clamp(1.05rem, 0.95rem + 0.4vw, 1.25rem);
-  --font-size-footer: clamp(0.7rem, 0.65rem + 0.25vw, 0.825rem);
-
-  /* Typography Metrics */
+  /* Monospace Typography */
+  --font-family: 'Courier New', Courier, monospace;
+  --font-size-body: clamp(1.1rem, 1rem + 0.35vw, 1.3rem);
+  --font-size-h1: clamp(1.6rem, 1.4rem + 1vw, 2.2rem);
+  --font-size-h2: var(--font-size-body);
+  --font-size-footer: clamp(0.75rem, 0.7rem + 0.2vw, 0.85rem);
   --line-height-base: 1.65;
-  --line-height-intro: 1.5;
-  --letter-spacing-base: 0.02em;
-  --letter-spacing-heading: 0.04em;
+  --letter-spacing: 0.02em;
 
-  /* Responsive Container Layout */
-  --content-max-width: 680px; /* ~65-75 ch line length for optimal readability */
+  /* Uniform Page Spacing Across All Pages */
+  --content-max-width: 680px;
   --horizontal-padding: clamp(1.25rem, 5vw, 3rem);
-  --vertical-padding: clamp(2.5rem, 6vh, 4.5rem);
-
-  /* Touch Target */
-  --min-touch-target: 44px;
+  --vertical-padding: clamp(3rem, 7vh, 5rem);
 }
 
 /* ==========================================================================
@@ -58,96 +46,96 @@ body {
   font-size: var(--font-size-body);
   line-height: var(--line-height-base);
   font-weight: 400;
-  letter-spacing: var(--letter-spacing-base);
+  letter-spacing: var(--letter-spacing);
   color: var(--primary-color);
   background-color: var(--background-color);
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  justify-content: flex-start;
   padding: var(--vertical-padding) var(--horizontal-padding);
   margin: 0;
 }
 
 /* ==========================================================================
-   LAYOUT & TYPOGRAPHY
+   LAYOUT & CONTENT (UNIFORM ACROSS ALL PAGES)
    ========================================================================== */
 
 #content {
   max-width: var(--content-max-width);
   width: 100%;
-  margin: auto 0;
+  margin: 0 auto;
   text-align: left;
   outline: none;
 }
 
-/* Heading / Greeting */
+/* Headings */
 #content h1 {
   font-size: var(--font-size-h1);
   font-weight: 400;
-  letter-spacing: var(--letter-spacing-heading);
   line-height: 1.2;
   color: var(--primary-color);
   margin: 0 0 1.5rem 0;
-  display: inline-block;
 }
 
-/* Lead Introduction */
-#content p.lead-text {
-  font-size: var(--font-size-intro);
-  line-height: var(--line-height-intro);
-  font-weight: 500;
-  margin: 0 0 1.25rem 0;
+#content h2 {
+  font-size: var(--font-size-h2);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--primary-color);
+  margin: 2.25rem 0 1rem 0;
 }
 
-/* Body Text */
+/* Uniform Paragraph Content across all pages */
 #content p {
   font-size: var(--font-size-body);
   line-height: var(--line-height-base);
+  font-weight: 400;
   color: var(--primary-color);
   margin: 0 0 1.25rem 0;
 }
 
-#content p.cta-text {
-  margin-bottom: 2.5rem;
+#content section {
+  margin-bottom: 2rem;
 }
 
-/* Text Links */
+#content article {
+  margin-bottom: 1.25rem;
+}
+
+#content article p {
+  margin-bottom: 0;
+}
+
+/* Links */
 #content a {
   color: var(--primary-color);
   text-decoration: underline;
   text-underline-offset: 0.25em;
   text-decoration-thickness: 1px;
-  padding: 0.15em 0.1em;
-  border-radius: 2px;
-  transition: color 0.15s ease, text-decoration-color 0.15s ease, background-color 0.15s ease;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
-#content a:hover {
+#content a:hover,
+#content a:focus {
   color: var(--hover-color);
-  text-decoration-thickness: 2px;
   text-decoration-color: var(--hover-color);
-}
-
-#content a:focus-visible {
-  outline: var(--focus-outline);
-  outline-offset: var(--focus-offset);
-  color: var(--hover-color);
+  outline: none;
 }
 
 /* ==========================================================================
-   SOCIAL MEDIA NAVIGATION
+   BORDERLESS CENTERED SOCIAL MEDIA NAVIGATION
    ========================================================================== */
 
 .social-media {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(0.75rem, 2vw, 1.25rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1rem, 4vw, 2.25rem);
   width: 100%;
-  max-width: 440px;
-  margin: 0;
+  margin: 2.75rem auto 0 auto;
   padding: 0;
 }
 
@@ -155,34 +143,28 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: var(--min-touch-target);
-  min-height: var(--min-touch-target);
-  padding: 0.75rem;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.5rem;
   color: var(--primary-color);
   text-decoration: none !important;
   background-color: transparent;
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+  border: none;
+  border-radius: 0;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.social-media a:hover {
+.social-media a:hover,
+.social-media a:focus {
   color: var(--hover-color);
-  border-color: var(--hover-color);
-  background-color: rgba(116, 83, 0, 0.04);
-  transform: translateY(-1px);
-}
-
-.social-media a:focus-visible {
-  outline: var(--focus-outline);
-  outline-offset: var(--focus-offset);
-  color: var(--hover-color);
-  border-color: var(--hover-color);
+  background-color: transparent;
+  outline: none;
+  transform: translateY(-2px);
 }
 
 .social-media svg {
-  width: clamp(1.5rem, 1.2rem + 1vw, 1.85rem);
-  height: clamp(1.5rem, 1.2rem + 1vw, 1.85rem);
+  width: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
+  height: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
   fill: currentColor;
   transition: fill 0.2s ease;
 }
@@ -193,8 +175,11 @@ body {
 
 footer {
   width: 100%;
-  padding-top: 2rem;
+  max-width: var(--content-max-width);
+  padding-top: 3rem;
   margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -203,27 +188,9 @@ footer {
 
 .copyright {
   font-size: var(--font-size-footer);
-  color: rgba(0, 0, 0, 0.7);
+  color: var(--primary-color);
   letter-spacing: 0.05em;
   text-align: center;
   word-break: normal;
   white-space: normal;
-}
-
-/* ==========================================================================
-   RESPONSIVE OVERRIDES
-   ========================================================================== */
-
-@media (max-width: 360px) {
-  :root {
-    --horizontal-padding: 1rem;
-  }
-
-  .social-media {
-    gap: 0.5rem;
-  }
-
-  .social-media a {
-    padding: 0.5rem;
-  }
 }
