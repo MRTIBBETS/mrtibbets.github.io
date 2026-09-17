@@ -27,7 +27,7 @@ Website: https://www.alexandertibbets.com
 - LinkedIn: https://www.linkedin.com/in/mrtibbets
 - GitHub: https://github.com/MRTIBBETS
 - YouTube: https://www.youtube.com/@mrtibbets
-- Twitter: @mrtibbets (referenced in structured data)
+- Twitter / X: https://x.com/MRTIBBETS
 - Instagram: @mrtibbets (referenced in structured data)
 
 ## WEBSITE STRUCTURE
