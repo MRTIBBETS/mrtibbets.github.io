@@ -3,7 +3,7 @@
  * Provides offline capabilities and performance improvements
  */
 
-const STATIC_CACHE = 'static-va6c802dc';
+const STATIC_CACHE = 'static-v50fd42a0';
 
 const CRITICAL_ASSETS = [
   '/',
