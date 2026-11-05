@@ -5,7 +5,7 @@
 My name is Alexander Tibbets.
 I like to build things, tell stories, and help people.
 IFTTT (https://ifttt.com) is an app I co-founded that lets you connect all the things in your life, on your terms.
-Today I help startups launch, pivot, and grow their business. Especially within media technology and developer tools.
+Today I help startups launch, pivot, and grow their business. Especially within AI and developer tools.
 Feel free to reach out (mailto:alexander.tibbets@gmail.com?subject=👋%20Let's%20connect%20and%20talk%20shop) if you'd like to connect and share ideas.
 
 ## Profiles
@@ -19,10 +19,12 @@ Feel free to reach out (mailto:alexander.tibbets@gmail.com?subject=👋%20Let's%
 ### Communities
 - GitHub: https://github.com/MRTIBBETS
 - Reddit: https://www.reddit.com/user/mrtibbets
+- Substack: https://substack.com/@mrtibbets
 - ProductHunt: https://www.producthunt.com/@mrtibbets
 - Figma: https://www.figma.com/@mrtibbets
 - Dev.to: https://dev.to/mrtibbets
 - Quora: https://www.quora.com/profile/Alexander-Tibbets
+- IFTTT: https://ifttt.com/p/alexander
 
 ### Social Media
 - Twitter / X: https://x.com/MRTIBBETS
@@ -48,9 +50,19 @@ Feel free to reach out (mailto:alexander.tibbets@gmail.com?subject=👋%20Let's%
 - Celebrating 15 years of IFTTT: https://ifttt.com/explore/celebrating-15-years-ifttt
   An article celebrating the history and milestones since IFTTT's founding.
 - Mayten Lane: https://www.maytenlane.com
-  A consulting shop that I manage for helping early stage technology companies establish then scale go-to-market, community development, customer lifecycle, and business operations.
+  A go-to-market sprint studio that I run with Janicke Rich, working with early-stage technology companies on product marketing, positioning, AI GTM workflows, and executive coaching.
+- The Changelog: https://x.com/imbue_ai/status/2074629764422549972
+  A seasonal print zine and San Francisco developer event series I produced at Imbue in 2026.
+- Peer Review: https://www.youtube.com/playlist?list=PLfGfEww6QtbulugxGjSPPlQYEITdtfVjF
+  An engineer-to-engineer video podcast I produced at Bito featuring conversations with engineering leaders from Vercel, Canva, ToolJet, and Jellyfish.
+- Parabola is for Operators (https://parabola.io/blog/parabola-is-for-operators) and AI has arrived for Operators (https://parabola.io/blog/ai-has-arrived-for-operators)
+  Two articles I wrote at Parabola in 2023 alongside a walkthrough video (https://youtu.be/8TUCHWZCFjM) I produced for their first AI workflow steps.
+- The World's Open Video Infrastructure: https://youtu.be/rcBt4k_aRHs
+  A short commercial film I co-produced for Livepeer in 2022.
 - The Web3 Index Party by Livepeer: https://www.shutterstock.com/es/editorial/image-editorial/alexander-tibbets-shawn-schirson-14090041bf
   An event hosted by Livepeer at EthDenver on February 16, 2022.
+- Introducing IFTTT Pro: https://youtu.be/Xza6jL4ch6Y
+  A walkthrough video I wrote, recorded, and edited to introduce IFTTT's first subscription tier in September 2020.
 - Playing a little chess outside: https://x.com/MRTIBBETS/status/910325137827807233
   Chess with a pal in San Francisco on September 19, 2017.
 - Startup IFTTT Expands in San Francisco: https://www.theepochtimes.com/article/connect-the-internet-startup-ifttt-expands-in-san-francisco-964353
@@ -64,7 +76,9 @@ Feel free to reach out (mailto:alexander.tibbets@gmail.com?subject=👋%20Let's%
 - These Guys Want to Hack Your Home. And You Should Let Them: https://www.wired.com/2013/06/internet-of-things-ifttt/
   Article in WIRED magazine covering IFTTT, company culture, and team swag.
 - IFTTT Puts the Internet of Things in Your Pocket: https://www.fastcompany.com/3014440/ifttt-puts-the-internet-of-things-in-your-pocket
-  Article in FastCompany magazine covering IFTTT and the burgeoning internet of things.
+  Article in Fast Company magazine covering IFTTT and the burgeoning internet of things.
+- Socks Are the New Hoodie: https://www.wired.com/2012/10/socks-are-the-new-hoodie-startup-swag/
+  Article in WIRED magazine covering the custom IFTTT socks we mailed out to our early community in October 2012.
 - IFTTT was invested in by Mark Cuban: https://markcubancompanies.com/companies/ifttt
   Seed stage fundraising round in 2011 and 2012.
 - A Car In The House: https://www.cooperhewitt.org/2010/04/21/a-car-in-the-house/
@@ -76,7 +90,7 @@ Feel free to reach out (mailto:alexander.tibbets@gmail.com?subject=👋%20Let's%
 - Cooper Hewitt's Awards Lunch with Michelle Obama: https://www.curbed.com/2010/07/design_hunting_july.html
   Curbed article featuring photography of the National Design Awards lunch at the White House in July 2010.
 - Cooper Hewitt: Campana Brothers Select: https://www.youtube.com/watch?v=WK2rH3aAbic
-  Short documentary video produced for the Campana Brother Select exhibit in February 2008.
+  Short documentary video produced for the Campana Brothers Select exhibit in February 2008.
 - Cooper Hewitt: Provoking Magic - Lighting of Ingo Maurer: https://www.youtube.com/watch?v=nk3kvafNOs8
   Short video art piece shot and edited to establish the Cooper Hewitt YouTube channel in February 2008.
 - NYU Ice Hockey Player: https://pages.nyu.edu/icehockey/Players/Tibbets0304.html
