@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
-  
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
   <!-- HOMEPAGE: MAIN LANDING PAGE WITH HIGHEST PRIORITY -->
   <url>
     <loc>https://www.alexandertibbets.com/</loc>
-    <lastmod>2025-01-07</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -21,85 +20,21 @@
       <image:title>Alexander Tibbets | Favicon</image:title>
     </image:image>
   </url>
-  
+
   <!-- PROFILES PAGE: SOCIAL MEDIA AND PROFESSIONAL PROFILES -->
   <url>
     <loc>https://www.alexandertibbets.com/profiles</loc>
-    <lastmod>2025-01-07</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <!-- LINKS PAGE: CURATED COLLECTION OF LINKS AND ARTICLES -->
   <url>
     <loc>https://www.alexandertibbets.com/links</loc>
-    <lastmod>2025-01-07</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
-  <!-- ROBOTS.TXT: SEARCH ENGINE CRAWLING INSTRUCTIONS -->
-  <url>
-    <loc>https://www.alexandertibbets.com/robots.txt</loc>
-    <lastmod>2025-01-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  
-  <!-- Sitemap -->
-  <url>
-    <loc>https://www.alexandertibbets.com/sitemap.xml</loc>
-    <lastmod>2025-01-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <!-- Stylesheet -->
-  <url>
-    <loc>https://www.alexandertibbets.com/style.css</loc>
-    <lastmod>2025-01-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <!-- JavaScript -->
-  <url>
-    <loc>https://www.alexandertibbets.com/assets/js/common.js</loc>
-    <lastmod>2025-01-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <!-- Service Worker -->
-  <url>
-    <loc>https://www.alexandertibbets.com/sw.js</loc>
-    <lastmod>2025-01-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.1</priority>
-  </url>
-  
-  <!-- PWA Manifest -->
-  <url>
-    <loc>https://www.alexandertibbets.com/manifest.json</loc>
-    <lastmod>2025-01-07</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
-  </url>
-  
-  <!-- Images -->
-  <url>
-    <loc>https://www.alexandertibbets.com/assets/images/banner.png</loc>
-    <lastmod>2025-01-07</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.alexandertibbets.com/assets/favicon.ico</loc>
-    <lastmod>2025-01-07</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  
+
 </urlset>
